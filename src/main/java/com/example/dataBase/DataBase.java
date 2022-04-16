@@ -2,29 +2,36 @@ package com.example.dataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.ResultSet;
 
 public class DataBase {
-    private static String dataBaseSchema="banksystem";
-    private static String url="jdbc:mysql://localhost:3306/" + dataBaseSchema;
-    private static String user="root";
-    private static String password="1234";
+    private static final String dataBaseSchema="banksystem";
+    private static final String url="jdbc:mysql://localhost:3306/" + dataBaseSchema;
+    private static final String user="root";
+    private static final String password="1234";
     private static Connection connection;
 
 
+    //make the constructor private to prevent the instantiation
     private DataBase(){}
+
+    private static void openConnection() throws SQLException {
+        connection=DriverManager.getConnection(url,user,password);
+    }
 
     public static Connection getConnection() throws SQLException {
         if(connection==null||connection.isClosed()) {
             System.out.println("The database connection is closed");
+            System.out.println("Try opening the connection.......");
             try {
-                connection=DriverManager.getConnection(url,user,password);
+                openConnection();
             }
-            catch (SQLException sqlException){
+            catch (SQLException sqlException) {
                 System.out.println("Error in Connecting Data Base");
                 System.out.println(sqlException.getMessage());
             }
         }
+        else
+            System.out.println("The connections is already opened");
         return connection;
     }
 

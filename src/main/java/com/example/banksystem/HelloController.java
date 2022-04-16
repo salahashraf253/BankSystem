@@ -20,11 +20,8 @@ public class HelloController {
 
         //testing the database connection
         Connection connection=DataBase.getConnection();
-
         Statement statement=connection.createStatement();
-
         ResultSet resultSet =statement.executeQuery("select * from user");
-
         while (resultSet.next()){
             System.out.println(resultSet.getString("iduser"));
         }
