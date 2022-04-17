@@ -5,15 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 //Singleton pattern is applied in this class
-public class DataBase {
+public abstract class DataBase {
     private static final String dataBaseSchema="banksystem";
     private static final String url="jdbc:mysql://localhost:3306/" + dataBaseSchema;
     private static final String user="root";
     private static final String password="1234";
     private static Connection connection;
-
-    //make the constructor private to prevent the instantiation
-    private DataBase(){}
 
     private static void openConnection() throws SQLException {
         connection=DriverManager.getConnection(url,user,password);
@@ -37,7 +34,7 @@ public class DataBase {
         return connection;
     }
 
-    public static void closeConnection() throws SQLException {
+    public void closeConnection() throws SQLException {
         connection.close();
     }
 }

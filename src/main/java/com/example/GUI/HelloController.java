@@ -19,12 +19,11 @@ public class HelloController {
         welcomeText.setText("Welcome to JavaFX Application!");
 
         //testing the database connection
-        Connection connection=DataBase.getConnection();
-        Statement statement=connection.createStatement();
-        ResultSet resultSet =statement.executeQuery("select * from user");
+        DataBaseReader dataBaseReader=new DataBaseReader();
+        ResultSet resultSet =dataBaseReader.read("select * from user");
         while (resultSet.next()){
             System.out.println(resultSet.getString("iduser"));
         }
-        DataBase.closeConnection();
+        dataBaseReader.closeConnection();
     }
 }

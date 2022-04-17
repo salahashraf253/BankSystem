@@ -2,7 +2,8 @@ module com.example.banksystem {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-
+    requires java.mail;
+    requires javax.activation;
 
 
     opens com.example.banksystem to javafx.fxml;
