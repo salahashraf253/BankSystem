@@ -10,10 +10,9 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public abstract class Email {
-    private final String userName = "username";  // GMail user name (just the part before "@gmail.com")
-    private final String password = "***********"; // GMail password
+    private final String userName = "username";  // gmail user name (just the part before "@gmail.com")
+    private final String password = "***********"; // gmail password
     private final String host = "smtp.gmail.com";
-    protected String fontSize="font-size:20px";
     protected String fontType="font-family:'Times New Roman'";
 
     public void sendFromGMail(String recipient, String subject, String body) {
@@ -35,7 +34,6 @@ public abstract class Email {
             for( int i = 0; i < toAddress.length; i++) {
                 message.addRecipient(Message.RecipientType.TO, toAddress[i]);
             }
-
             message.setSubject(subject);
             message.setContent(body,"text/html");
             Transport transport = session.getTransport("smtp");
@@ -47,7 +45,6 @@ public abstract class Email {
             System.out.println(ae.getMessage());
         }
     }
-
     private Properties buildProperties(){
         Properties props = System.getProperties();
         props.put("mail.smtp.starttls.enable", "true");
