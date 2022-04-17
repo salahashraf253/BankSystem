@@ -1,7 +1,7 @@
-package com.example.banksystem;
+package com.example.GUI;
 
 
-import com.example.dataBase.DataBase;
+import com.example.dataBase.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

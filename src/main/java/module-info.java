@@ -4,6 +4,9 @@ module com.example.banksystem {
     requires java.sql;
 
 
+
     opens com.example.banksystem to javafx.fxml;
     exports com.example.banksystem;
+    exports com.example.GUI;
+    opens com.example.GUI to javafx.fxml;
 }
