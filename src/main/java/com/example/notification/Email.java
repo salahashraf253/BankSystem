@@ -4,13 +4,12 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public abstract class Email {
-    private final String userName = "username";  // gmail user name (just the part before "@gmail.com")
+    private final String userName = "username";  // gmail username (just the part before "@gmail.com")
     private final String password = "***********"; // gmail password
     private final String host = "smtp.gmail.com";
     protected String fontType="font-family:'Times New Roman'";
@@ -18,8 +17,8 @@ public abstract class Email {
     public void sendFromGMail(String recipient, String subject, String body) {
         String []to={recipient};
 
-        Properties props=buildProperties();
-        Session session = Session.getDefaultInstance(props);
+        Properties properties= getProperties();
+        Session session = Session.getDefaultInstance(properties);
         MimeMessage message = new MimeMessage(session);
 
         try {
@@ -45,14 +44,14 @@ public abstract class Email {
             System.out.println(ae.getMessage());
         }
     }
-    private Properties buildProperties(){
-        Properties props = System.getProperties();
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.user", userName);
-        props.put("mail.smtp.password", password);
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.auth", "true");
-        return props;
+    private Properties getProperties(){
+        Properties properties = System.getProperties();
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.user", userName);
+        properties.put("mail.smtp.password", password);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+        return properties;
     }
 }
