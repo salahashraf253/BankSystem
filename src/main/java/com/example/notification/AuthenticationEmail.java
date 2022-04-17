@@ -3,17 +3,21 @@ package com.example.notification;
 
 public class AuthenticationEmail extends Email {
 
+
     String sendAuthenticationEmail(String recipient){
         int maxRandomNumber = 100000000;
         int minRandomNumber = 1000000;
-        int randomNumber =(int)Math.floor(Math.random()*(maxRandomNumber - minRandomNumber +1)+ minRandomNumber);
+        int authenticationCode =(int)Math.floor(Math.random()*(maxRandomNumber - minRandomNumber +1)+ minRandomNumber);
         String subject="2-Factor Authentication ASU Bank";
-        String body="<p style="+fontSize+">"+
+        String body="<font size=+2>"+
+                "<p style="+fontType+">"+
                 "<b>Hello!</b><br>Your 2-Factor Authentication code is \""
-                +Integer.toString(randomNumber)+
-                "\"</p>";
+                +Integer.toString(authenticationCode)+
+                "\"</p></font>";
         super.sendFromGMail(recipient,subject,body);
-        return Integer.toString(randomNumber);
+
+        //return the authentication code that was sent to the user to validate it
+        return Integer.toString(authenticationCode);
     }
 
     //Test the API
