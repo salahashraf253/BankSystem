@@ -1,11 +1,13 @@
-package com.example.dataBase;
+package com.example.dataBase.Functions;
+
+import com.example.dataBase.DataBase;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DataBaseReader extends DataBase{
+public class DataBaseReader extends DataBase {
 
     public  ResultSet read(String query) throws SQLException {
         Connection connection= getConnection();
@@ -13,4 +15,5 @@ public class DataBaseReader extends DataBase{
         ResultSet resultSet =statement.executeQuery(query);
         return resultSet;
     }
+
 }

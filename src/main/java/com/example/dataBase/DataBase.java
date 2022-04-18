@@ -36,5 +36,6 @@ public abstract class DataBase {
 
     public void closeConnection() throws SQLException {
         connection.close();
+        System.out.println("The connection is closed");
     }
 }
