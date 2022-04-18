@@ -17,8 +17,8 @@ public class PasswordValidator {
 
     //Test Class PasswordValidator
     public static void main(String []args){
-        System.out.println(PassWordGenerator.isValid("1234p5K*"));
-        System.out.println(PassWordGenerator.isValid("123456789*"));
+        System.out.println(PasswordValidator.isValid("1234p5K*"));
+        System.out.println(PasswordValidator.isValid("123456789*"));
 
     }
 }
