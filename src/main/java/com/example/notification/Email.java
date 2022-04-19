@@ -16,9 +16,9 @@ public abstract class Email {
     private String emailSubject;
     private String emailBody;
 
+
     public void sendFromGMail(String recipient) {
         String []to={recipient};
-
         Properties properties= getProperties();
         Session session = Session.getDefaultInstance(properties);
         MimeMessage message = new MimeMessage(session);
