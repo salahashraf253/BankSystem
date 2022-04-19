@@ -13,8 +13,10 @@ public abstract class Email {
     private final String password = "***********"; // gmail password
     private final String host = "smtp.gmail.com";
     protected String fontType="font-family:'Times New Roman'";
+    private String emailSubject;
+    private String emailBody;
 
-    public void sendFromGMail(String recipient, String subject, String body) {
+    public void sendFromGMail(String recipient) {
         String []to={recipient};
 
         Properties properties= getProperties();
@@ -33,13 +35,15 @@ public abstract class Email {
             for( int i = 0; i < toAddress.length; i++) {
                 message.addRecipient(Message.RecipientType.TO, toAddress[i]);
             }
-            message.setSubject(subject);
-            message.setContent(body,"text/html");
+            message.setSubject(emailSubject);
+            message.setContent(emailBody,"text/html");
             Transport transport = session.getTransport("smtp");
             transport.connect(host, userName, password);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-        } catch (MessagingException ae) {
+            System.out.println("Authentication code is sent Successfully"); //the code is sent without any problems
+        }
+        catch (MessagingException ae) {
             ae.printStackTrace();
             System.out.println(ae.getMessage());
         }
@@ -54,4 +58,12 @@ public abstract class Email {
         properties.put("mail.smtp.auth", "true");
         return properties;
     }
+
+    public void setEmailSubject(String emailSubject) {
+        this.emailSubject = emailSubject;
+    }
+    public void setEmailBody(String emailBody) {
+        this.emailBody = emailBody;
+    }
+
 }
