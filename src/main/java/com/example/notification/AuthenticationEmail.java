@@ -25,7 +25,7 @@ public class AuthenticationEmail extends Email {
     //Test the API
     public static void main(String []args){
         AuthenticationEmail authenticationEmail=new AuthenticationEmail();
-        String recipient="username@gmail.com";
+        String recipient="salmamagdyishakk@gmail.com";
         authenticationEmail.sendAuthenticationEmail(recipient);
     }
 }
