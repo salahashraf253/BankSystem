@@ -9,8 +9,8 @@ package com.example.banksystem.Account;
  *
  * @author Admin
  */
-public class CertificatesAccount extends Account{
-     public CertificatesAccount() {
+public class CertificateDeposit extends SavingsAccount{
+     public CertificateDeposit() {
         type = "Certificates Acount";
     }
 }
