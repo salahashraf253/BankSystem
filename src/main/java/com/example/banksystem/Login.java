@@ -22,17 +22,17 @@ public class Login {
             //password
             user.setPassword(password);
             //user id
-            user.setUserId(userID);
+            user.setUserId(Integer.parseInt(userID));
             // Email
             user.setEmail(resultSet.getString("email"));
             // Salary
             user.setSalary(resultSet.getInt("salary"));
             // First Name
-            user.setFirstName(resultSet.getString("firstName"));
+            user.setFirstname(resultSet.getString("firstName"));
             // Last Name
-            user.setLastName(resultSet.getString("lastName"));
+            user.setLastname(resultSet.getString("lastName"));
             // Phone Number
-            user.setPhoneNumber(resultSet.getString("phoneNumber"));
+            user.setPhonenumber(resultSet.getString("phoneNumber"));
             System.out.println(type);
             System.out.println("Done");
         }

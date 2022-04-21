@@ -12,7 +12,7 @@ public class Client extends User{
         // like UserFactory.Client (user.name ,user.ssd , ...etc)
         //insert into UserFactory.Client values
         System.out.println("here in client");
-        System.out.println(user.name);
+
 
     }
 
