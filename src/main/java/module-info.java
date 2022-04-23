@@ -5,6 +5,7 @@ module com.example.banksystem {
     requires java.mail;
     requires javax.activation;
     requires org.json;
+    requires com.jfoenix;
 
 
     opens com.example.banksystem to javafx.fxml;

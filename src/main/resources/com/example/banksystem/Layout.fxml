@@ -11,57 +11,69 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.LayoutController">
    <children>
-      <JFXToolbar prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #003366;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <right>
-            <AnchorPane prefHeight="70.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="main_pane" prefHeight="770.4" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <JFXToolbar prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #003366;" BorderPane.alignment="CENTER">
+               <right>
+                  <AnchorPane prefHeight="70.0" prefWidth="941.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="login_btn" layoutX="647.0" layoutY="14.0" onAction="#login" prefHeight="41.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#003366">
+                           <font>
+                              <Font name="Segoe UI Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton layoutX="779.0" layoutY="8.0" onAction="#openAccountForm" prefHeight="54.0" prefWidth="137.0" text="Open Account" textFill="#ff9966">
+                           <font>
+                              <Font name="Segoe UI Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton layoutX="14.0" layoutY="17.0" onAction="#currency_conv_btn" text="Currencey Converter" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft Tai Le Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </right>
+               <left>
+                  <Label prefHeight="50.0" prefWidth="237.0" textFill="#ff8708" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="69.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@EDP.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </left>
+            </JFXToolbar>
+         </top>
+         <center>
+            <AnchorPane fx:id="center_pane" prefHeight="464.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="login_btn" layoutY="14.0" onAction="#login" prefHeight="41.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#003366">
-                     <font>
-                        <Font name="Segoe UI Bold" size="16.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton layoutX="126.0" layoutY="7.0" onAction="#openAccountForm" prefHeight="54.0" prefWidth="137.0" text="Open Account" textFill="#ff9966">
-                     <font>
-                        <Font name="Segoe UI Bold" size="16.0" />
-                     </font>
-                  </JFXButton>
+                  <AnchorPane fx:id="welcome_pane" prefHeight="750.4" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="491.0" layoutY="340.0" text="Welcome To EDB">
+                           <font>
+                              <Font name="System Bold" size="52.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="510.0" layoutY="432.0" text="The First Digital Bank in Egypt" textFill="#003366">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <fx:include fx:id="login_pane" source="LoginWindow.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <fx:include fx:id="open_account_pane" source="OpenAccount.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-         </right>
-         <left>
-            <Label prefHeight="50.0" prefWidth="237.0" textFill="#ff8708" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="69.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@EDP.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-         </left>
-      </JFXToolbar>
-      <AnchorPane fx:id="main_pane" prefHeight="464.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
-         <children>
-            <AnchorPane fx:id="welcome_pane" prefHeight="750.4" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="510.0" layoutY="280.0" text="Welcome To EDB">
-                     <font>
-                        <Font name="System Bold" size="60.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="510.0" layoutY="400.0" text="The First Digital Bank in Egypt" textFill="#003366">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <fx:include fx:id="login_pane" source="LoginWindow.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <fx:include fx:id="open_account_pane" source="OpenAccount.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children></AnchorPane>
+         </center>
+      </BorderPane>
 
    </children>
 </AnchorPane>
