@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="login_pane" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.LoginWindowController">
+<AnchorPane fx:id="login_pane" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.LoginWindowController">
    <children>
       <AnchorPane layoutY="220.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="259.0" prefWidth="1500.0" AnchorPane.leftAnchor="0.0">
          <children>
-            <TextField layoutX="578.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="ID" scaleShape="false" style="-fx-border-color: #000000; -fx-background-color: #00000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
-            <TextField layoutX="578.0" layoutY="59.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="Password" scaleShape="false" style="-fx-background-color: #00000000; -fx-border-color: #000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
-            <JFXButton fx:id="login_btn" layoutX="659.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="179.0" scaleShape="false" style="-fx-border-color: #000000;" text="Login" AnchorPane.leftAnchor="659.0" AnchorPane.rightAnchor="661.8">
+            <TextField fx:id="id" layoutX="578.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="ID" scaleShape="false" style="-fx-border-color: #000000; -fx-background-color: #00000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
+            <TextField fx:id="password" layoutX="578.0" layoutY="59.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="Password" scaleShape="false" style="-fx-background-color: #00000000; -fx-border-color: #000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
+            <JFXButton fx:id="login_btn" layoutX="659.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#loginButton" prefHeight="31.0" prefWidth="179.0" scaleShape="false" style="-fx-border-color: #000000;" text="Login" AnchorPane.leftAnchor="659.0" AnchorPane.rightAnchor="661.8">
                <font>
                   <Font size="14.0" />
                </font>
