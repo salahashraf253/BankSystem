@@ -1,9 +1,6 @@
 package com.example.banksystem.LoanIterator;
 
-import com.example.banksystem.Loan.EducationalLoan;
-import com.example.banksystem.Loan.HomeLoan;
-import com.example.banksystem.Loan.Loan;
-import com.example.banksystem.Loan.PersonalLoan;
+import com.example.banksystem.Loan.*;
 import com.example.dataBase.Functions.DataBaseReader;
 
 import java.sql.ResultSet;
@@ -20,7 +17,6 @@ public class LoanRequestsRepo implements  Container{
     public List<LoanRequest> getAllLoanRequests() throws SQLException {
         List<LoanRequest> loanRequestList=new ArrayList<>();
         DataBaseReader dataBaseReader=new DataBaseReader();
-        int loanSize;
         String query="select * from loan";
         ResultSet resultSet=dataBaseReader.read(query);
         Loan loan;
@@ -29,20 +25,13 @@ public class LoanRequestsRepo implements  Container{
         int userId;
         //Note: the way of assigning values to object from database I search for a better way than it
         while (resultSet.next()){
-
             status=resultSet.getString("status");
             userId=resultSet.getInt("user_id");
             loanType=resultSet.getString("loan_type");
-            if(loanType.compareTo("e")==0){
-                loan=new EducationalLoan();
-            }
-            else if(loanType.compareTo("h")==0){
-                loan=new HomeLoan();
-            }
-            else loan=new PersonalLoan();
+            loan= LoanFactory.getLoan(loanType);
+            assert loan != null;
             loan.setAmount(resultSet.getDouble("amount"));
             loan.setNumOfMonths(resultSet.getInt("nOfMonth"));
-
             loanRequestList.add(new LoanRequest(loan,status,userId));
         }
         dataBaseReader.closeConnection();
