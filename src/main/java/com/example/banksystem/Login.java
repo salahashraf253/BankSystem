@@ -11,7 +11,7 @@ public class Login {
 
     public void validateLogin(String userID, String password) throws SQLException {
         DataBaseReader dataBaseReader= new DataBaseReader();
-        String query="select * from user where id='" + userID+ "' and password='" + password+"'";
+        String query="select * from user where user_id='" + userID+ "' and password='" + password+"'";
         ResultSet resultSet=dataBaseReader.read(query);
         if (resultSet.next()){
             String type=resultSet.getString("type");
@@ -32,7 +32,7 @@ public class Login {
             // Last Name
             user.setLastname(resultSet.getString("lastName"));
             // Phone Number
-            user.setPhonenumber(resultSet.getString("phoneNumber"));
+            user.setPhonenumber(resultSet.getString("phone"));
             System.out.println(type);
             System.out.println("Done");
         }
