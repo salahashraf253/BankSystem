@@ -1,6 +1,6 @@
 package com.example.banksystem.Loan;
 
-import com.example.banksystem.User;
+import com.example.UserFactory.User;
 
 import java.util.Date;
 

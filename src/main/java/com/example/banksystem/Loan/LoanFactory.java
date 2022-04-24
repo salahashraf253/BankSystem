@@ -1,25 +1,22 @@
 package com.example.banksystem.Loan;
-
+import com.example.GUI.LoanWindowController;
 public class LoanFactory {
+    LoanWindowController loanWindowController;
 
-    public Loan GetLoan(String LoanType) {
-        if(LoanType == null){
-            return null;
-        }
-        if (LoanType.equalsIgnoreCase("Educational Loan"))
-        {
+    public Loan GetLoan() {
+        if(loanWindowController.loanSelected=="Educational"){
             return new EducationalLoan();
         }
-        else if (LoanType.equalsIgnoreCase("Personal Loan"))
+        if (loanWindowController.loanSelected=="Personal")
         {
             return new PersonalLoan();
         }
-         else if (LoanType.equalsIgnoreCase("Home Loan")) {
-
-
+        else if (loanWindowController.loanSelected=="Home")
+        {
             return new HomeLoan();
-
         }
-        return null;
+
+        else
+            return null;
     }
 }
