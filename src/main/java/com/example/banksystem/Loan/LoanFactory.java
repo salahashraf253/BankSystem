@@ -1,17 +1,20 @@
 package com.example.banksystem.Loan;
 import com.example.GUI.LoanWindowController;
+
+import java.util.Objects;
+
 public class LoanFactory {
     LoanWindowController loanWindowController;
 
     public Loan GetLoan() {
-        if(loanWindowController.loanSelected=="Educational"){
+        if(Objects.equals(loanWindowController.loanSelected, "Educational")){
             return new EducationalLoan();
         }
-        if (loanWindowController.loanSelected=="Personal")
+        if (Objects.equals(loanWindowController.loanSelected, "Personal"))
         {
             return new PersonalLoan();
         }
-        else if (loanWindowController.loanSelected=="Home")
+        else if (Objects.equals(loanWindowController.loanSelected, "Home"))
         {
             return new HomeLoan();
         }
