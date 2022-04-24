@@ -1,4 +1,6 @@
 package com.example.GUI;
+import com.example.banksystem.Loan.Loan;
+import com.example.banksystem.Loan.LoanFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +27,7 @@ public class LoanWindowController implements Initializable {
     private TextField NumOfMonth;
 
 
-    void select(ActionEvent event) {
+    void select() {
         loanSelected = LoanType.getSelectionModel().getSelectedItem().toString();
         LoanAmount= Integer.parseInt(Amount.getText());
         NumOfMonths= Integer.parseInt(NumOfMonth.getText());
@@ -35,5 +37,9 @@ public class LoanWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> list= FXCollections.observableArrayList("Educational","Home","Personal");
         LoanType.setItems(list);
+    }
+
+    public void applyButton(){
+        Loan loan=LoanFactory.getLoan(loanSelected);
     }
 }
