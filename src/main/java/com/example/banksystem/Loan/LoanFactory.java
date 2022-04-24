@@ -4,22 +4,16 @@ import com.example.GUI.LoanWindowController;
 import java.util.Objects;
 
 public class LoanFactory {
-    LoanWindowController loanWindowController;
-
-    public Loan GetLoan() {
-        if(Objects.equals(loanWindowController.loanSelected, "Educational")){
+    public static Loan getLoan(String loanType) {
+        if(loanType.compareTo("Educational")==0){ //educational
             return new EducationalLoan();
         }
-        if (Objects.equals(loanWindowController.loanSelected, "Personal"))
-        {
-            return new PersonalLoan();
-        }
-        else if (Objects.equals(loanWindowController.loanSelected, "Home"))
-        {
+        else if(loanType.compareTo("Home")==0){   //home
             return new HomeLoan();
         }
-
-        else
-            return null;
+        else if(loanType.compareTo("Personal")==0){    //personal
+            return new PersonalLoan();
+        }
+        return null;
     }
 }
