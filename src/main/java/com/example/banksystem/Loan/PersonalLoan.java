@@ -3,9 +3,7 @@ package com.example.banksystem.Loan;
 public class PersonalLoan extends Loan{
     @Override
     public void ApplyForLoan() {
-user.getAge();
-user.getSSN();
-user.getMonthlyIncome();
+
     }
 
     @Override

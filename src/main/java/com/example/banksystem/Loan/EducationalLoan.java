@@ -1,14 +1,12 @@
 package com.example.banksystem.Loan;
 
-import com.example.banksystem.User;
+import com.example.UserFactory.User;
 
 public class EducationalLoan extends Loan{
-    User u;
+    User user;
     @Override
     public void ApplyForLoan() {
-       u.getSSN();
-       u.getMonthlyIncome();
-       u.getAge();
+
     }
 
     @Override

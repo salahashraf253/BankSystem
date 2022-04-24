@@ -8,8 +8,6 @@ public class HomeLoan extends Loan{
 
     @Override
     public double InterestRate(int numOfMonths) {
-
-
       return  rate;
     }
 
