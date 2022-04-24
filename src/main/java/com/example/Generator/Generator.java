@@ -6,5 +6,5 @@ we have to generate two Strings
 authentication  code for sign up option
 * */
 public interface Generator {
-    String generate();
+    String build();
 }

@@ -3,30 +3,40 @@ package com.example.UserFactory;
 import java.util.Date;
 
 public abstract class User {
-    String name;
+    String firstname;
+    String lastname;
+    int Salary;
+
     int SSD;
-    int phonenumber;
+    String phonenumber;
+    String Email;
     Date dob;
     String Password;
-    String username;
+    int UserId;
     String Address;
 
-    /*public UserFactory.User(String name, int SSD, int phonenumber, Date dob, String password, String username, String address) {
-        this.name = name;
-        this.SSD = SSD;
-        this.phonenumber = phonenumber;
-        this.dob = dob;
-        Password = password;
-        this.username = username;
-        Address = address;
-    }*/
-
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public int getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(int salary) {
+        Salary = salary;
     }
 
     public int getSSD() {
@@ -37,12 +47,20 @@ public abstract class User {
         this.SSD = SSD;
     }
 
-    public int getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(int phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public Date getDob() {
@@ -61,12 +79,12 @@ public abstract class User {
         Password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public int getUserId() {
+        return UserId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(int userId) {
+        UserId = userId;
     }
 
     public String getAddress() {
@@ -78,7 +96,4 @@ public abstract class User {
     }
 
     public abstract void CreateUser(User user);
-    //public abstract void Login();
-    //public abstract void UpdateUser();
-    //public abstract void DeleteUser();
 }
