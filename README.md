@@ -1,2 +1,2 @@
 # BankSystem
- Software Design Pattern  Proejct
+ ASU Software Design Pattern Project
