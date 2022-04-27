@@ -5,13 +5,12 @@ public class Account implements Cloneable{
     private String name;
     private int account_no;
     private int user_id;
-    private int balance;
+    private float balance;
     protected String type;
     public float Withdraw(int w){
-        float new_balance;
         if(balance >= w) {
-            new_balance = balance - w;
-            return new_balance;
+            balance = balance - w;
+            return balance;
         }
         else{
             return 0;
@@ -32,10 +31,10 @@ public class Account implements Cloneable{
     public void setName(String name) {
         this.name = name;
     }
-    public int getBalance() {
+    public float getBalance() {
         return balance;
     }
-    public void setBalance(int balance) {
+    public void setBalance(float balance) {
         this.balance = balance;
     }
     
