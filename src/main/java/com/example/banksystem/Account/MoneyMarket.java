@@ -5,10 +5,8 @@
  */
 package com.example.banksystem.Account;
 
-/**
- *
- * @author Admin
- */
-public class MoneyMarket {
-    
+public class MoneyMarket extends CheckingAccount{
+    public MoneyMarket() {
+        type = "MoneyMarket";
+    }
 }

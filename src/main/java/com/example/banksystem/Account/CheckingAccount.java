@@ -9,6 +9,13 @@ package com.example.banksystem.Account;
  *
  * @author Admin
  */
-public class CheckingAccount {
-    
+public class CheckingAccount extends Account{
+
+    public float Withdraw(float w){
+        float new_balance = getBalance() - w;
+        return new_balance;
+    }
+    public CheckingAccount() {
+        type = "Checking Account";
+    }
 }

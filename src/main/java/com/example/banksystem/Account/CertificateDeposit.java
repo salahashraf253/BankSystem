@@ -11,6 +11,6 @@ package com.example.banksystem.Account;
  */
 public class CertificateDeposit extends SavingsAccount{
      public CertificateDeposit() {
-        type = "Certificates Acount";
+        type = "Certificate Deposit";
     }
 }
