@@ -1,5 +1,7 @@
-package com.example.banksystem.LoanIterator;
+package com.example.Loan.LoanIterator;
 
+import com.example.Loan.Loan.Loan;
+import com.example.Loan.Loan.LoanFactory;
 import com.example.banksystem.Loan.*;
 import com.example.dataBase.Functions.DataBaseReader;
 
