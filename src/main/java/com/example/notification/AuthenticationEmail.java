@@ -1,31 +1,35 @@
 package com.example.notification;
 
 
+import com.example.Generator.IdGenerator;
+import com.example.Generator.PasswordGenerator;
+
+import java.sql.SQLException;
+
 public class AuthenticationEmail extends Email {
 
-
-    public String sendAuthenticationEmail(String recipient){
-        int maxRandomNumber = 100000000;
-        int minRandomNumber = 1000000;
-        int authenticationCode =(int)Math.floor(Math.random()*(maxRandomNumber - minRandomNumber +1)+ minRandomNumber);
-        String subject="2-Factor Authentication ASU Bank";
+    public void sendAuthenticationEmail(String recipient,String id,String password){
         String emailBody="<font size=+2>"+
                 "<p style="+fontType+">"+
-                "<b>Hello!</b><br>Your 2-Factor Authentication code is \""
-                +Integer.toString(authenticationCode)+
-                "\"</p></font>";
+                "<b>Hello!</b>" +
+                "<br>" +
+                "Your ID is \""
+                +id+
+                "\" and password is \"" +password+
+                "\".</p>" +
+                "<p>Please don't share this email with anyone.</p></font>";
         super.setEmailBody(emailBody);
-        super.setEmailSubject("ASU Bank authentication Code");
-
-        super.sendFromGMail(recipient);
-        //return the authentication code that was sent to the user to validate it
-        return Integer.toString(authenticationCode);
+        super.setEmailSubject("ASU Bank authentication Email");
+        super.sendEmail(recipient);
     }
 
     //Test the API
-    public static void main(String []args){
+    public static void main(String []args) throws SQLException {
         AuthenticationEmail authenticationEmail=new AuthenticationEmail();
-        String recipient="salmamagdyishakk@gmail.com";
-        authenticationEmail.sendAuthenticationEmail(recipient);
+//        String recipient="salmamagdyishakk@gmail.com";
+        String recipient="salahashraf924@gmail.com";
+        PasswordGenerator passwordGenerator=new PasswordGenerator();
+        IdGenerator idGenerator=new IdGenerator();
+        authenticationEmail.sendAuthenticationEmail(recipient,idGenerator.build(),passwordGenerator.build());
     }
 }
