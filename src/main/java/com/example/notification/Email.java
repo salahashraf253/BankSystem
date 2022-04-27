@@ -16,24 +16,21 @@ public abstract class Email {
     private String emailSubject;
     private String emailBody;
 
-
-    public void sendFromGMail(String recipient) {
+    public void sendEmail(String recipient) {
         String []to={recipient};
-        Properties properties= getProperties();
+        Properties properties= setProperties();
         Session session = Session.getDefaultInstance(properties);
         MimeMessage message = new MimeMessage(session);
 
         try {
             message.setFrom(new InternetAddress(userName));
             InternetAddress[] toAddress = new InternetAddress[to.length];
-
             // To get the array of addresses
             for( int i = 0; i < to.length; i++ ) {
                 toAddress[i] = new InternetAddress(to[i]);
             }
-
-            for( int i = 0; i < toAddress.length; i++) {
-                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+            for (InternetAddress address : toAddress) {
+                message.addRecipient(Message.RecipientType.TO, address);
             }
             message.setSubject(emailSubject);
             message.setContent(emailBody,"text/html");
@@ -48,7 +45,7 @@ public abstract class Email {
             System.out.println(ae.getMessage());
         }
     }
-    private Properties getProperties(){
+    private Properties setProperties(){
         Properties properties = System.getProperties();
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
@@ -57,7 +54,6 @@ public abstract class Email {
         properties.put("mail.smtp.password", password);
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.auth", "true");
-
         return properties;
     }
 
