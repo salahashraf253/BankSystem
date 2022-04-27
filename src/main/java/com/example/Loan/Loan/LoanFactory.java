@@ -1,7 +1,4 @@
-package com.example.banksystem.Loan;
-import com.example.GUI.LoanWindowController;
-
-import java.util.Objects;
+package com.example.Loan.Loan;
 
 public class LoanFactory {
     public static Loan getLoan(String loanType) {

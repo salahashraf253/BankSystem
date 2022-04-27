@@ -1,4 +1,4 @@
-package com.example.banksystem.Loan;
+package com.example.Loan.Loan;
 
 import com.example.UserFactory.User;
 

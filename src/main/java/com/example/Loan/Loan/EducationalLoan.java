@@ -1,6 +1,4 @@
-package com.example.banksystem.Loan;
-
-import com.example.UserFactory.User;
+package com.example.Loan.Loan;
 
 public class EducationalLoan extends Loan{
 
