@@ -7,11 +7,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import  com.example.banksystem.Account.Account;
 import javafx.scene.control.TextField;
+
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import  com.example.banksystem.Account.Account;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -34,6 +40,7 @@ public class ViewAccountController implements Initializable {
 
     @FXML
     private TableColumn<Account, Integer> UserIdCol;
+
     @FXML
     private TextField text_AccId;
 
@@ -45,6 +52,7 @@ public class ViewAccountController implements Initializable {
 
     @FXML
     private TextField text_userid;
+
     DataBase db = null;
     ObservableList<Account> list = FXCollections.observableArrayList();
     public ObservableList<Account> getAccount() throws SQLException {
@@ -54,7 +62,11 @@ public class ViewAccountController implements Initializable {
            ResultSet rs=db.read("select * from bank_account");
             while (rs.next())
             {
+
               //
+
+             list.add(new Account());
+
             }
         }
 
