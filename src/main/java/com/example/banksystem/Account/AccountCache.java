@@ -22,19 +22,9 @@ public class AccountCache {
     }
 
     public static void loadCache() {
-        CertificatesAccount cer = new CertificatesAccount();
-        cer.setAccount_no(1);
-        cer.setBalance(0);
-        String cer_id = Integer.toString(cer.getAccount_no());
-        accountMap.put(cer_id,cer);
-       
-        SalaryAccount sal = new SalaryAccount();
-        sal.setAccount_no(2);
-        String sal_id = Integer.toString(sal.getAccount_no());
-        accountMap.put(sal_id,sal);
         
         SavingsAccount savings = new SavingsAccount();
-        savings.setAccount_no(3);
+        savings.setAccount_no(1);
         String savings_id = Integer.toString(savings.getAccount_no());
         accountMap.put(savings_id,savings);
         

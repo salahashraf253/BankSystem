@@ -9,12 +9,14 @@ package com.example.banksystem.Account;
  *
  * @author Admin
  */
-public class SavingsAccount extends Account{
-     public SavingsAccount() {
-        type = "Savings Account";
+public class CertificateDeposit extends SavingsAccount{
+     public CertificateDeposit() {
+        type = "Certificate Deposit";
     }
     public float Withdraw(float w){
         float new_balance = getBalance() - w;
+        //penalty
+        new_balance *= 0.8;
         setBalance(new_balance);
         return new_balance;
     }

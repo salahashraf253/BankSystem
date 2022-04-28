@@ -5,16 +5,14 @@
  */
 package com.example.banksystem.Account;
 
-/**
- *
- * @author Admin
- */
-public class SavingsAccount extends Account{
-     public SavingsAccount() {
-        type = "Savings Account";
+public class MoneyMarket extends CheckingAccount{
+    public MoneyMarket() {
+        type = "MoneyMarket";
     }
     public float Withdraw(float w){
         float new_balance = getBalance() - w;
+        //penalty
+        new_balance -= 1.5;
         setBalance(new_balance);
         return new_balance;
     }

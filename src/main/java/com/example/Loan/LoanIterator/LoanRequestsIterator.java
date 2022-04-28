@@ -1,4 +1,4 @@
-package com.example.banksystem.LoanIterator;
+package com.example.Loan.LoanIterator;
 
 public class LoanRequestsIterator implements Iterator {
     LoanRequest[] requests;
@@ -8,26 +8,15 @@ public class LoanRequestsIterator implements Iterator {
         this.requests = requests;
     }
 
-
-
-
-
     @Override
     public boolean hasNext() {
-        if(index < requests.length){
-            return true;
-        }
-        return false;
+        return index < requests.length;
     }
-
     @Override
     public Object next() {
-
         if(this.hasNext()){
             return requests[index++];
         }
         return null;
-
-
     }
 }

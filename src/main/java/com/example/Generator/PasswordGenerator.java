@@ -32,12 +32,6 @@ public class PasswordGenerator implements Generator{
         int randomAscii=(int)Math.floor(Math.random()*(126-65+1)+65);
         return (char)(randomAscii);
     }
-
-    //testing /////////////
-    public static void main(String[] args) {
-        PasswordGenerator passwordGenerator=new PasswordGenerator() ;
-        System.out.println(passwordGenerator.build());
-    }
 }
 
 
