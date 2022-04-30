@@ -7,14 +7,12 @@ public class Account implements Cloneable{
     private int user_id;
     private float balance;
     protected String type;
-    public float Withdraw(int w){
+    public float Withdraw(float w){
         if(balance >= w) {
             balance = balance - w;
             return balance;
         }
-        else{
-            return 0;
-        }
+        else return 0;
     }
     public String getType() {
         return type;
