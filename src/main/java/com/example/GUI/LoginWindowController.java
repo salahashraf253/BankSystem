@@ -1,5 +1,6 @@
 package com.example.GUI;
 
+import com.example.UserFactory.User;
 import com.example.banksystem.Login;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 public class LoginWindowController {
@@ -28,8 +30,11 @@ public class LoginWindowController {
 
     @FXML
     void loginButton() throws SQLException {
-        Login login=new Login();
-        login.validateLogin(id.getText(),password.getText());
+        User user=Login.validateLogin(id.getText(),password.getText());
+        if(user==null){
+            return; //invalid user id or password
+        }
+        String emailBody="You have just logged in";
+        user.notifyUser("ASU Bank Security alert",emailBody);
     }
-
 }
