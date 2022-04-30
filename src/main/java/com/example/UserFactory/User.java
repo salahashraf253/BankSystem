@@ -1,5 +1,7 @@
 package com.example.UserFactory;
 
+import com.example.NotificationsObserver.SendNotificationHelper;
+
 import java.util.Date;
 
 public abstract class User {
@@ -96,4 +98,8 @@ public abstract class User {
     }
 
     public abstract void CreateUser(User user);
+
+    public void notifyUser(String subject, String body){
+        SendNotificationHelper send=new SendNotificationHelper(subject,body,this.Email);
+    }
 }
