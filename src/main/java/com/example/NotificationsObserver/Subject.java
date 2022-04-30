@@ -7,16 +7,22 @@ public class Subject {
     //using set message if withdrawal it should be inside withdrawal to send a message etc
      List<NotificationAbstract> notificationsList = new ArrayList<NotificationAbstract>();
         String Message;
+        String emailSubject;
 
     public String getMessage() {
         return Message;
     }
+    public String getemailsubject() {
+        return emailSubject;
+    }
 
-    public void setMessage(String message) {
+    public void setNotification(String message, String emailsubject) {
         Message = message;
+        this.emailSubject= emailsubject;
         notifyAllObservers();
     }
 
+   
 
     public void attach (NotificationAbstract notification)
     {
