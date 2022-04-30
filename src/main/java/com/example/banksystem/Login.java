@@ -5,7 +5,6 @@ import com.example.UserFactory.FactoryUser;
 import com.example.UserFactory.User;
 import com.example.dataBase.DataBaseMapping;
 import com.example.dataBase.Functions.DataBaseReader;
-import com.example.dataBase.Functions.DecryptString;
 import com.example.dataBase.Functions.EncrpytString;
 
 import java.sql.ResultSet;
