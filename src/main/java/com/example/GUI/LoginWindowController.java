@@ -15,6 +15,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class LoginWindowController {
     @FXML
@@ -35,6 +37,14 @@ public class LoginWindowController {
             return; //invalid user id or password
         }
         String emailBody="You have just logged in";
-        user.notifyUser("ASU Bank Security alert",emailBody);
+//        user.notifyUser("ASU Bank Security alert",emailBody);
+        /*use multi threading here */
+        //to send the notifier email in parallel with another functions
+        //because sending the email take around 1 minute that is very bad for the performance
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Runnable callMultiply = () -> user.notifyUser("ASU Bank Security alert",emailBody);
+        executor.execute(callMultiply);
+        executor.execute(() -> System.out.println("Hello in multi thread"));
+        executor.shutdown();
     }
 }
