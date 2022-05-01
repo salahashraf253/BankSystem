@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import  com.example.banksystem.Account.Account;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.sql.*;
@@ -26,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class ViewAccountController implements Initializable {
 
+    PageLoader loader = new PageLoader();
     @FXML
     private TableView<Account> AccountTable;
 
@@ -41,17 +43,9 @@ public class ViewAccountController implements Initializable {
     @FXML
     private TableColumn<Account, Integer> UserIdCol;
 
-    @FXML
-    private TextField text_AccId;
 
     @FXML
-    private TextField text_balance;
-
-    @FXML
-    private TextField text_type;
-
-    @FXML
-    private TextField text_userid;
+    private AnchorPane center_pane;
 
     DataBase db = null;
     ObservableList<Account> list = FXCollections.observableArrayList();
@@ -59,59 +53,42 @@ public class ViewAccountController implements Initializable {
         DataBaseReader db = null;
 
         try {
-           ResultSet rs=db.read("select * from bank_account");
+            ResultSet rs=db.read("select * from bank_account");
             while (rs.next())
             {
 
-              //
+                //
 
-             list.add(new Account());
+                list.add(new Account());
 
             }
         }
 
-      catch (Exception e){
+        catch (Exception e){
 
-      }
+        }
 
 
         return list;
     }
     PreparedStatement ps=null;
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    public void Add_Account() throws SQLException {
-        Connection con=DataBase.getConnection();
-        ps=con.prepareStatement("insert into bank_account (account_id,user_id,balance,type) values (?,?,?,?)");
-        ps.setString(1,text_AccId.getText());
-        ps.setString(2,text_userid.getText());
-        ps.setString(3,text_balance.getText());
-        ps.setString(4,text_type.getText());
-        ps.execute();
-
-        alert.setContentText("Account is Added successfully");
-        alert.show();
+    public void closeWindow(){
+        center_pane.getChildren().removeAll();
     }
-    public void Update_Account() throws SQLException {
-        Connection con=DataBase.getConnection();
-        ps=con.prepareStatement("update bank_account set account_id=?,user_id=?,balance=?,type=?");
-
-        ps.setString(1,text_AccId.getText());
-        ps.setString(2,text_userid.getText());
-        ps.setString(3,text_balance.getText());
-        ps.setString(4,text_type.getText());
-        ps.execute();
-
-        alert.setContentText("Account is updated successfully");
-        alert.show();
+    public void Add_Account() {
+        closeWindow();
+        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/Add Account.fxml"));
     }
 
-    public void Delete_Account() throws SQLException {
-        Connection con=DataBase.getConnection();
-        ps=con.prepareStatement("delete from bank_account where account_id=?");
-        ps.setString(1,text_AccId.getText());
-        ps.execute();
-        alert.setContentText("Account is updated successfully");
-        alert.show();
+    public void Update_Account()  {
+        closeWindow();
+        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/Update Account.fxml"));
+    }
+
+    public void Delete_Account()  {
+        closeWindow();
+        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/Delete Account.fxml"));
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -123,3 +100,5 @@ public class ViewAccountController implements Initializable {
         AccountTable.setItems(list);
     }
 }
+
+

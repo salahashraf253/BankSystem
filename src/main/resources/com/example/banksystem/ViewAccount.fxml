@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.ViewAccountController">
+<AnchorPane fx:id="center_pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.ViewAccountController">
    <children>
-      <AnchorPane prefHeight="407.0" prefWidth="151.0" style="-fx-background-color: #003366;">
+      <AnchorPane fx:id="center_pane" prefHeight="407.0" prefWidth="151.0" style="-fx-background-color: #003366;">
          <children>
-            <Button layoutY="230.0" mnemonicParsing="false" onAction="#Add_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Add" textFill="WHITE" />
-            <Button layoutY="267.0" mnemonicParsing="false" onAction="#Update_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Update" textFill="WHITE" />
-            <Button layoutY="304.0" mnemonicParsing="false" onAction="#Delete_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Delete" textFill="WHITE" />
-            <TextField fx:id="text_userid" layoutY="95.0" prefHeight="30.0" prefWidth="146.0" promptText="User Id" AnchorPane.leftAnchor="0.0" />
-            <TextField fx:id="text_AccId" layoutY="52.0" prefHeight="30.0" prefWidth="146.0" promptText="Account Id" AnchorPane.leftAnchor="0.0" />
-            <TextField fx:id="text_balance" layoutY="136.0" prefHeight="30.0" prefWidth="146.0" promptText="balance" AnchorPane.leftAnchor="0.0" />
-            <TextField fx:id="text_type" layoutY="178.0" prefHeight="30.0" prefWidth="146.0" promptText="type" AnchorPane.leftAnchor="0.0" />
+            <Button layoutY="149.0" mnemonicParsing="false" onAction="#Add_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Add" textFill="WHITE" />
+            <Button layoutY="185.0" mnemonicParsing="false" onAction="#Update_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Update" textFill="WHITE" />
+            <Button layoutY="222.0" mnemonicParsing="false" onAction="#Delete_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Delete" textFill="WHITE" />
+            <AnchorPane layoutY="1.0" prefHeight="152.0" prefWidth="151.0">
+               <children>
+                  <Label layoutX="22.0" layoutY="63.0" text="View Account" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <TableView fx:id="AccountTable" layoutX="158.0" layoutY="-2.0" prefHeight="407.0" prefWidth="440.0">
@@ -30,4 +35,4 @@
         </columns>
       </TableView>
    </children>
-</fx:root>
+</AnchorPane>
