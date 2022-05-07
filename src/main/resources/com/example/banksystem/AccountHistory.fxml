@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="428.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.AccountHistoryController">
+   <children>
+      <Label layoutX="53.0" layoutY="35.0" text="Account History" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="history_table" layoutX="-2.0" layoutY="89.0" prefHeight="339.0" prefWidth="600.0" style="-fx-border-color: #003366; -fx-padding: #003366;">
+        <columns>
+          <TableColumn fx:id="trans_col" prefWidth="150.0" text="Transaction Number" />
+          <TableColumn fx:id="amount_col" prefWidth="150.0" text="Amount " />
+            <TableColumn fx:id="date_col" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="status_col" prefWidth="150.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
