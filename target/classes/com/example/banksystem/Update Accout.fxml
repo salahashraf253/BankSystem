@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="280.0" prefWidth="600.0" style="-fx-background-color: #003366;" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.UpdateAccountController">
+<AnchorPane prefHeight="280.0" prefWidth="600.0" style="-fx-background-color: #003366;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.UpdateAccountController">
    <children>
       <TextField fx:id="text_AccId" editable="false" layoutX="10.0" layoutY="62.0" prefHeight="30.0" prefWidth="146.0" promptText="Account Id" />
       <TextField fx:id="text_userid" editable="false" layoutX="206.0" layoutY="62.0" prefHeight="30.0" prefWidth="146.0" promptText="User Id" />
@@ -19,4 +19,4 @@
          </font>
       </Label>
    </children>
-</fx:root>
+</AnchorPane>

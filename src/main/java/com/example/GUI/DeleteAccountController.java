@@ -20,7 +20,7 @@ public class DeleteAccountController {
         ps.setString(1,text_AccId.getText());
         ps.execute();
         con.close();
-        alert.setContentText("Account is Deleted successfully");
+        alert.setContentText("Account is updated successfully");
         alert.show();
     }
 }

@@ -24,7 +24,7 @@ public class UpdateAccountController {
     
     PreparedStatement ps=null;
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    public void Update_account() throws SQLException {
+    public void Update_Account() throws SQLException {
         Connection con= DataBase.getConnection();
         ps=con.prepareStatement("update bank_account where account_id=? set balance=?,type=?");
 

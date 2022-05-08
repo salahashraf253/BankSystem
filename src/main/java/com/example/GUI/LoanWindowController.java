@@ -14,8 +14,8 @@ import java.util.ResourceBundle;
 
 public class LoanWindowController implements Initializable {
     public String loanSelected;
-    public int NumOfMonths ;
-    public int LoanAmount ;
+    public int NumOfMonths;
+    public int LoanAmount;
     @FXML
     AnchorPane loan_pane;
     @FXML
@@ -28,19 +28,19 @@ public class LoanWindowController implements Initializable {
 
     void select() {
         loanSelected = LoanType.getSelectionModel().getSelectedItem().toString();
-        LoanAmount= Integer.parseInt(Amount.getText());
-        NumOfMonths= (int) LoanType.getSelectionModel().getSelectedItem();
+        LoanAmount = Integer.parseInt(Amount.getText());
+        NumOfMonths = (int) LoanType.getSelectionModel().getSelectedItem();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> Typelist= FXCollections.observableArrayList("Educational","Home","Personal");
+        ObservableList<String> Typelist = FXCollections.observableArrayList("Educational", "Home", "Personal");
         LoanType.setItems(Typelist);
-        ObservableList<Integer> Months= FXCollections.observableArrayList(6,12);
+        ObservableList<Integer> Months = FXCollections.observableArrayList(6, 12);
         NumOfMonth.setItems(Months);
     }
 
-    public void applyButton(){
-        Loan loan=LoanFactory.getLoan(loanSelected);
+    public void applyButton() {
+       // Loan loan = LoanFactory.getLoan(loanSelected);
     }
 }

@@ -2,7 +2,6 @@ package com.example.GUI;
 
 import com.example.dataBase.DataBase;
 import com.example.dataBase.Functions.DataBaseReader;
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,10 +12,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import  com.example.banksystem.Account.Account;
 import javafx.scene.control.TextField;
-
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import  com.example.banksystem.Account.Account;
 
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -43,7 +38,17 @@ public class ViewAccountController implements Initializable {
     @FXML
     private TableColumn<Account, Integer> UserIdCol;
 
+    @FXML
+    private TextField text_AccId;
 
+    @FXML
+    private TextField text_balance;
+
+    @FXML
+    private TextField text_type;
+
+    @FXML
+    private TextField text_userid;
     @FXML
     private AnchorPane center_pane;
 
@@ -53,20 +58,20 @@ public class ViewAccountController implements Initializable {
         DataBaseReader db = null;
 
         try {
-            ResultSet rs=db.read("select * from bank_account");
+           ResultSet rs=db.read("select * from bank_account");
             while (rs.next())
             {
 
-                //
+              //
 
-                list.add(new Account());
+             list.add(new Account());
 
             }
         }
 
-        catch (Exception e){
+      catch (Exception e){
 
-        }
+      }
 
 
         return list;
@@ -78,17 +83,17 @@ public class ViewAccountController implements Initializable {
     }
     public void Add_Account() {
         closeWindow();
-        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/Add Account.fxml"));
+        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/AddAccount.fxml"));
     }
 
-    public void Update_Account()  {
+    public void Update_Account() throws SQLException {
         closeWindow();
         center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/Update Account.fxml"));
     }
 
     public void Delete_Account()  {
         closeWindow();
-        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/Delete Account.fxml"));
+        center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/DeleteAccount.fxml"));
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -100,5 +105,3 @@ public class ViewAccountController implements Initializable {
         AccountTable.setItems(list);
     }
 }
-
-

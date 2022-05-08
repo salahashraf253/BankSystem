@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="open_account_pane" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.OpenAccountController">
    <children>
       <ScrollPane prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -29,7 +28,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="286.0" layoutY="81.0" prefHeight="26.0" prefWidth="58.0" />
+                  <ComboBox fx:id="title_cmb" layoutX="286.0" layoutY="81.0" prefHeight="26.0" prefWidth="76.0" />
                   <Label layoutX="171.0" layoutY="122.0" text="(As in ID/Passport)">
                      <font>
                         <Font size="11.0" />
@@ -59,7 +58,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="284.0" layoutY="300.0" prefHeight="26.0" prefWidth="175.0" />
+                  <ComboBox fx:id="occupation_cmb" layoutX="284.0" layoutY="300.0" prefHeight="26.0" prefWidth="175.0" />
                   <Label layoutX="123.0" layoutY="591.0" prefHeight="20.0" prefWidth="99.0" text="Account Type">
                      <font>
                         <Font size="14.0" />
@@ -98,7 +97,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="283.0" layoutY="588.0" prefHeight="26.0" prefWidth="346.0" />
+                  <ComboBox fx:id="acc_type_cmb" layoutX="283.0" layoutY="588.0" prefHeight="26.0" prefWidth="346.0" />
                   <Label layoutX="128.0" layoutY="339.0" text="Net Monthly Income">
                      <font>
                         <Font size="14.0" />
@@ -110,11 +109,11 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <CheckBox layoutX="286.0" layoutY="268.0" mnemonicParsing="false" text="Single" />
-                  <CheckBox layoutX="354.0" layoutY="268.0" mnemonicParsing="false" text="Married" />
-                  <CheckBox layoutX="434.0" layoutY="268.0" mnemonicParsing="false" text="Divorced" />
-                  <CheckBox layoutX="517.0" layoutY="268.0" mnemonicParsing="false" text="Widowed" />
-                  <JFXButton layoutX="496.0" layoutY="673.0" prefHeight="26.0" prefWidth="136.0" style="-fx-border-color: #000000;" text="Submit">
+                  <CheckBox fx:id="single_checkbox" layoutX="286.0" layoutY="268.0" mnemonicParsing="false" onAction="#singleChkHandler" text="Single" />
+                  <CheckBox fx:id="married_checkbox" layoutX="354.0" layoutY="268.0" mnemonicParsing="false" onAction="#marriedChkHandler" text="Married" />
+                  <CheckBox fx:id="divorced_checkbox" layoutX="434.0" layoutY="268.0" mnemonicParsing="false" onAction="#divorcedChkHandler" text="Divorced" />
+                  <CheckBox fx:id="widowed_checkbox" layoutX="517.0" layoutY="268.0" mnemonicParsing="false" onAction="#widowedChkHandler" text="Widowed" />
+                  <JFXButton layoutX="496.0" layoutY="673.0" onAction="#submit" prefHeight="26.0" prefWidth="136.0" style="-fx-border-color: #000000;" text="Submit">
                      <font>
                         <Font name="Microsoft YaHei Bold" size="14.0" />
                      </font>
