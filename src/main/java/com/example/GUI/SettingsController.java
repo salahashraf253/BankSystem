@@ -9,7 +9,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SettingsController implements Initializable {
-
     @FXML
     private Label acc_type_lbl, balance_lbl;
     @FXML
