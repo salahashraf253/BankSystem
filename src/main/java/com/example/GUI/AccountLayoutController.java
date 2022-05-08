@@ -36,11 +36,6 @@ public class AccountLayoutController implements Initializable {
         }
     }
     @FXML
-    public void openAccountForm() {
-        center_pane.getChildren().clear();
-        center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/OpenAccount.fxml"));
-    }
-    @FXML
     void home(){
         center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/Home.fxml"));
     }
