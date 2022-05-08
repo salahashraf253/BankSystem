@@ -85,7 +85,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                   <fx:include fx:id="open_account_pane" source="OpenAccount.fxml" />
-                  <fx:include fx:id="login_pane" source="LoginForm.fxml" />
+                  <fx:include fx:id="login_pane" source="LoanWindow.fxml" />
                   <fx:include fx:id="currency_conv_pane" source="currency-converter.fxml" />
 
                </children>
