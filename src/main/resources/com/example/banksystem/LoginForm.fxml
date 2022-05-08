@@ -10,8 +10,8 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="207.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="306.0" prefWidth="1500.0">
          <children>
-            <TextField layoutX="578.0" layoutY="44.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="ID" scaleShape="false" style="-fx-border-color: #000000; -fx-background-color: #00000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
-            <TextField layoutX="578.0" layoutY="106.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="Password" scaleShape="false" style="-fx-background-color: #00000000; -fx-border-color: #000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
+            <TextField fx:id="id_txt" layoutX="578.0" layoutY="44.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="ID" scaleShape="false" style="-fx-border-color: #000000; -fx-background-color: #00000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
+            <TextField fx:id="password_txt" layoutX="578.0" layoutY="106.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="344.0" promptText="Password" scaleShape="false" style="-fx-background-color: #00000000; -fx-border-color: #000000;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
             <JFXButton fx:id="login_btn" layoutX="659.0" layoutY="175.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#login" prefHeight="31.0" prefWidth="179.0" scaleShape="false" style="-fx-border-color: #000000;" text="Login" AnchorPane.leftAnchor="659.0" AnchorPane.rightAnchor="661.8">
                <font>
                   <Font size="14.0" />
