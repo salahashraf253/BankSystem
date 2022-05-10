@@ -1,7 +1,7 @@
 
 package com.example.banksystem.Account;
 
-public class Account {
+public abstract class Account {
     private String name;
     private int account_no;
     private int user_id;
