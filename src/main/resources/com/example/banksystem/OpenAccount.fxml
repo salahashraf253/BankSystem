@@ -22,7 +22,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="286.0" layoutY="115.0" prefHeight="26.0" prefWidth="345.0" />
+                  <TextField fx:id="name" layoutX="286.0" layoutY="115.0" prefHeight="26.0" prefWidth="345.0" />
                   <Label layoutX="130.0" layoutY="119.0" prefHeight="20.0" prefWidth="44.0" text="Name ">
                      <font>
                         <Font size="14.0" />
@@ -34,7 +34,7 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="286.0" layoutY="227.0" prefHeight="26.0" prefWidth="346.0" />
+                  <TextField fx:id="Id_passport" layoutX="286.0" layoutY="227.0" prefHeight="26.0" prefWidth="346.0" />
                   <Label layoutX="130.0" layoutY="158.0" prefHeight="20.0" prefWidth="58.0" text="Gender">
                      <font>
                         <Font size="14.0" />
@@ -48,7 +48,7 @@
                      </font>
                   </Label>
                   <DatePicker layoutX="286.0" layoutY="192.0" />
-                  <Label layoutX="130.0" layoutY="230.0" prefHeight="20.0" prefWidth="131.0" text="ID/Passport Number">
+                  <Label fx:id="id" layoutX="130.0" layoutY="230.0" prefHeight="20.0" prefWidth="131.0" text="ID/Passport Number">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -79,19 +79,19 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="282.0" layoutY="424.0" prefHeight="26.0" prefWidth="346.0" />
+                  <TextField fx:id="address" layoutX="282.0" layoutY="424.0" prefHeight="26.0" prefWidth="346.0" />
                   <Label layoutX="126.0" layoutY="461.0" prefHeight="20.0" prefWidth="131.0" text="Personal E-mail">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="282.0" layoutY="458.0" prefHeight="26.0" prefWidth="346.0" />
+                  <TextField fx:id="email" layoutX="282.0" layoutY="458.0" prefHeight="26.0" prefWidth="346.0" />
                   <Label layoutX="126.0" layoutY="496.0" prefHeight="20.0" prefWidth="131.0" text="Phone Number">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="282.0" layoutY="493.0" prefHeight="26.0" prefWidth="346.0" />
+                  <TextField fx:id="phoneNum" layoutX="282.0" layoutY="493.0" prefHeight="26.0" prefWidth="346.0" />
                   <Label layoutX="120.0" layoutY="540.0" text="Your Account Type">
                      <font>
                         <Font name="System Bold" size="16.0" />
@@ -103,7 +103,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="284.0" layoutY="336.0" />
+                  <TextField fx:id="salary" layoutX="284.0" layoutY="336.0" />
                   <Label layoutX="128.0" layoutY="266.0" text="Marital Status">
                      <font>
                         <Font size="14.0" />
