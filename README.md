@@ -4,6 +4,9 @@
 ## Main window
 <img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/MainWindow.png">
 
+## Home Window
+<img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/HomeWindow.png">
+
 ## Currency Converter window
 <img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/currrencyConverterAPI.png">
 
