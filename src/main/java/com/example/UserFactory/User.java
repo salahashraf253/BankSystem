@@ -1,22 +1,29 @@
 package com.example.UserFactory;
 
 import com.example.NotificationsObserver.SendNotificationHelper;
+import com.example.banksystem.Account.Account;
+import com.example.dataBase.DataBase;
+import com.example.dataBase.Functions.DataBaseReader;
 
 import java.util.Date;
 
 public abstract class User {
-    String firstname;
-    String lastname;
-    int Salary;
+    protected String firstname;
+    protected String lastname;
+    protected int Salary;
 
-    int SSD;
-    String phonenumber;
-    String Email;
-    Date dob;
-    String Password;
-    int UserId;
-    String Address;
+    protected int SSD;
+    protected String phonenumber;
+    protected String Email;
+    protected Date dob;
+    protected String Password;
+    protected int UserId;
+    protected String Address;
 
+
+    public User(){
+
+    }
     public String getFirstname() {
         return firstname;
     }
