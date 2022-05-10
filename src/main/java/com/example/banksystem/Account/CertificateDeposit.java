@@ -3,7 +3,7 @@ package com.example.banksystem.Account;
 
 public class CertificateDeposit extends SavingsAccount{
      public CertificateDeposit() {
-        type = "Certificate Deposit";
+        accountType = "Certificate Deposit";
     }
 
     public float Withdraw(float w) {

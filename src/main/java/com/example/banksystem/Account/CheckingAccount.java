@@ -13,6 +13,6 @@ public class CheckingAccount extends Account{
         else return 0;
     }
     public CheckingAccount() {
-        type = "Checking Account";
+        accountType = "Checking Account";
     }
 }
