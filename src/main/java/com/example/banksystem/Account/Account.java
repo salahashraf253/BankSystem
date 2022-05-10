@@ -1,12 +1,12 @@
 
 package com.example.banksystem.Account;
 
-public class Account implements Cloneable{
+public class Account {
     private String name;
     private int account_no;
     private int user_id;
     private float balance;
-    protected String type;
+    protected String accountType;
     public float Withdraw(float w){
         if(balance >= w) {
             balance = balance - w;
@@ -14,8 +14,8 @@ public class Account implements Cloneable{
         }
         else return 0;
     }
-    public String getType() {
-        return type;
+    public String getAccountType() {
+        return accountType;
     }
     public int getAccount_no() {
         return account_no;
@@ -29,20 +29,17 @@ public class Account implements Cloneable{
     public void setName(String name) {
         this.name = name;
     }
-    public float getBalance() {
-        return balance;
+    public Float getBalance() {
+        return this.balance;
     }
     public void setBalance(float balance) {
         this.balance = balance;
     }
-    
-    public Object clone(){
-        Object clone = null;
-        try {
-            clone = super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return clone;
+    public void setAccountType(String accountType){
+        this.accountType =accountType;
+    }
+
+    public void setUser_id(int user_id){
+        this.user_id=user_id;
     }
 }
