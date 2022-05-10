@@ -19,7 +19,8 @@ public abstract class User {
     protected String Password;
     protected int UserId;
     protected String Address;
-
+    protected String type;
+    protected String gender;
 
     public User(){
 
@@ -106,5 +107,13 @@ public abstract class User {
 
     public void notifyUser(String subject, String body){
         SendNotificationHelper send=new SendNotificationHelper(subject,body,this.Email);
+    }
+
+
+    protected String getType() {
+        return type;
+    }
+    protected String getGender() {
+        return gender;
     }
 }
