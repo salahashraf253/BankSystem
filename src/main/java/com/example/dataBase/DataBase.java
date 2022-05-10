@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 //Singleton pattern is applied in this class
 public abstract class DataBase {
-    private static final String dataBaseSchema="encrypted_data_base";
+    private static final String dataBaseSchema="bank_data_base";
     private static final String url="jdbc:mysql://localhost:3306/" + dataBaseSchema;
     private static final String user="root";
     private static final String password="1234";
