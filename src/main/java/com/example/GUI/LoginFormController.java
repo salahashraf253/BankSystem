@@ -61,10 +61,9 @@ public class LoginFormController {
 //        System.out.println("It is working ");
 //        pageLoader.closePage(login_pane);
 //        user.notifyUser("ASU Bank Security alert",emailBody);
-
+        LayoutController.user=user;
         pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);
         pageLoader.closePage(login_pane);
 //        user.notifyUser("ASU Bank Security alert",emailBody);
-        LayoutController.user=user;
     }
 }
