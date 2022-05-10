@@ -3,7 +3,7 @@ package com.example.banksystem.Account;
 
 public class SavingsAccount extends Account{
      public SavingsAccount() {
-        type = "Savings Account";
+        accountType = "Savings Account";
     }
     public float Withdraw(float w){
         float new_balance = getBalance();
