@@ -19,7 +19,9 @@ public class OpenAccountController implements Initializable {
 
     @FXML
     public DatePicker DateOfBirth;
+    @FXML
     public RadioButton male_Radio_Btn;
+    @FXML
     public RadioButton female_Radio_Btn;
     @FXML
     AnchorPane open_account_pane;
@@ -106,7 +108,6 @@ public class OpenAccountController implements Initializable {
             System.out.println(accountType);
             String []Id_Pass=new AuthenticationEmail().sendAuthenticationEmail(Email);
             int userID=Integer.parseInt(Id_Pass[0]);
-            pageLoader.loadPage("/com/example/banksystem/AccountConfirmation.fxml","EDB",false, false);
             Account account= FactoryAccount.getAccount(accountType);
             account.setBalance(0);
             account.setUser_id(userID);
@@ -116,8 +117,8 @@ public class OpenAccountController implements Initializable {
                     account,Salary,Address,status,getGender());
             c.setAccount(account);
             Client.CreateUser(c);
+            pageLoader.loadPage("/com/example/banksystem/AccountConfirmation.fxml","EDB",false, false);
             open_account_pane.setVisible(false);
-
         }
         catch (Exception e){
             System.out.println("Error in Open Account ");
