@@ -1,6 +1,10 @@
 
 package com.example.banksystem.Account;
 
+import com.example.dataBase.Functions.DataBaseWriter;
+
+import java.sql.SQLException;
+
 public abstract class Account {
     private String name;
     private int account_no;
@@ -41,5 +45,18 @@ public abstract class Account {
 
     public void setUser_id(int user_id){
         this.user_id=user_id;
+    }
+    public static void addAccount(Account account) throws SQLException {
+        String q="insert into bank_account" +
+                " (user_id,account_id,balance,type)"+
+                "VALUES(" +
+                "'" + account.user_id + "'," +
+                "'" + account.account_no + "'," +
+                "'" + account.balance + "'," +
+                "'"+account.accountType+"'"+
+                ")";
+        DataBaseWriter dataBaseWriter=new DataBaseWriter();
+        dataBaseWriter.write(q);
+        dataBaseWriter.closeConnection();
     }
 }
