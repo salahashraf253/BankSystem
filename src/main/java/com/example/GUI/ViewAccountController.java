@@ -64,7 +64,7 @@ public class ViewAccountController implements Initializable {
 
               //
 
-             list.add(new Account());
+//             list.add(new Account());
 
             }
         }

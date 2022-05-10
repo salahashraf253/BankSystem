@@ -3,9 +3,9 @@ import com.example.UserFactory.Client;
 import com.example.UserFactory.FactoryUser;
 import com.example.UserFactory.User;
 import com.example.banksystem.Account.Account;
-import com.example.banksystem.Account.AccountCache;
+import com.example.banksystem.Account.FactoryAccount;
 import com.example.dataBase.Functions.DataBaseReader;
-import com.example.dataBase.Functions.DecryptString;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 /*this class is used for mapping objects for database row*/
@@ -16,11 +16,11 @@ public class DataBaseMapping {
         //and return the user if found or null if not found
         try {
             if(resultSet.next()){
-                String type=DecryptString.getDecrptString(resultSet.getString("type"));
+                String type=(resultSet.getString("type"));
                 System.out.println("type1: "+type);
                 User user = FactoryUser.getUserType(type);
                 String encrptedUserId=resultSet.getString("user_id");
-                String userId=DecryptString.getDecrptString(encrptedUserId);
+                String userId=(encrptedUserId);
                 user.setUserId(Integer.parseInt(userId));
                 System.out.println("type2: "+type);
                 System.out.println();;
@@ -30,19 +30,19 @@ public class DataBaseMapping {
                     ((Client) user).setAccount(readAccountFromDB(encrptedUserId));
                 }
                 System.out.println("After get Account");
-                user.setUserId(Integer.parseInt(DecryptString.getDecrptString(resultSet.getString("user_id"))));
+                user.setUserId(Integer.parseInt((resultSet.getString("user_id"))));
                 // Email
-                user.setEmail(DecryptString.getDecrptString(resultSet.getString("email")));
+                user.setEmail((resultSet.getString("email")));
                 // Salary
-                user.setSalary(Integer.parseInt(DecryptString.getDecrptString(resultSet.getString("salary"))));
+                user.setSalary(Integer.parseInt((resultSet.getString("salary"))));
                 // First Name
-                user.setFirstname(DecryptString.getDecrptString(resultSet.getString("firstName")));
+                user.setFirstname((resultSet.getString("firstName")));
                 // Last Name
-                user.setLastname(DecryptString.getDecrptString(resultSet.getString("lastName")));
+                user.setLastname((resultSet.getString("lastName")));
                 // Phone Number
-                user.setPhonenumber(DecryptString.getDecrptString(resultSet.getString("phone")));
+                user.setPhonenumber((resultSet.getString("phone")));
                 //salary
-                user.setSalary(Integer.parseInt(DecryptString.getDecrptString(resultSet.getString("salary"))));
+                user.setSalary(Integer.parseInt((resultSet.getString("salary"))));
                 return user;
             }
             else{
@@ -64,17 +64,17 @@ public class DataBaseMapping {
             ResultSet accountData=dbr.read(query);
             if(accountData.next()){
                 System.out.println("Account of user is found");
-                String accountType=DecryptString.getDecrptString(accountData.getString("type"));
-                float balance=Float.parseFloat(DecryptString.getDecrptString(accountData.getString("balance")));
-                String accountNumber=DecryptString.getDecrptString(accountData.getString("account_id"));
-                AccountCache.loadCache();
-                Account clonedAccount =  AccountCache.getAccount("1");    //checking account
-                clonedAccount.setAccountType(accountType);
-                clonedAccount.setBalance(balance);
+                String accountType=(accountData.getString("type"));
+                float balance=Float.parseFloat((accountData.getString("balance")));
+                String accountNumber=(accountData.getString("account_id"));
+                Account unknownAccount =  FactoryAccount.getAccount(accountType);    //checking account
+//                unknownAccount.setAccountType(accountType);
+                assert unknownAccount != null;
+                unknownAccount.setBalance(balance);
                 System.out.println("Balance: "+balance);
-                clonedAccount.setAccount_no(Integer.parseInt(accountNumber));
+                unknownAccount.setAccount_no(Integer.parseInt(accountNumber));
 //                clonedAcc1.setUser_id(Integer.parseInt(userID));
-                return clonedAccount;
+                return unknownAccount;
             }
             else System.out.println("no account found");
         }

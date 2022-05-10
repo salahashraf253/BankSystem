@@ -16,14 +16,4 @@ public class Staff extends User{
         this.position = position;
     }
 
-
-    @Override
-    public void CreateUser(User user) {
-        //in database mara wa7da
-        // like UserFactory.Staff (user.name ,user.ssd , ...etc)
-        //insert into staff values
-        System.out.println("here in staff");
-
-    }
-
 }

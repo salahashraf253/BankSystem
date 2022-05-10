@@ -104,8 +104,6 @@ public abstract class User {
         Address = address;
     }
 
-    public abstract void CreateUser(User user);
-
     public void notifyUser(String subject, String body){
         SendNotificationHelper send=new SendNotificationHelper(subject,body,this.Email);
     }
