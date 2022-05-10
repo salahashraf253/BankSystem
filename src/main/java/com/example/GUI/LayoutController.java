@@ -1,5 +1,6 @@
 package com.example.GUI;
 
+import com.example.UserFactory.User;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ public class LayoutController implements Initializable {
     @FXML
     protected JFXButton login_btn, currency_conv_btn;
 
+    public static User user;
     PageLoader pageLoader = new PageLoader();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
