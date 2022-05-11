@@ -11,6 +11,10 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import static com.example.GUI.LayoutController.user;
 
 public class HomeController implements Initializable {
 
@@ -19,14 +23,14 @@ public class HomeController implements Initializable {
     @FXML
     public Label rem_balance_lbl;
 
-    private Client client=(Client)LayoutController.user;;
+    private Client client=(Client) user;;
 
     @FXML
     private TextField withdraw_amount_txt;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
-            System.out.println("Name: "+LayoutController.user.getFirstname());
+            System.out.println("Name: "+ user.getFirstname());
 //            name_lbl.setText(LayoutController.user.getFirstname());
             Platform.runLater(() -> {
                 name_lbl.setText(client.getFirstname());
@@ -51,8 +55,20 @@ public class HomeController implements Initializable {
         account.setAccountNo(client.getUserId());
         if(account.canWithdraw(amount)){
             account.withdraw(amount);
-            account.updateBalance();
+//            account.updateBalance();
             updateRemainingBalanceLabel();
+            ExecutorService executor = Executors.newCachedThreadPool();
+            Runnable updateBalance = ()-> {
+                try {
+                    account.updateBalance();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            };
+            executor.execute(updateBalance);
+            Runnable callMultiply = () -> user.notifyUser("ASU Bank","you have withdraw "+amount);
+            executor.execute(callMultiply);
+            executor.shutdown();
         }
         else System.out.println("Sorry, Your balance is not enough");
     }
