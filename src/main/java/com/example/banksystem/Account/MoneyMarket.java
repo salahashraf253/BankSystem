@@ -2,18 +2,14 @@
 package com.example.banksystem.Account;
 
 public class MoneyMarket extends CheckingAccount{
+    private final float withdrawalCost = 1.5F;
     public MoneyMarket() {
         accountType = "MoneyMarket";
     }
-    public float Withdraw(float w){
-        float new_balance = getBalance();
-        if(new_balance>=w) {
-            new_balance = getBalance() - w;
-            //penalty
-            new_balance -= 1.5;
-            setBalance(new_balance);
-            return new_balance;
-        }
-        else return 0;
+    public void withdraw(float amount){
+        this.setBalance(this.getBalance()-withdrawalCost);
+    }
+    public  boolean canWithdraw(double amount) {
+        return amount <= this.getBalance()+ withdrawalCost;
     }
 }
