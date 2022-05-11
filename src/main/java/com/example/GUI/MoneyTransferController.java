@@ -1,18 +1,13 @@
 package com.example.GUI;
 
 import com.example.UserFactory.Client;
-import com.example.notification.NotificationBuilder;
+import com.example.banksystem.Account.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
-import tray.notification.NotificationType;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class MoneyTransferController implements Initializable {
@@ -25,15 +20,22 @@ public class MoneyTransferController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // account number of user from database put it in setText
-      //  Client c= (Client) LayoutController.user;
-     //   from_txt.setText(Integer.toString(c.getAccount().getAccount_no()));
+        Client c= (Client) LayoutController.user;
+        from_txt.setText(Integer.toString(c.getAccount().getAccount_no()));
     }
+    private Client c= (Client) LayoutController.user;
     @FXML
-    public void TransferMoney(){
-        NotificationBuilder.trayNotification("Successful Transaction", NotificationType.SUCCESS);
-      //  int toAccount=Integer.parseInt( to_txt.getText());
-     //   double amount= Integer.parseInt( Amount_txt.getText());
+    public void TransferMoney() throws SQLException {
+        int toAccount=Integer.parseInt( to_txt.getText());
+        float amount= Integer.parseInt( Amount_txt.getText());
+        System.out.println("To account: "+toAccount);
+        System.out.println("Amount: "+amount);
         // put this Amount in Account where Account number=toAccount
-
+        Account account=c.getAccount();
+        if(account.canTransferMoney(amount)){
+            account.transferMoney(toAccount,amount);
+            account.updateBalance();
+        }
+        else System.out.println("Can not transfer money");
     }
 }
