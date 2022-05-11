@@ -17,6 +17,7 @@ public class MainClass extends Application {
             Scene scene = new Scene(root);
             stage.setTitle("BankSystem");
             stage.setMaximized(true);
+
             stage.setScene(scene);
             stage.show();
         }
