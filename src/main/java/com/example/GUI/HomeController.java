@@ -51,7 +51,7 @@ public class HomeController implements Initializable {
         account.setAccountNo(client.getUserId());
         if(account.canWithdraw(amount)){
             account.withdraw(amount);
-            account.updateBalance(amount);
+            account.updateBalance();
             updateRemainingBalanceLabel();
         }
         else System.out.println("Sorry, Your balance is not enough");
