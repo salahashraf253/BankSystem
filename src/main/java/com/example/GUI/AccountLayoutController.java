@@ -38,6 +38,13 @@ public class AccountLayoutController implements Initializable {
     @FXML
     void home(){
         center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/Home.fxml"));
+        try{
+            System.out.println(LayoutController.user.getFirstname());
+        }
+        catch (Exception e){
+            System.out.println("Error in Account layout controller");
+            System.out.println(e.getMessage());
+        }
     }
     @FXML
     void moneyTransfer(){
