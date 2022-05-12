@@ -1,18 +1,20 @@
 
 package com.example.banksystem.Account;
 
+import com.example.dataBase.Functions.DataBaseUpdater;
+import com.example.dataBase.Functions.DataBaseWriter;
+
+import java.sql.SQLException;
+
 public abstract class Account {
     private String name;
     private int account_no;
     private int user_id;
     private float balance;
     protected String accountType;
-    public float Withdraw(float w){
-        if(balance >= w) {
-            balance = balance - w;
-            return balance;
-        }
-        else return 0;
+
+    public  void withdraw(float amount){
+        this.balance-=amount;
     }
     public String getAccountType() {
         return accountType;
@@ -41,5 +43,27 @@ public abstract class Account {
 
     public void setUser_id(int user_id){
         this.user_id=user_id;
+    }
+    public static void addAccount(Account account) throws SQLException {
+        String q="insert into bank_account" +
+                " (user_id,account_id,balance,type)"+
+                "VALUES(" +
+                "'" + account.user_id + "'," +
+                "'" + account.account_no + "'," +
+                "'" + account.balance + "'," +
+                "'"+account.accountType+"'"+
+                ")";
+        DataBaseWriter dataBaseWriter=new DataBaseWriter();
+        dataBaseWriter.write(q);
+        dataBaseWriter.closeConnection();
+    }
+
+    public boolean canWithdraw(double amount){
+        return this.balance<=amount;
+    }
+    public void updateBalance(float amount) throws SQLException {
+        DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
+        String query="update bank_account set balance='" +balance+"' where user_id='" + user_id +"';";
+        dataBaseUpdater.update(query);
     }
 }

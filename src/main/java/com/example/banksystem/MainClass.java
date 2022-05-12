@@ -11,13 +11,18 @@ import java.io.IOException;
 public class MainClass extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Layout.fxml"));
-        stage.initStyle(StageStyle.DECORATED);
-        Scene scene = new Scene(root);
-        stage.setTitle("BankSystem");
-        stage.setMaximized(true);
-        stage.setScene(scene);
-        stage.show();
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("Layout.fxml"));
+            stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setTitle("BankSystem");
+            stage.setMaximized(true);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void main(String[] args) {

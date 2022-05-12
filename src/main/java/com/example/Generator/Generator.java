@@ -1,5 +1,7 @@
 package com.example.Generator;
 
+import com.example.dataBase.Functions.DataBaseReader;
+
 import java.sql.SQLException;
 
 /*
@@ -9,4 +11,5 @@ authentication  code for sign up option
 * */
 public interface Generator {
     String build() throws SQLException;
+    DataBaseReader dataBaseReader = new DataBaseReader();
 }

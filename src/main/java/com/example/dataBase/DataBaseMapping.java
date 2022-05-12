@@ -73,7 +73,7 @@ public class DataBaseMapping {
                 unknownAccount.setBalance(balance);
                 System.out.println("Balance: "+balance);
                 unknownAccount.setAccount_no(Integer.parseInt(accountNumber));
-//                clonedAcc1.setUser_id(Integer.parseInt(userID));
+                unknownAccount.setUser_id(Integer.parseInt(userID));
                 return unknownAccount;
             }
             else System.out.println("no account found");

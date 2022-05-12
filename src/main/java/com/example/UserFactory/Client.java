@@ -4,6 +4,7 @@ import com.example.banksystem.Account.Account;
 import com.example.dataBase.Functions.DataBaseWriter;
 
 import java.sql.Date;
+import java.sql.SQLException;
 
 
 public class Client extends User{
@@ -14,7 +15,7 @@ public class Client extends User{
     }*/
     private Account account;
     public Client(String firstName, String lastName, int userId,int ssd, String password, String email, Account account,
-                  int salary,String address){
+                  int salary,String address,String status,String gender){
         this.account=account;
         this.firstname=firstName;
         this.lastname=lastName;
@@ -24,6 +25,8 @@ public class Client extends User{
         this.Email=email;
         this.SSD=ssd;
         this.Address=address;
+        this.status=status;
+        this.gender=gender;
     }
     public Client(){
 
@@ -35,19 +38,31 @@ public class Client extends User{
     public Account getAccount(){
         return this.account;
     }
-    public static void CreateUser(User user) {
+    public static void CreateUser(Client user) throws SQLException {
         //in database mara wa7da
         // like UserFactory.Client (user.name ,user.ssd , ...etc)
         //insert into UserFactory.Client values
         System.out.println("here in client");
         DataBaseWriter dataBaseWriter=new DataBaseWriter();
-        String query="insert into user ('user_id', 'ssn', 'email', 'password', 'firstName', " +
-                "'lastName','salary','phone','type','address','gender','status')"
-                + "values('" + user.getUserId() + "','" + user.getSSD()
-                + "','" + user.getEmail() + "','" + user.getPassword() + "','" +
-                user.getFirstname() + "','" + user.getLastname()
-                + "','" + user.getSalary() + "','" + user.getPhonenumber() +
-                 "','" + user.getType() + "','" + user.getAddress() + "','"+ user.getGender() +"','" +")";
+        String query="insert into user" +
+                " (user_id,ssn,email,password,firstName,lastName, " +
+                "salary, phone,address,status,gender,type)"+
+                "VALUES(" +
+                "'" + user.getUserId()+ "'," +
+                        "'" + user.getSSD() + "'," +
+                        "'" + user.getEmail() + "'," +
+                        "'" + user.getPassword() + "'," +
+                        "'" + user.getFirstname() + "'," +
+                        "'" + user.getLastname() + "'," +
+                        "'" + user.getSalary() + "'," +
+                        "'"+user.getPhonenumber()+"',"+
+                        "'"+user.getAddress()+"',"+
+                        "'"+user.getStatus()+"',"+
+                         "'"+user.getGender()+"',"+
+                          "'"+"c"+"'"+  //c : client
+                              ")";
+        dataBaseWriter.write(query);
+        Account.addAccount(user.account);
     }
 
 //    private String name;

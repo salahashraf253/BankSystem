@@ -21,7 +21,7 @@ public abstract class User {
     protected String Address;
     protected String type;
     protected String gender;
-
+    protected String status;
     public User(){
 
     }
@@ -115,5 +115,8 @@ public abstract class User {
     }
     public String getGender() {
         return gender;
+    }
+    protected String getStatus() {
+        return status;
     }
 }

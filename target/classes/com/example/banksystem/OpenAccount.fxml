@@ -40,14 +40,14 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="286.0" layoutY="160.0" mnemonicParsing="false" text="Male" />
-                  <RadioButton layoutX="361.0" layoutY="160.0" mnemonicParsing="false" text="Female" />
+                  <RadioButton fx:id="male_Radio_Btn" layoutX="286.0" layoutY="160.0" mnemonicParsing="false" text="Male" />
+                  <RadioButton fx:id="female_Radio_Btn" layoutX="361.0" layoutY="160.0" mnemonicParsing="false" text="Female" />
                   <Label layoutX="130.0" layoutY="195.0" prefHeight="20.0" prefWidth="90.0" text="Date of Birth">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <DatePicker layoutX="286.0" layoutY="192.0" />
+                  <DatePicker fx:id="DateOfBirth" layoutX="286.0" layoutY="192.0" />
                   <Label fx:id="id" layoutX="130.0" layoutY="230.0" prefHeight="20.0" prefWidth="131.0" text="ID/Passport Number">
                      <font>
                         <Font size="14.0" />
