@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class AccountIDGenerator implements Generator{
     @Override
     public String build() throws SQLException {
-        String query="select * from bank_account;";
+        String query="select count(*) from bank_account;";
         ResultSet resultSet= dataBaseReader.read(query);
         if(resultSet.next()){
             int numOfAccounts= resultSet.getInt(1);
