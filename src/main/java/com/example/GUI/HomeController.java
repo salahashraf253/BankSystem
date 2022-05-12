@@ -50,6 +50,10 @@ public class HomeController implements Initializable {
 
     @FXML
     public void withdrawMoney() throws SQLException {
+        if(withdraw_amount_txt.getText().length()==0){
+            System.out.println("Please enter a valid amount");
+            return;
+        }
         float amount=Float.parseFloat(withdraw_amount_txt.getText());
         Account account= client.getAccount();
         account.setAccountNo(client.getUserId());
