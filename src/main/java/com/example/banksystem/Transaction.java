@@ -15,7 +15,7 @@ public class Transaction {
     private Date date;
     private String type;
 
-    public Transaction(int transactionID, float amount, Date date, String type) {
+    private Transaction(int transactionID, float amount, Date date, String type) {
         this.transactionID = transactionID;
         this.amount = amount;
         this.date = date;
