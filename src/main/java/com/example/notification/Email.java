@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public abstract class Email {
     private final String userName = "salah.ashraf.2060";  // gmail username (just the part before "@gmail.com")
-    private final String password = "39000062"; // gmail password
+    private final String password = "asuBank12"; // gmail password
     private final String host = "smtp.gmail.com";
     protected String fontType="font-family:'Times New Roman'";
     private String emailSubject;
