@@ -10,23 +10,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.crypto.Cipher;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 public class OpenAccountController implements Initializable {
-
-    @FXML
-    public DatePicker DateOfBirth;
-    @FXML
-    public RadioButton male_Radio_Btn;
-    @FXML
-    public RadioButton female_Radio_Btn;
     @FXML
     AnchorPane open_account_pane;
     @FXML
     ComboBox<String> title_cmb;
+    @FXML
+    public DatePicker DateOfBirth;
+    @FXML
+    public RadioButton male_radio_btn, female_radio_btn;
     @FXML
     ComboBox<String> occupation_cmb;
     @FXML
@@ -34,7 +30,7 @@ public class OpenAccountController implements Initializable {
     @FXML
     CheckBox single_checkbox, married_checkbox, divorced_checkbox, widowed_checkbox;
     @FXML
-    TextField Id_passport ,address ,name,email ,salary,phoneNum;
+    TextField id_passport ,address ,name,email ,salary,phoneNum;
 
     PageLoader pageLoader = new PageLoader();
     @Override
@@ -84,11 +80,13 @@ public class OpenAccountController implements Initializable {
             return widowed_checkbox.getText();
         return null;
     }
-    private String getGender(){
-        if(male_Radio_Btn.isSelected()){
-            return "male";
-        }
-        else return "female";
+     @FXML
+     String getGender(){
+        if(male_radio_btn.isSelected())
+            return male_radio_btn.getText();
+        else if(female_radio_btn.isSelected())
+            return female_radio_btn.getText();
+        return null;
     }
     @FXML
     void closeWindow() {
@@ -101,7 +99,7 @@ public class OpenAccountController implements Initializable {
             String Email=email.getText();
             String Address=address.getText();
             String []fullName= name.getText().split(" ");
-            int ssn = Integer.parseInt(Id_passport.getText());
+            int ssn = Integer.parseInt(id_passport.getText());
             int Salary = Integer.parseInt(salary.getText());
             String status=getSelectedStatus();
             String accountType=acc_type_cmb.getValue();

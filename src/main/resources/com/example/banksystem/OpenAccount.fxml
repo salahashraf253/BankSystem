@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="open_account_pane" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.OpenAccountController">
+<AnchorPane fx:id="open_account_pane" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.OpenAccountController">
    <children>
       <ScrollPane prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
@@ -34,14 +28,18 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="Id_passport" layoutX="286.0" layoutY="227.0" prefHeight="26.0" prefWidth="346.0" />
+                  <TextField fx:id="id_passport" layoutX="286.0" layoutY="227.0" prefHeight="26.0" prefWidth="346.0" />
                   <Label layoutX="130.0" layoutY="158.0" prefHeight="20.0" prefWidth="58.0" text="Gender">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="male_Radio_Btn" layoutX="286.0" layoutY="160.0" mnemonicParsing="false" text="Male" />
-                  <RadioButton fx:id="female_Radio_Btn" layoutX="361.0" layoutY="160.0" mnemonicParsing="false" text="Female" />
+                  <RadioButton fx:id="male_radio_btn" layoutX="286.0" layoutY="160.0" mnemonicParsing="false" onAction="#getGender" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="female_radio_btn" layoutX="361.0" layoutY="160.0" mnemonicParsing="false" onAction="#getGender" text="Female" toggleGroup="$gender" />
                   <Label layoutX="130.0" layoutY="195.0" prefHeight="20.0" prefWidth="90.0" text="Date of Birth">
                      <font>
                         <Font size="14.0" />
