@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -40,7 +41,7 @@ public class OpenAccountController implements Initializable {
                 "Computer Programmer", "Chef", "Dentist", "Doctor", "Electrician", "Engineer", "Factory Worker", "Farmer",
                 "Fireman", "Flight Attendant", "Judge", "Lawyer", "Musician", "Nurse", "Photographer", "Pilot", "Police Officer",
                 "Self Employed", "Scientist", "Student", "Taxi Driver", "Teacher", "Worker");
-        acc_type_cmb.getItems().addAll("Checking", "Saving", " Money Market", "Certificate Deposit");
+        acc_type_cmb.getItems().addAll("Checking", "Saving", "Money Market", "Certificate Deposit");
     }
     void clearAllCheckBox(){
         single_checkbox.setSelected(false);
@@ -94,7 +95,7 @@ public class OpenAccountController implements Initializable {
     }
 
     @FXML
-    void submit(){
+    void submit() throws SQLException {
         try{
             String Email=email.getText();
             String Address=address.getText();
