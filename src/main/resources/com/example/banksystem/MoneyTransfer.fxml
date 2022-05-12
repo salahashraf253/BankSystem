@@ -3,39 +3,66 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="426.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.MoneyTransferController">
+<AnchorPane prefHeight="569.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.MoneyTransferController">
     <children>
-        <Label layoutX="69.0" layoutY="41.0" text="Transfer Money" textFill="#003366">
+      <ImageView fitHeight="44.0" fitWidth="53.0" layoutX="18.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/icons8-transfer-money-64.png" />
+         </image>
+      </ImageView>
+        <Label layoutX="76.0" layoutY="28.0" text="Transfer Money" textFill="#003366">
             <font>
                 <Font name="System Bold Italic" size="24.0" />
             </font>
         </Label>
-        <TextField fx:id="from_txt" editable="false" layoutX="37.0" layoutY="158.0" promptText="Account Number " />
-        <TextField fx:id="to_txt" layoutX="235.0" layoutY="158.0" promptText="Account Number" />
-        <TextField fx:id="Amount_txt" layoutX="430.0" layoutY="158.0" promptText="Amount" />
-        <Label layoutX="37.0" layoutY="132.0" text="From" textFill="#003366">
-            <font>
-                <Font name="System Bold Italic" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="244.0" layoutY="132.0" text="To" textFill="#003366">
-            <font>
-                <Font name="System Bold Italic" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="430.0" layoutY="132.0" text="Amount" textFill="#003366">
-            <font>
-                <Font name="System Bold Italic" size="14.0" />
-            </font>
-        </Label>
-        <Button layoutX="512.0" layoutY="368.0" mnemonicParsing="false" onAction="#TransferMoney" stylesheets="@style.css" text="Transfer" textFill="#f5f3f3">
-            <font>
-                <Font name="System Bold Italic" size="14.0" />
-            </font>
-        </Button>
+      <AnchorPane layoutX="68.0" layoutY="105.0" prefHeight="302.0" prefWidth="791.0" style="-fx-border-color: #003366;">
+         <children>
+              <TextField fx:id="from_txt" layoutX="113.0" layoutY="71.0" promptText="Account Number ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+              <TextField fx:id="to_txt" layoutX="483.0" layoutY="71.0" promptText="Account Number">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+              <TextField fx:id="Amount_txt" layoutX="319.0" layoutY="159.0" promptText="Amount">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+              <Label layoutX="65.0" layoutY="75.0" text="From" textFill="#003366">
+                  <font>
+                      <Font name="System Bold Italic" size="15.0" />
+                  </font>
+              </Label>
+              <Label layoutX="458.0" layoutY="75.0" text="To" textFill="#003366">
+                  <font>
+                      <Font name="System Bold Italic" size="15.0" />
+                  </font>
+              </Label>
+              <Label layoutX="253.0" layoutY="164.0" text="Amount" textFill="#003366">
+                  <font>
+                      <Font name="System Bold Italic" size="15.0" />
+                  </font>
+              </Label>
+              <Button layoutX="584.0" layoutY="210.0" mnemonicParsing="false" onAction="#TransferMoney" prefHeight="44.0" prefWidth="151.0" stylesheets="@style.css" text="Transfer" textFill="#f5f3f3">
+                  <font>
+                      <Font name="System Bold Italic" size="14.0" />
+                  </font>
+              </Button>
+            <ImageView fitHeight="51.0" fitWidth="87.0" layoutX="356.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/icons8-money-transfer-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

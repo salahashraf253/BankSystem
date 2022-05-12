@@ -18,8 +18,8 @@ public class MoneyTransferController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // account number of user from database put it in setText
-        Client c= (Client) LayoutController.user;
-        from_txt.setText(Integer.toString(c.getAccount().getAccount_no()));
+      //  Client c= (Client) LayoutController.user;
+     //   from_txt.setText(Integer.toString(c.getAccount().getAccount_no()));
     }
     @FXML
     public void TransferMoney(){
