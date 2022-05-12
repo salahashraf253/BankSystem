@@ -110,10 +110,10 @@ public abstract class User {
     }
 
 
-    protected String getType() {
+    public String getType() {
         return type;
     }
-    protected String getGender() {
+    public String getGender() {
         return gender;
     }
 }

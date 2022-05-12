@@ -41,10 +41,13 @@ public class LoginFormController {
 
     @FXML
     void login() throws SQLException {
+        pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);
+        pageLoader.closePage(login_pane);
         User user= Login.validateLogin(id_txt.getText(),password_txt.getText());
         if(user==null){
             incorrect_password.setVisible(true);
             incorrect_userId.setVisible(true);
+
             return; //invalid user id or password
         }
         String emailBody="You have just logged in";
@@ -65,8 +68,7 @@ public class LoginFormController {
 //        pageLoader.closePage(login_pane);
 //        user.notifyUser("ASU Bank Security alert",emailBody);
         LayoutController.user=user;
-        pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);
-        pageLoader.closePage(login_pane);
+
 //        user.notifyUser("ASU Bank Security alert",emailBody);
     }
 }

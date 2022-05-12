@@ -27,7 +27,7 @@ public class DataBaseMapping {
                 assert user != null;
                 if(type.compareTo("c")==0){
                     user=(Client)user;
-                    ((Client) user).setAccount(readAccountFromDB(encrptedUserId));
+                  //  ((Client) user).setAccount(readAccountFromDB(encrptedUserId));
                 }
                 System.out.println("After get Account");
                 user.setUserId(Integer.parseInt((resultSet.getString("user_id"))));
