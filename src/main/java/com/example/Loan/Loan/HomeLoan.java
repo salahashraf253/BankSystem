@@ -1,5 +1,9 @@
 package com.example.Loan.Loan;
 
+import javafx.collections.ObservableList;
+
+import java.time.LocalDate;
+
 public class HomeLoan extends Loan{
     @Override
     public void ApplyForLoan() {
@@ -13,6 +17,6 @@ public class HomeLoan extends Loan{
 
     @Override
     public double CalcMonthlyPaid(int numOfMonths) {
-        return (Amount + rate* Amount) / numOfMonths;
+        return (amount + rate* amount) / numOfMonths;
     }
 }

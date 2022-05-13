@@ -1,6 +1,8 @@
 package com.example.Loan.Loan;
 
+
 public class PersonalLoan extends Loan{
+
     @Override
     public void ApplyForLoan() {
 
@@ -14,13 +16,8 @@ public class PersonalLoan extends Loan{
 
     @Override
     public double CalcMonthlyPaid(int numOfMonths) {
-        return (Amount + rate* Amount) / numOfMonths;
+        return (amount + rate* amount) / numOfMonths;
     }
-
-
-
-
-
 
 
 }
