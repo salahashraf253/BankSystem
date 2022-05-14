@@ -20,8 +20,8 @@ public class IdGenerator implements Generator{
         ResultSet resultSet=dataBaseReader.read(query);
         String id= "";
         if(resultSet.next()){
-            int numOfUsers= resultSet.getInt(1);
-            id=Integer.toString(++numOfUsers);
+            int ctr= resultSet.getInt(1);
+            id=Integer.toString(++ctr);
         }
         return id;
     }
