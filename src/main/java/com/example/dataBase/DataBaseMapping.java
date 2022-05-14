@@ -4,10 +4,14 @@ import com.example.UserFactory.FactoryUser;
 import com.example.UserFactory.User;
 import com.example.banksystem.Account.Account;
 import com.example.banksystem.Account.FactoryAccount;
+import com.example.banksystem.Transaction;
 import com.example.dataBase.Functions.DataBaseReader;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
 /*this class is used for mapping objects for database row*/
 public class DataBaseMapping {
 
@@ -83,5 +87,26 @@ public class DataBaseMapping {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    public static ObservableList<Transaction> loadTransactionsFromDataBase(int userId) throws SQLException {
+        ObservableList<Transaction> transactionsList = FXCollections.observableArrayList();
+        DataBaseReader dbr=new DataBaseReader();
+        String query="select * from transaction where user_id='"+userId+"';";
+        ResultSet transactionData=dbr.read(query);
+        Transaction transaction;
+        int transactionID;
+        float amount;
+        Date date;
+        String type;
+        while (transactionData.next()){
+            transactionID=transactionData.getInt("transaction_id");
+            amount=transactionData.getInt("amount");
+            date=transactionData.getDate("date");
+            type=transactionData.getString("status");
+            transaction=new Transaction(transactionID,amount,date,type);
+            transactionsList.add(transaction);
+        }
+        return transactionsList;
     }
 }
