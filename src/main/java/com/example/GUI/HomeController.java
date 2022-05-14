@@ -1,7 +1,10 @@
 package com.example.GUI;
 
+import com.example.Generator.Generator;
+import com.example.Generator.IdGenerator;
 import com.example.UserFactory.Client;
 import com.example.banksystem.Account.Account;
+import com.example.banksystem.Transaction;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,10 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.DoubleStream;
 
 import static com.example.GUI.LayoutController.user;
 
@@ -65,6 +70,11 @@ public class HomeController implements Initializable {
             Runnable updateBalance = ()-> {
                 try {
                     account.updateBalance();
+                    IdGenerator idGenerator=new IdGenerator();
+                    int transactionId= (idGenerator.generate(Generator.generator.transaction_id));
+                    Date date=(new java.sql.Date(new java.util.Date().getTime()));
+                    client.setTransaction(new Transaction(client.getUserId(),transactionId,amount,date,"withdraw"));
+                    client.addTransaction();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
