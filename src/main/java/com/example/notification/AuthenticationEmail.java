@@ -1,6 +1,7 @@
 package com.example.notification;
 
 
+import com.example.Generator.Generator;
 import com.example.Generator.IdGenerator;
 import com.example.Generator.PasswordGenerator;
 
@@ -9,10 +10,9 @@ import java.sql.SQLException;
 public class AuthenticationEmail extends Email {
 
     public String [] sendAuthenticationEmail(String recipient) throws SQLException {
-        PasswordGenerator passwordGenerator=new PasswordGenerator();
         IdGenerator idGenerator=new IdGenerator();
-        String id=idGenerator.build();
-        String password=passwordGenerator.build();
+        String id=Integer.toString(idGenerator.generate(Generator.generator.user_id));
+        String password=PasswordGenerator.generatePassword();
         String emailBody="<font size=+2>"+
                 "<p style="+fontType+">"+
                 "<b>Hello!</b>" +
