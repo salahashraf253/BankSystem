@@ -1,6 +1,5 @@
 package com.example.GUI;
 
-import com.example.banksystem.Account.Account;
 import com.example.banksystem.Transaction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
+import static com.example.GUI.LayoutController.user;
 
 public class AccountHistoryController implements Initializable {
     @FXML
@@ -47,7 +47,8 @@ public class AccountHistoryController implements Initializable {
     }
     public void loadTransactions(){
        try{
-            list= Transaction.getTransactions(4123);
+            list= Transaction.getTransactions(user.getUserId());
+
             history_table.setItems(list);
         }
         catch (Exception e){
