@@ -113,7 +113,7 @@ public class OpenAccountController implements Initializable {
             account.setBalance(0);
             account.setUser_id(userID);
             account.setAccountType(acc_type_cmb.getValue());
-            account.setAccount_no(Integer.parseInt(new IdGenerator().generate(Generator.generator.account_id)));
+            account.setAccount_no((new IdGenerator().generate(Generator.generator.account_id)));
             Client c=new Client(fullName[0],fullName[1],userID,ssn,Id_Pass[1],Email,
                     account,Salary,Address,status,getGender());
             c.setAccount(account);

@@ -2,6 +2,7 @@ package com.example.Generator;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class IdGenerator implements Generator{
 
@@ -14,16 +15,17 @@ public class IdGenerator implements Generator{
     }
 
     @Override
-    public String generate(generator whatToGenerate) throws SQLException {
+    public int generate(generator whatToGenerate) throws SQLException {
         String query="select count(*) from ";
         query+= getNameOfTable(whatToGenerate) +" ;";
         ResultSet resultSet=dataBaseReader.read(query);
-        String id= "";
         if(resultSet.next()){
             int ctr= resultSet.getInt(1);
-            id=Integer.toString(++ctr);
+            System.out.println("Ctr : "+ctr);
+            return (ctr+1);
         }
-        return id;
+        System.out.println("Error in ID Generator");
+        return 0;
     }
 
 }
