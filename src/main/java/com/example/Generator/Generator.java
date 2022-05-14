@@ -10,6 +10,11 @@ we have to generate two Strings
 authentication  code for sign up option
 * */
 public interface Generator {
-    String build() throws SQLException;
+    String generate(generator whatToGenerate) throws SQLException;
     DataBaseReader dataBaseReader = new DataBaseReader();
+    enum generator{
+        user_id,
+        account_id,
+        transaction_id,
+    }
 }

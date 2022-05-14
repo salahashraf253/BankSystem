@@ -1,6 +1,8 @@
 package com.example.GUI;
 
-import com.example.Generator.AccountIDGenerator;
+
+import com.example.Generator.Generator;
+import com.example.Generator.IdGenerator;
 import com.example.UserFactory.Client;
 import com.example.banksystem.Account.Account;
 import com.example.banksystem.Account.FactoryAccount;
@@ -109,9 +111,9 @@ public class OpenAccountController implements Initializable {
             int userID=Integer.parseInt(Id_Pass[0]);
             Account account= FactoryAccount.getAccount(accountType);
             account.setBalance(0);
-            account.setUserId(userID);
+            account.setUser_id(userID);
             account.setAccountType(acc_type_cmb.getValue());
-            account.setAccountNo(Integer.parseInt(new AccountIDGenerator().build()));
+            account.setAccount_no(Integer.parseInt(new IdGenerator().generate(Generator.generator.account_id)));
             Client c=new Client(fullName[0],fullName[1],userID,ssn,Id_Pass[1],Email,
                     account,Salary,Address,status,getGender());
             c.setAccount(account);

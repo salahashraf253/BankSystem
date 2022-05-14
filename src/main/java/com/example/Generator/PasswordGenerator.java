@@ -3,10 +3,9 @@ package com.example.Generator;
 //a --> 97 && z--> 126
 //A --> 65 && Z--> 96
 
-public class PasswordGenerator implements Generator{
+public class PasswordGenerator {
 
-    @Override
-    public String build() {
+    public static String generatePassword() {
         StringBuilder password= new StringBuilder(generateRandomNumber());
         //add random symbol
         password.append(generateRandomSymbol());
