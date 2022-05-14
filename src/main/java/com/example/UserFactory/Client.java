@@ -1,6 +1,7 @@
 package com.example.UserFactory;
 
 import com.example.banksystem.Account.Account;
+import com.example.banksystem.Transaction;
 import com.example.dataBase.Functions.DataBaseWriter;
 
 import java.sql.Date;
@@ -14,6 +15,7 @@ public class Client extends User{
         super(name, SSD, phonenumber, dob, password, username, address);
     }*/
     private Account account;
+    private Transaction transaction;
     public Client(String firstName, String lastName, int userId,int ssd, String password, String email, Account account,
                   int salary,String address,String status,String gender){
         this.account=account;
@@ -63,6 +65,18 @@ public class Client extends User{
                               ")";
         dataBaseWriter.write(query);
         Account.addAccount(user.account);
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public void addTransaction() throws SQLException {
+        this.transaction.addTransaction(this.transaction);
     }
 
 //    private String name;

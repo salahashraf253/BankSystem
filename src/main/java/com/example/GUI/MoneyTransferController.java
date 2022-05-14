@@ -1,12 +1,16 @@
 package com.example.GUI;
 
+import com.example.Generator.Generator;
+import com.example.Generator.IdGenerator;
 import com.example.UserFactory.Client;
 import com.example.banksystem.Account.Account;
+import com.example.banksystem.Transaction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -35,6 +39,11 @@ public class MoneyTransferController implements Initializable {
         if(account.canTransferMoney(amount)){
             account.transferMoney(toAccount,amount);
             account.updateBalance();
+            Date date=(new java.sql.Date(new java.util.Date().getTime()));
+            IdGenerator idGenerator=new IdGenerator();
+            int transactionId= (idGenerator.generate(Generator.generator.transaction_id));
+            c.setTransaction(new Transaction(c.getUserId(),transactionId,amount,date,"Transferring to account number: "+toAccount));
+            c.addTransaction();
         }
         else System.out.println("Can not transfer money");
     }
