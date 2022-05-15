@@ -5,7 +5,18 @@
 .button:hover{
     -fx-background-color: #1858a8;
 }
-
+.accountButton{
+    -fx-border-color: #1858a8;
+    -fx-border-width: 0 0.5px 0 0.5px;
+}
+.accountFButton{
+    -fx-border-color: #1858a8;
+    -fx-border-width: 0 0.5px 0 1px;
+}
+.accountLButton{
+    -fx-border-color: #1858a8;
+    -fx-border-width: 0 1px 0 0.5px;
+}
 .accountButton:hover,.accountButton:focused{
     -fx-background-color: #003366;
     -fx-text-fill:#f58428 ;
@@ -19,7 +30,7 @@
     -fx-border-color: #003366;
 }
 
-.withdrawBtn:hover,.withdrawBtn:hover{
+.withdrawBtn:hover{
     -fx-background-color: #003366;
     -fx-text-fill:#ffffff ;
     -fx-border-color: #003366;
@@ -28,8 +39,27 @@
     -fx-border-color: #003366;
     -fx-border-width: 1px;
 }
+.toolBar{
+    -fx-background-color: #003366;
+    -fx-border-color: #003350;
+    -fx-border-width: 0 0 1px 0;
+}
+.adminSideBtn{
+    -fx-border-color: #1858a8;
+    -fx-border-width: 0.5px 0 0.5px 0;
+}
+.adminFBtn{
+    -fx-border-color: #1858a8;
+    -fx-border-width: 1px 0 0.5px 0;
+}
+.adminLBtn{
+    -fx-border-color: #1858a8;
+    -fx-border-width: 0.5px 0 1px 0;
+}
+.adminSideBtn:hover, .adminSideBtn:focused{
+    -fx-background-color: #1858a8;
+    -fx-text-fill:#f58428 ;
+    -fx-border-color: #f58428;
+    -fx-border-width: 0 0 0 3px;
+}
 
-/*
-.button:pressed{
-    -fx-background-color: #f58428;
-}*/

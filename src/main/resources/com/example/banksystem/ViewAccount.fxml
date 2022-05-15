@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="center_pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.ViewAccountController">
+<AnchorPane fx:id="center_pane" prefHeight="691.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.ViewAccountController">
    <children>
-      <AnchorPane prefHeight="407.2" prefWidth="600.0" style="-fx-background-color: #003366;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button layoutY="149.0" mnemonicParsing="false" onAction="#Add_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Add" textFill="WHITE" />
-            <Button layoutY="185.0" mnemonicParsing="false" onAction="#Update_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Update" textFill="WHITE" />
-            <Button layoutY="222.0" mnemonicParsing="false" onAction="#Delete_Account" prefHeight="37.0" prefWidth="146.0" stylesheets="@style.css" text="Delete" textFill="WHITE" />
-            <AnchorPane layoutY="1.0" prefHeight="152.0" prefWidth="151.0">
-               <children>
-                  <Label layoutX="22.0" layoutY="63.0" text="View Account" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <TableView fx:id="AccountTable" layoutX="158.0" layoutY="-2.0" prefHeight="407.0" prefWidth="440.0">
+      <TableView fx:id="accounts_table" layoutX="21.0" layoutY="65.0" prefHeight="574.0" prefWidth="834.0">
         <columns>
-          <TableColumn prefWidth="0.0" text="Account Id" />
-          <TableColumn fx:id="IdCol" prefWidth="110.0" text="Account Id" />
-            <TableColumn fx:id="UserIdCol" prefWidth="110.0" text="User Id" />
-            <TableColumn fx:id="BalanceCol" prefWidth="110.0" text="Balance" />
-            <TableColumn fx:id="TypeCol" prefWidth="110.0" text="type" />
+          <TableColumn fx:id="account_id_col" minWidth="5.5999755859375" prefWidth="145.60000228881836" text="Account Id" />
+            <TableColumn fx:id="user_id_col" prefWidth="139.19996643066406" text="User Id" />
+            <TableColumn fx:id="balance_col" prefWidth="140.0" text="Balance" />
+            <TableColumn fx:id="type_col" prefWidth="152.0" text="Account Type" />
+            <TableColumn fx:id="update_col" prefWidth="126.59991455078125" text="Update Account" />
+            <TableColumn fx:id="delete_col" prefWidth="127.0" text="Delete Account" />
         </columns>
       </TableView>
+      <Label layoutX="59.0" layoutY="12.0" text="All Accounts" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/icons8-document-64.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
