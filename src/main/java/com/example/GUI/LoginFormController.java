@@ -68,8 +68,15 @@ public class LoginFormController {
 //        pageLoader.closePage(login_pane);
 //        user.notifyUser("ASU Bank Security alert",emailBody);
         LayoutController.user=user;
-        pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);
-        pageLoader.closePage(login_pane);
+        if(user.getType().compareToIgnoreCase("c")==0){     //c: client
+            pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);
+            pageLoader.closePage(login_pane);
+        }
+        else if(user.getType().compareToIgnoreCase("a")==0){    //a: admin
+            pageLoader.loadPage("/com/example/banksystem/AdminLayout.fxml","EDB",true, true);
+            pageLoader.closePage(login_pane);
+        }
+        else System.out.println("Incorrect type");
 //        user.notifyUser("ASU Bank Security alert",emailBody);
     }
 }

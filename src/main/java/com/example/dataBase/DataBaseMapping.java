@@ -30,9 +30,11 @@ public class DataBaseMapping {
                 System.out.println();;
                 assert user != null;
                 if(type.compareTo("c")==0){
-                    user=(Client)user;
+//                    user=(Client)user;
                     ((Client) user).setAccount(readAccountFromDB(encrptedUserId));
+                    user.setType("c");
                 }
+                else user.setType("a");
                 System.out.println("After get Account");
                 user.setUserId(Integer.parseInt((resultSet.getString("user_id"))));
                 // Email
