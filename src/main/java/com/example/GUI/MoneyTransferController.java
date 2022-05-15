@@ -27,7 +27,7 @@ public class MoneyTransferController implements Initializable {
         Client c= (Client) LayoutController.user;
         from_txt.setText(Integer.toString(c.getAccount().getAccount_no()));
     }
-    private Client c= (Client) LayoutController.user;
+    private Client client = (Client) LayoutController.user;
     @FXML
     public void TransferMoney() throws SQLException {
         int toAccount=Integer.parseInt( to_txt.getText());
@@ -35,15 +35,16 @@ public class MoneyTransferController implements Initializable {
         System.out.println("To account: "+toAccount);
         System.out.println("Amount: "+amount);
         // put this Amount in Account where Account number=toAccount
-        Account account=c.getAccount();
+        Account account= client.getAccount();
         if(account.canTransferMoney(amount)){
             account.transferMoney(toAccount,amount);
             account.updateBalance();
             Date date=(new java.sql.Date(new java.util.Date().getTime()));
             IdGenerator idGenerator=new IdGenerator();
             int transactionId= (idGenerator.generate(Generator.generator.transaction_id));
-            c.setTransaction(new Transaction(c.getUserId(),transactionId,amount,date,"Transferring to account number: "+toAccount));
-            c.addTransaction();
+            client.setTransaction(new Transaction(client.getUserId(),transactionId,amount,date,"Transferring to account number: "+toAccount));
+            client.addTransaction();
+            client.notifyUser("ASU Bank","you have transferred "+amount+" to account number: "+toAccount);
         }
         else System.out.println("Can not transfer money");
     }
