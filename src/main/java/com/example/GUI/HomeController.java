@@ -80,7 +80,7 @@ public class HomeController implements Initializable {
                 }
             };
             executor.execute(updateBalance);
-            Runnable callMultiply = () -> user.notifyUser("ASU Bank","you have withdraw "+amount);
+            Runnable callMultiply = () -> user.notifyUser("ASU Bank","you have withdrawn "+amount);
             executor.execute(callMultiply);
             executor.shutdown();
         }
