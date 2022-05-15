@@ -109,7 +109,9 @@ public abstract class User {
         SendNotificationHelper send=new SendNotificationHelper(subject,body,this.Email);
     }
 
-
+    public void setType(String type){
+        this.type=type;
+    }
     public String getType() {
         return type;
     }
@@ -119,4 +121,5 @@ public abstract class User {
     protected String getStatus() {
         return status;
     }
+
 }
