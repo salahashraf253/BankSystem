@@ -108,9 +108,9 @@ public class OpenAccountController implements Initializable {
             int userID=Integer.parseInt(Id_Pass[0]);
             Account account= FactoryAccount.getAccount(accountType);
             account.setBalance(0);
-            account.setUser_id(userID);
+            account.setUserId(userID);
             account.setAccountType(acc_type_cmb.getValue());
-            account.setAccount_no(Integer.parseInt(new AccountIDGenerator().build()));
+            account.setAccountNo(Integer.parseInt(new AccountIDGenerator().build()));
             Client c=new Client(fullName[0],fullName[1],userID,ssn,Id_Pass[1],Email,
                     account,Salary,Address,status,getGender());
             c.setAccount(account);

@@ -43,13 +43,13 @@ public class LoginFormController {
     void login() throws SQLException {
         pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);
         pageLoader.closePage(login_pane);
-        User user= Login.validateLogin(id_txt.getText(),password_txt.getText());
+        /*User user= Login.validateLogin(id_txt.getText(),password_txt.getText());
         if(user==null){
             incorrect_password.setVisible(true);
             incorrect_userId.setVisible(true);
 
             return; //invalid user id or password
-        }
+        }*/
         String emailBody="You have just logged in";
 //        user.notifyUser("ASU Bank Security alert",emailBody);
         /*use multi threading here */
@@ -67,7 +67,7 @@ public class LoginFormController {
 //        System.out.println("It is working ");
 //        pageLoader.closePage(login_pane);
 //        user.notifyUser("ASU Bank Security alert",emailBody);
-        LayoutController.user=user;
+       // LayoutController.user=user;
 
 //        user.notifyUser("ASU Bank Security alert",emailBody);
     }

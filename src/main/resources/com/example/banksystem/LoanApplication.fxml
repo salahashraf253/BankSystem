@@ -144,7 +144,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="554.0" layoutY="330.0" onAction="#applyForLoan" prefHeight="40.0" prefWidth="187.0" text="Apply Now" textFill="WHITE">
+                        <JFXButton layoutX="554.0" layoutY="330.0" onAction="#applyForLoan" prefHeight="40.0" prefWidth="187.0" styleClass="blueButton" text="Apply Now" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

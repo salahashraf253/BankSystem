@@ -1,14 +1,13 @@
 package com.example.GUI;
 
+import com.example.banksystem.Account.FactoryAccount;
 import com.example.dataBase.DataBase;
-import com.example.dataBase.Functions.DataBaseReader;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import  com.example.banksystem.Account.Account;
@@ -88,12 +87,24 @@ public class ViewAccountController implements Initializable {
     public void Delete_Account()  {
         center_pane.getChildren().setAll(loader.getPage("/com/example/banksystem/DeleteAccount.fxml"));
     }*/
+    public ObservableList<Account> getAccount() throws SQLException {
+        Account a = FactoryAccount.getAccount("Saving");
+        a.setName("Ahmed");
+        a.setAccountNo(11111);
+        a.setBalance(33333);
+        a.setUserId(22222);
+        a.setUpdateBtn();
+        a.setDeleteBtn();
+        list.add(a);
+        return list;
+    }
+
 
     public void InitCol(){
         account_id_col.setCellValueFactory(new PropertyValueFactory<>("accountNo") );
         user_id_col.setCellValueFactory(new PropertyValueFactory<>("userId") );
         balance_col.setCellValueFactory(new PropertyValueFactory<>("balance") );
-        type_col.setCellValueFactory(new PropertyValueFactory<>("type") );
+        type_col.setCellValueFactory(new PropertyValueFactory<>("accountType") );
         update_col.setCellValueFactory(new PropertyValueFactory<>("updateBtn") );
         delete_col.setCellValueFactory(new PropertyValueFactory<>("deleteBtn") );
     }
@@ -101,5 +112,14 @@ public class ViewAccountController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         InitCol();
         accounts_table.setItems(list);
+        try {
+            list = getAccount();
+            accounts_table.setItems(list);
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+
     }
 }
+

@@ -3,15 +3,36 @@ package com.example.banksystem.Account;
 
 import com.example.dataBase.Functions.DataBaseUpdater;
 import com.example.dataBase.Functions.DataBaseWriter;
+import com.jfoenix.controls.JFXButton;
 
 import java.sql.SQLException;
 
 public abstract class Account {
     private String name;
-    private int account_no;
-    private int user_id;
+    private int accountNo;
+    private int userId;
     private float balance;
     protected String accountType;
+
+    public void setUpdateBtn() {
+        this.updateBtn = new JFXButton("Update");
+    }
+
+    public void setDeleteBtn() {
+        this.deleteBtn = new JFXButton("Delete");
+
+    }
+
+    public JFXButton getUpdateBtn() {
+        return updateBtn;
+    }
+
+    public JFXButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    private JFXButton updateBtn;
+    private JFXButton deleteBtn;
 
     public  void withdraw(float amount){
         this.balance-=amount;
@@ -19,11 +40,11 @@ public abstract class Account {
     public String getAccountType() {
         return accountType;
     }
-    public int getAccount_no() {
-        return account_no;
+    public int getAccountNo() {
+        return accountNo;
     }
-    public void setAccount_no(int account_no) {
-        this.account_no = account_no;
+    public void setAccountNo(int accountNo) {
+        this.accountNo = accountNo;
     }
     public String getName() {
         return name;
@@ -34,6 +55,9 @@ public abstract class Account {
     public Float getBalance() {
         return this.balance;
     }
+    public int getUserId() {
+        return userId;
+    }
     public void setBalance(float balance) {
         this.balance = balance;
     }
@@ -41,15 +65,15 @@ public abstract class Account {
         this.accountType =accountType;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setUserId(int userId){
+        this.userId = userId;
     }
     public static void addAccount(Account account) throws SQLException {
         String q="insert into bank_account" +
                 " (user_id,account_id,balance,type)"+
                 "VALUES(" +
-                "'" + account.user_id + "'," +
-                "'" + account.account_no + "'," +
+                "'" + account.userId + "'," +
+                "'" + account.accountNo + "'," +
                 "'" + account.balance + "'," +
                 "'"+account.accountType+"'"+
                 ")";
@@ -63,7 +87,7 @@ public abstract class Account {
     }
     public void updateBalance(float amount) throws SQLException {
         DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
-        String query="update bank_account set balance='" +balance+"' where user_id='" + user_id +"';";
+        String query="update bank_account set balance='" +balance+"' where user_id='" + userId +"';";
         dataBaseUpdater.update(query);
     }
 }

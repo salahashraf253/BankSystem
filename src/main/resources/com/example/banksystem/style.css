@@ -1,8 +1,8 @@
-.button
-{
+
+.blueButton{
     -fx-background-color: #003366;
 }
-.button:hover{
+.blueButton:hover{
     -fx-background-color: #1858a8;
 }
 .accountButton{

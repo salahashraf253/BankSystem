@@ -52,7 +52,7 @@
                       <Font name="System Bold Italic" size="15.0" />
                   </font>
               </Label>
-              <Button layoutX="584.0" layoutY="210.0" mnemonicParsing="false" onAction="#TransferMoney" prefHeight="44.0" prefWidth="151.0" stylesheets="@style.css" text="Transfer" textFill="#f5f3f3">
+              <Button layoutX="584.0" layoutY="210.0" mnemonicParsing="false" onAction="#TransferMoney" prefHeight="44.0" prefWidth="151.0" styleClass="blueButton" stylesheets="@style.css" text="Transfer" textFill="#f5f3f3">
                   <font>
                       <Font name="System Bold Italic" size="14.0" />
                   </font>
