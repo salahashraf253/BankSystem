@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.AdminLayoutController">
+    <children>
+        <BorderPane fx:id="layout_pane" prefHeight="770.4" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <JFXToolbar prefHeight="70.0" prefWidth="600.0" styleClass="toolBar" BorderPane.alignment="CENTER">
+                    <right>
+                        <AnchorPane prefHeight="70.0" prefWidth="949.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <JFXButton fx:id="login_btn" contentDisplay="RIGHT" layoutX="804.0" layoutY="14.0" onAction="#logout" prefHeight="41.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Logout" textFill="#003366">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Images/lock-24.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton contentDisplay="CENTER" layoutX="65.0" layoutY="12.0" onAction="#currency_conv_btn" text="Currencey           Converter" textFill="WHITE">
+                                    <font>
+                                        <Font name="Microsoft Tai Le Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="36.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Images/Transfere.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </AnchorPane>
+                    </right>
+                    <left>
+                        <Label prefHeight="50.0" prefWidth="237.0" textFill="#ff8708" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="69.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Images/EDP.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </left>
+                </JFXToolbar>
+            </top>
+            <center>
+                <StackPane fx:id="center_pane" prefHeight="730.0" prefWidth="1144.0">
+                    <children>
+                    </children>
+                </StackPane>
+            </center>
+         <left>
+            <VBox prefHeight="200.0" prefWidth="230.0" style="-fx-background-color: #003366;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="add_admin_btn" graphicTextGap="8.0" onAction="#addAdmin" prefHeight="70.0" prefWidth="230.0" text="Add New Admin" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-add-user-male-60.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="adminSideBtn" />
+                        <String fx:value="adminFBtn" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="add_account_btn" graphicTextGap="8.0" onAction="#addNewAccount" prefHeight="70.0" prefWidth="230.0" styleClass="adminSideBtn" text="Add New Account" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-add-user-male-60.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="view_accounts_btn" graphicTextGap="8.0" onAction="#viewAccounts" prefHeight="70.0" prefWidth="230.0" styleClass="adminSideBtn" text="View All Accounts" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-select-users-80.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="loan_req_btn" graphicTextGap="8.0" onAction="#loanRequests" prefHeight="70.0" prefWidth="230.0" styleClass="adminSideBtn" text="Loan Requests" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-loan-68.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="settings_btn" graphicTextGap="8.0" onAction="#adminSettings" prefHeight="70.0" prefWidth="230.0" text="Settings" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-settings-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="adminSideBtn" />
+                        <String fx:value="adminLBtn" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </left>
+        </BorderPane>
+    </children>
+</AnchorPane>

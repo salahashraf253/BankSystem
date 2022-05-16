@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="575.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.AccountHistoryController">
+   <children>
+      <Label layoutX="84.0" layoutY="18.0" text="Account History" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="history_table" layoutX="104.0" layoutY="84.0" prefHeight="452.0" prefWidth="727.0" style="-fx-border-color: #003366">
+        <columns>
+          <TableColumn fx:id="trans_col" editable="false" prefWidth="191.19997787475586" text="Transaction Number" />
+          <TableColumn fx:id="amount_col" editable="false" prefWidth="188.79994201660156" text="Amount " />
+            <TableColumn fx:id="date_col" editable="false" prefWidth="151.199951171875" text="Date" />
+            <TableColumn fx:id="status_col" editable="false" prefWidth="191.20001220703125" text="Status" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="43.0" fitWidth="59.0" layoutX="20.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/order-history-64-blue.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

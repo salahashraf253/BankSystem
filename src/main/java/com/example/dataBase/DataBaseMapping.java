@@ -78,8 +78,8 @@ public class DataBaseMapping {
                 assert unknownAccount != null;
                 unknownAccount.setBalance(balance);
                 System.out.println("Balance: "+balance);
-                unknownAccount.setAccountNo(Integer.parseInt(accountNumber));
-                unknownAccount.setUserId(Integer.parseInt(userID));
+                unknownAccount.setAccount_no(Integer.parseInt(accountNumber));
+                unknownAccount.setUser_id(Integer.parseInt(userID));
                 return unknownAccount;
             }
             else System.out.println("no account found");

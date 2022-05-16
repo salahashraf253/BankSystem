@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="open_account_pane" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.OpenAccountController">
+   <children>
+      <ScrollPane prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <AnchorPane prefHeight="800.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="130.0" layoutY="84.0" prefHeight="18.0" prefWidth="66.0" text="Title">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="name" layoutX="286.0" layoutY="115.0" prefHeight="26.0" prefWidth="345.0" />
+                  <Label layoutX="130.0" layoutY="119.0" prefHeight="20.0" prefWidth="44.0" text="Name ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="title_cmb" layoutX="286.0" layoutY="81.0" prefHeight="26.0" prefWidth="76.0" />
+                  <Label layoutX="171.0" layoutY="122.0" text="(As in ID/Passport)">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="id_passport" layoutX="286.0" layoutY="227.0" prefHeight="26.0" prefWidth="346.0" />
+                  <Label layoutX="130.0" layoutY="158.0" prefHeight="20.0" prefWidth="58.0" text="Gender">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="male_radio_btn" layoutX="286.0" layoutY="160.0" mnemonicParsing="false" onAction="#getGender" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="female_radio_btn" layoutX="361.0" layoutY="160.0" mnemonicParsing="false" onAction="#getGender" text="Female" toggleGroup="$gender" />
+                  <Label layoutX="130.0" layoutY="195.0" prefHeight="20.0" prefWidth="90.0" text="Date of Birth">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DateOfBirth" layoutX="286.0" layoutY="192.0" />
+                  <Label fx:id="id" layoutX="130.0" layoutY="230.0" prefHeight="20.0" prefWidth="131.0" text="ID/Passport Number">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="129.0" layoutY="303.0" prefHeight="20.0" prefWidth="90.0" text="Occupation">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="occupation_cmb" layoutX="284.0" layoutY="300.0" prefHeight="26.0" prefWidth="175.0" />
+                  <Label layoutX="123.0" layoutY="591.0" prefHeight="20.0" prefWidth="99.0" text="Account Type">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="130.0" layoutY="42.0" text="Personal Info">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="124.0" layoutY="387.0" text="Contact Info">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="126.0" layoutY="427.0" prefHeight="20.0" prefWidth="131.0" text="Address">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="address" layoutX="282.0" layoutY="424.0" prefHeight="26.0" prefWidth="346.0" />
+                  <Label layoutX="126.0" layoutY="461.0" prefHeight="20.0" prefWidth="131.0" text="Personal E-mail">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="email" layoutX="282.0" layoutY="458.0" prefHeight="26.0" prefWidth="346.0" />
+                  <Label layoutX="126.0" layoutY="496.0" prefHeight="20.0" prefWidth="131.0" text="Phone Number">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phoneNum" layoutX="282.0" layoutY="493.0" prefHeight="26.0" prefWidth="346.0" />
+                  <Label layoutX="120.0" layoutY="540.0" text="Your Account Type">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="acc_type_cmb" layoutX="283.0" layoutY="588.0" prefHeight="26.0" prefWidth="346.0" />
+                  <Label layoutX="128.0" layoutY="339.0" text="Net Monthly Income">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="salary" layoutX="284.0" layoutY="336.0" />
+                  <Label layoutX="128.0" layoutY="266.0" text="Marital Status">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="single_checkbox" layoutX="286.0" layoutY="268.0" mnemonicParsing="false" onAction="#singleChkHandler" text="Single" />
+                  <CheckBox fx:id="married_checkbox" layoutX="354.0" layoutY="268.0" mnemonicParsing="false" onAction="#marriedChkHandler" text="Married" />
+                  <CheckBox fx:id="divorced_checkbox" layoutX="434.0" layoutY="268.0" mnemonicParsing="false" onAction="#divorcedChkHandler" text="Divorced" />
+                  <CheckBox fx:id="widowed_checkbox" layoutX="517.0" layoutY="268.0" mnemonicParsing="false" onAction="#widowedChkHandler" text="Widowed" />
+                  <JFXButton layoutX="496.0" layoutY="673.0" onAction="#submit" prefHeight="26.0" prefWidth="136.0" style="-fx-border-color: #000000;" text="Submit">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="123.0" layoutY="673.0" onAction="#closeWindow" prefHeight="29.0" prefWidth="113.0" style="-fx-border-color: #000000;" text="Cancel">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

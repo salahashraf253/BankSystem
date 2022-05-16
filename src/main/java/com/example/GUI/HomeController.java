@@ -6,6 +6,7 @@ import com.example.UserFactory.Client;
 import com.example.banksystem.Account.Account;
 import com.example.banksystem.Transaction;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -39,7 +40,7 @@ public class HomeController implements Initializable {
 //            name_lbl.setText(LayoutController.user.getFirstname());
             Platform.runLater(() -> {
                 name_lbl.setText(client.getFirstname());
-                String accountNumber= String.valueOf(client.getAccount().getAccountNo());
+                String accountNumber= String.valueOf(client.getAccount().getAccount_no());
                 account_num_lbl.setText(accountNumber);
                 account_type_lbl.setText(client.getAccount().getAccountType());
                 balance_lbl.setText(Integer.toString(client.getSalary()));
@@ -61,7 +62,7 @@ public class HomeController implements Initializable {
         }
         float amount=Float.parseFloat(withdraw_amount_txt.getText());
         Account account= client.getAccount();
-        account.setAccountNo(client.getUserId());
+        account.setAccount_no(client.getUserId());
         if(account.canWithdraw(amount)){
             account.withdraw(amount);
 //            account.updateBalance();

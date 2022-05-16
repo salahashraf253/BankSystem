@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="658.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.LoanRequestsController">
+   <children>
+      <Label layoutX="58.0" layoutY="18.0" text="Loan Requests" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="22.0" />
+         </font>
+      </Label>
+      <TableView fx:id="loan_req_table" layoutX="14.0" layoutY="76.0" prefHeight="548.0" prefWidth="1256.0">
+        <columns>
+            <TableColumn fx:id="account_col" prefWidth="117.60000324249268" text="Account Id" />
+            <TableColumn fx:id="loan_id_col" prefWidth="116.00006103515625" text="Loan Id" />
+            <TableColumn fx:id="amount_col" prefWidth="111.99995422363281" text="Amount" />
+            <TableColumn fx:id="type_col" prefWidth="130.0" text="Type" />
+            <TableColumn fx:id="month_col" minWidth="7.20001220703125" prefWidth="120.7999267578125" text="Monthly Paid" />
+            <TableColumn fx:id="rate_col" minWidth="0.0" prefWidth="96.79998779296875" text="Rate" />
+            <TableColumn fx:id="start_col" prefWidth="130.0" text="Start Date" />
+            <TableColumn fx:id="end_col" prefWidth="130.0" text="End Date" />
+            <TableColumn fx:id="status_col" prefWidth="106.40008544921875" text="Status" />
+            <TableColumn fx:id="approve_col" prefWidth="95.0" text="Approve" />
+            <TableColumn fx:id="reject_col" prefWidth="95.0" text="Reject" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/icons8-loan-64-Colors.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
