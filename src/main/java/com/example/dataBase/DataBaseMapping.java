@@ -111,4 +111,33 @@ public class DataBaseMapping {
         }
         return transactionsList;
     }
+
+
+    public static ObservableList<Account> getAccounts() throws SQLException {
+        ObservableList<Account> list = FXCollections.observableArrayList();
+        DataBaseReader db = new DataBaseReader();
+
+        try {
+            ResultSet rs=db.read("select * from bank_account");
+            while (rs.next())
+            {
+                Account account  = FactoryAccount.getAccount(rs.getString("type"));
+                account.setAccount_no(rs.getInt("account_id"));
+                account.setBalance(rs.getFloat("balance"));
+                account.setUser_id(rs.getInt("user_id"));
+                account.setAccountType(rs.getString("type"));
+                list.add(account);
+
+            }
+        }
+
+        catch (Exception e){
+
+            System.out.println("Error in get accounts");
+            System.out.println(e.getMessage());
+        }
+
+
+        return list;
+    }
 }
