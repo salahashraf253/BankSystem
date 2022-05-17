@@ -10,7 +10,7 @@ public class EmailNotification extends NotificationAbstract {
         this.Recipient = recipient;
     }
 
-    public void NotifyUser()
+    public void notifyUser()
     {
         NotifierEmail email = new NotifierEmail();
         email.sendNotifierEmail(Recipient, subject.getemailsubject(), subject.getMessage());
