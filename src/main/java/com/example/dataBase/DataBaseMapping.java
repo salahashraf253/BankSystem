@@ -1,4 +1,6 @@
 package com.example.dataBase;
+import com.example.Loan.Loan.Loan;
+import com.example.Loan.Loan.LoanFactory;
 import com.example.UserFactory.Client;
 import com.example.UserFactory.FactoryUser;
 import com.example.UserFactory.User;
@@ -12,6 +14,8 @@ import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
+import java.util.ArrayList;
+
 /*this class is used for mapping objects for database row*/
 public class DataBaseMapping {
 
@@ -135,6 +139,40 @@ public class DataBaseMapping {
 
             System.out.println("Error in get accounts");
             System.out.println(e.getMessage());
+        }
+
+
+        return list;
+    }
+    public static ArrayList<Loan> getLoans() throws SQLException {
+        ArrayList<Loan> list = new ArrayList<>();
+        DataBaseReader db = new DataBaseReader();
+try {
+
+
+        ResultSet rs = db.read("SELECT user_loan.user_id, loan.amount, loan.rate, loan.loan_id, loan.loan_type,loan.status,loan.start_Date ,loan.end_date,loan.rate,loan.nOfMonths FROM loan INNER JOIN user_loan ON user_loan.loan_id = loan.loan_id ");
+        while (rs.next()) {
+            ResultSet rs2 = db.read("select * from user where user_id = '" + rs.getInt("user_id")+"';");
+
+            User user22222 = getUser(rs2);
+         //   user.setUserId(rs.getInt("user_id"));
+            Loan loan = LoanFactory.getLoan(rs.getString("loan_type"));
+            loan.setAmount(rs.getFloat("amount"));
+            loan.setEndDate(rs.getDate("end_date"));
+            loan.setStartDate(rs.getDate("start_date"));
+            loan.setStatus(rs.getString("status"));
+            loan.setRate(rs.getDouble("rate"));
+            loan.setRepaymentPeriod(rs.getInt("nOfMonths"));
+         //   loan.setUser(user);
+            list.add(loan);
+
+        }
+
+    }
+         catch (Exception e){
+
+        System.out.println("Error in get loan");
+           System.out.println(e.getMessage());
         }
 
 

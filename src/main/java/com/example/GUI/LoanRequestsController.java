@@ -1,6 +1,8 @@
 package com.example.GUI;
 
 import com.example.Loan.Loan.Loan;
+import com.example.Loan.LoanIterator.Iterator;
+import com.example.Loan.LoanIterator.LoanRequestsRepo;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,8 +44,8 @@ public class LoanRequestsController implements Initializable {
     ObservableList<Loan> list = FXCollections.observableArrayList();
 
     public void initCol(){
-        account_col.setCellValueFactory(new PropertyValueFactory<>("accountID"));
-        loan_id_col.setCellValueFactory(new PropertyValueFactory<>("loanID"));
+        account_col.setCellValueFactory(new PropertyValueFactory<>("accountId"));
+        loan_id_col.setCellValueFactory(new PropertyValueFactory<>("loanId"));
         type_col.setCellValueFactory(new PropertyValueFactory<>("loanType"));
         month_col.setCellValueFactory(new PropertyValueFactory<>("repaymentPeriod"));
         rate_col.setCellValueFactory(new PropertyValueFactory<>("rete"));
@@ -55,6 +57,12 @@ public class LoanRequestsController implements Initializable {
         reject_col.setCellValueFactory(new PropertyValueFactory<>("rejectBtn"));
     }
     public void loadRequests(){
+        LoanRequestsRepo requestsRepo = new LoanRequestsRepo();
+        for(Iterator iter = requestsRepo.getIterator(); iter.hasNext();)
+        {
+            Loan loan = (Loan) iter.next();
+            list.add(loan);
+        }
         loan_req_table.setItems(list);
     }
 

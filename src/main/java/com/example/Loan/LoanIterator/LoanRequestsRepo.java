@@ -3,6 +3,7 @@ package com.example.Loan.LoanIterator;
 import com.example.Loan.Loan.Loan;
 import com.example.Loan.Loan.LoanFactory;
 import com.example.Loan.Loan.*;
+import com.example.dataBase.DataBaseMapping;
 import com.example.dataBase.Functions.DataBaseReader;
 
 import java.sql.ResultSet;
@@ -15,12 +16,21 @@ public class LoanRequestsRepo implements  Container{
     //i need a function in database class to read all loan requests
 //    private List<LoanRequest> loanRequestList=getAllLoanRequests(); //DataBase.getLoanRequests();
     private Iterator LoanIter;
+    public ArrayList<Loan> loanReqs;
+
+    {
+        try {
+            loanReqs = DataBaseMapping.getLoans();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 //    public LoanRequestsRepo() throws SQLException {
 //        loanRequestList=getAllLoanRequests();
 //    }
 
-//    private static List<LoanRequest> getAllLoanRequests() throws SQLException {
+    //    private static List<LoanRequest> getAllLoanRequests() throws SQLException {
 //        List<LoanRequest> loanRequestList=new ArrayList<>();
 //        DataBaseReader dataBaseReader=new DataBaseReader();
 //        String query="select * from loan";
@@ -46,7 +56,7 @@ public class LoanRequestsRepo implements  Container{
 //    }
     @Override
     public Iterator getIterator() {
-//        LoanIter = new LoanRequestsIterator(this.loanRequestList);
+        LoanIter = new LoanRequestsIterator(loanReqs) ;
         return LoanIter;
     }
 

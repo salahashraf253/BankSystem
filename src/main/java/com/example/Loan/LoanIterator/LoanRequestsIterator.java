@@ -1,21 +1,25 @@
 package com.example.Loan.LoanIterator;
 
+import com.example.Loan.Loan.Loan;
+
+import java.util.ArrayList;
+
 public class LoanRequestsIterator implements Iterator {
-    LoanRequest[] requests;
+    ArrayList<Loan>requests;
     int index;
 
-    LoanRequestsIterator(LoanRequest[] requests) {
+    LoanRequestsIterator(ArrayList<Loan> requests) {
         this.requests = requests;
     }
 
     @Override
     public boolean hasNext() {
-        return index < requests.length;
+        return index < requests.size();
     }
     @Override
     public Object next() {
         if(this.hasNext()){
-            return requests[index++];
+            return requests.get(index++);
         }
         return null;
     }
