@@ -6,6 +6,8 @@ module com.example.banksystem {
     requires javax.activation;
     requires org.json;
     requires com.jfoenix;
+    requires controlsfx;
+    requires TrayTester;
 
 
     opens com.example.banksystem to javafx.fxml;

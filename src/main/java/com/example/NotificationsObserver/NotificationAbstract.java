@@ -1,6 +1,6 @@
 package com.example.NotificationsObserver;
 
-public abstract class NotificationAbstract {
+public abstract class NotificationAbstract  {
 
     String message;
     protected Subject subject;

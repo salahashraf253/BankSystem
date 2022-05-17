@@ -1,8 +1,7 @@
 package com.example.NotificationsObserver;
 
 
-
-import java.sql.SQLException;
+import tray.notification.NotificationType;
 
 public class SendNotificationHelper {
 
@@ -11,12 +10,13 @@ public class SendNotificationHelper {
         Subject subject = new Subject();
         new EmailNotification(subject,Recipient);
         new PushNotification(subject);
+        new NotificationBuilder(subject,EmailSubject ,NotificationType.SUCCESS);
         subject.setNotification(message,EmailSubject);
 
     }
     public static void main(String []args)  {
         SendNotificationHelper sendNotificationHelper=
-                new SendNotificationHelper("Hello", "heyyo", "salma");
+                new SendNotificationHelper("Hello", "heyyo", "salahashraf924@gmail.com");
 
     }
 }
