@@ -2,12 +2,14 @@ package com.example.GUI;
 
 import com.example.Generator.Generator;
 import com.example.Generator.IdGenerator;
+import com.example.NotificationsObserver.DesktopNotificationBuilder;
 import com.example.UserFactory.Client;
 import com.example.banksystem.Account.Account;
 import com.example.banksystem.Transaction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import tray.notification.NotificationType;
 
 import java.net.URL;
 import java.sql.Date;
@@ -46,6 +48,8 @@ public class MoneyTransferController implements Initializable {
             client.addTransaction();
             client.notifyUser("ASU Bank","you have transferred "+amount+" to account number: "+toAccount);
         }
-        else System.out.println("Can not transfer money");
+        else {
+            DesktopNotificationBuilder.notifyUser("Sorry, your balance is not enough", NotificationType.ERROR);
+        }
     }
 }

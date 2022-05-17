@@ -7,7 +7,7 @@ public class PushNotification extends NotificationAbstract {
         this.subject.attach(this);
     }
 
-    public void NotifyUser()
+    public void notifyUser()
     {
         //send push notification with the message
         System.out.println( "Message: " +subject.getMessage() );

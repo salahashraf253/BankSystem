@@ -29,9 +29,9 @@ public class Subject {
         notificationsList.add(notification);
     }
 
-    public void notifyAllObservers(){
+    private void notifyAllObservers(){
         for (NotificationAbstract notification : notificationsList) {
-            notification.NotifyUser();
+            notification.notifyUser();
         }
     }
 }
