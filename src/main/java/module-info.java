@@ -17,4 +17,6 @@ module com.example.banksystem {
 
     opens com.example.banksystem.Account to javafx.base, javafx.fxml;
     opens com.example.GUI to javafx.fxml;
+    opens com.example.Loan.Loan to javafx.base, javafx.fxml;
+//    opens com.example.GUI to javafx.fxml;
 }
