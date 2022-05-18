@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class LoanRequestsController implements Initializable {
     @FXML
-    private TableView loan_req_table;
+    private TableView<Loan> loan_req_table;
     @FXML
     private TableColumn<Loan, Integer> account_col;
     @FXML
@@ -44,11 +44,11 @@ public class LoanRequestsController implements Initializable {
     ObservableList<Loan> list = FXCollections.observableArrayList();
 
     public void initCol(){
-        account_col.setCellValueFactory(new PropertyValueFactory<>("accountId"));
+        account_col.setCellValueFactory(new PropertyValueFactory<>("userId"));
         loan_id_col.setCellValueFactory(new PropertyValueFactory<>("loanId"));
         type_col.setCellValueFactory(new PropertyValueFactory<>("loanType"));
         month_col.setCellValueFactory(new PropertyValueFactory<>("repaymentPeriod"));
-        rate_col.setCellValueFactory(new PropertyValueFactory<>("rete"));
+        rate_col.setCellValueFactory(new PropertyValueFactory<>("rate"));
         amount_col.setCellValueFactory(new PropertyValueFactory<>("amount"));
         start_col.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         end_col.setCellValueFactory(new PropertyValueFactory<>("endDate"));

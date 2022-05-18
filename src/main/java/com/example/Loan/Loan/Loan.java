@@ -2,23 +2,20 @@ package com.example.Loan.Loan;
 
 import com.example.UserFactory.User;
 import com.jfoenix.controls.JFXButton;
-import java.time.LocalDate;
+
+import java.sql.Date;
 
 public abstract class Loan {
-    protected User user = null;
-    protected int accountId;
-    {
-
-        accountId = user.getUserId();
-    }
+    protected User user ;
+    protected int userID;
     protected int loanId;
     protected String loanType;
     protected float amount;
-    protected LocalDate startDate;
-    protected LocalDate endDate ;
+    protected Date startDate;
+    protected Date endDate ;
     protected int repaymentPeriod;
     protected double rate ;
-    protected String status;
+    private String status;
     private JFXButton approveBtn;
     private JFXButton rejectBtn;
 
@@ -50,11 +47,11 @@ public abstract class Loan {
         return amount;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -90,11 +87,11 @@ public abstract class Loan {
         this.status = status;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
@@ -106,6 +103,17 @@ public abstract class Loan {
         this.rate = rate;
     }
 
+    public void setLoanType(String loanType){
+        this.loanType=loanType;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
     public abstract void ApplyForLoan();
     public abstract double InterestRate(int numOfMonths);
     public abstract double CalcMonthlyPaid(int numOfMonths);

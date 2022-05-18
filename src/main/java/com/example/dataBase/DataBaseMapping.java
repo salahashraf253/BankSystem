@@ -145,37 +145,41 @@ public class DataBaseMapping {
         return list;
     }
     public static ArrayList<Loan> getLoans() throws SQLException {
-        ArrayList<Loan> list = new ArrayList<>();
+        ArrayList<Loan> loans = new ArrayList<>();
         DataBaseReader db = new DataBaseReader();
-try {
-
-
-        ResultSet rs = db.read("SELECT user_loan.user_id, loan.amount, loan.rate, loan.loan_id, loan.loan_type,loan.status,loan.start_Date ,loan.end_date,loan.rate,loan.nOfMonths FROM loan INNER JOIN user_loan ON user_loan.loan_id = loan.loan_id ");
-        while (rs.next()) {
-            ResultSet rs2 = db.read("select * from user where user_id = '" + rs.getInt("user_id")+"';");
-
-            User user22222 = getUser(rs2);
-         //   user.setUserId(rs.getInt("user_id"));
-            Loan loan = LoanFactory.getLoan(rs.getString("loan_type"));
-            loan.setAmount(rs.getFloat("amount"));
-            loan.setEndDate(rs.getDate("end_date"));
-            loan.setStartDate(rs.getDate("start_date"));
-            loan.setStatus(rs.getString("status"));
-            loan.setRate(rs.getDouble("rate"));
-            loan.setRepaymentPeriod(rs.getInt("nOfMonths"));
-         //   loan.setUser(user);
-            list.add(loan);
-
+        ResultSet rs = db.read("SELECT * from loan");
+        try{
+            while (rs.next()) {
+                ResultSet rs2 = db.read("select * from user where user_id = '" + rs.getInt("user_id") + "';");
+                User user = getUser(rs2);
+                System.out.println(user.getFirstname());
+                user.setUserId(rs.getInt("user_id"));
+                Loan loan = LoanFactory.getLoan(rs.getString("loan_type"));
+                loan.setAmount(rs.getFloat("amount"));
+                loan.setEndDate(rs.getDate("end_date"));
+                loan.setStartDate(rs.getDate("start_date"));
+                loan.setStatus(rs.getString("status"));
+                loan.setRate(rs.getDouble("rate"));
+                loan.setRepaymentPeriod(rs.getInt("nOfMonth"));
+                loan.setUser(user);
+                loan.setUserID(rs.getInt("user_id"));
+                loan.setLoanType(rs.getString("loan_type"));
+                loans.add(loan);
+            }
         }
-
+        catch (Exception e){
+            System.out.println("Error In get loan");
+            System.out.println(e.getMessage());
+        }
+        return loans;
     }
-         catch (Exception e){
 
-        System.out.println("Error in get loan");
-           System.out.println(e.getMessage());
+    //testing
+    public static void main(String[]args) throws SQLException {
+        ArrayList<Loan> list=DataBaseMapping.getLoans();
+        for (Loan l: list) {
+            System.out.println(l.getAmount());
+            System.out.println(l.getUser().getUserId());
         }
-
-
-        return list;
     }
 }
