@@ -14,7 +14,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="140.0" layoutY="99.0" text="An email is sent to you with your ID and Password ">
+      <Label fx:id="first_lbl" layoutX="140.0" layoutY="99.0" text="An email is sent to you with your ID and Password ">
          <font>
             <Font size="14.0" />
          </font>
@@ -24,7 +24,7 @@
             <Image url="@Images/icons8-ok.gif" />
          </image>
       </ImageView>
-      <Label layoutX="140.0" layoutY="123.0" text="Use it to login into your account. Thank you for your Trust">
+      <Label fx:id="second_lbl" layoutX="140.0" layoutY="123.0" text="Use it to login into your account. Thank you for your Trust">
          <font>
             <Font size="14.0" />
          </font>
