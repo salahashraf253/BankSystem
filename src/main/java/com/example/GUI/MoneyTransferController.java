@@ -46,6 +46,7 @@ public class MoneyTransferController implements Initializable {
             int transactionId= (idGenerator.generate(Generator.generator.transaction_id));
             client.setTransaction(new Transaction(client.getUserId(),transactionId,amount,date,"Transferring to account number: "+toAccount));
             client.addTransaction();
+            System.out.println("Transfer Success");
             client.notifyUser("ASU Bank","you have transferred "+amount+" to account number: "+toAccount);
         }
         else {

@@ -4,6 +4,7 @@ package com.example.banksystem.Account;
 import com.example.dataBase.Functions.DataBaseReader;
 import com.example.dataBase.Functions.DataBaseUpdater;
 import com.example.dataBase.Functions.DataBaseWriter;
+import com.jfoenix.controls.JFXButton;
 import javafx.scene.chart.PieChart;
 
 import java.sql.ResultSet;
@@ -15,6 +16,9 @@ public abstract class Account {
     private int user_id;
     private float balance;
     protected String accountType;
+
+    protected JFXButton updateBtn = new JFXButton("Update");
+    protected JFXButton deleteBtn  = new JFXButton("Delete");
 
     public  void withdraw(float amount){
         this.balance-=amount;
@@ -43,9 +47,27 @@ public abstract class Account {
     public void setAccountType(String accountType){
         this.accountType =accountType;
     }
+    public int getUser_id() {
+        return user_id;
+    }
 
+    public JFXButton getUpdateBtn() {
+        return updateBtn;
+    }
+
+    public JFXButton getDeleteBtn() {
+        return deleteBtn;
+    }
     public void setUser_id(int user_id){
         this.user_id=user_id;
+    }
+
+    public void setUpdateBtn() {
+        this.updateBtn = new JFXButton("Update");
+    }
+
+    public void setDeleteBtn() {
+        this.deleteBtn = new JFXButton("Delete");
     }
     public static void addAccount(Account account) throws SQLException {
         String q="insert into bank_account" +
