@@ -20,6 +20,18 @@ public class NotificationBuilder extends NotificationAbstract{
     public NotificationBuilder() {
 
     }
+    public static void createNotification(String text, String imageUrl){
+       // Image image = new Image(imageUrl);
+        Notifications notifications = Notifications.create();
+        //notifications.graphic(new ImageView(image));
+        notifications.title("EBD");
+        notifications.text(text);
+        notifications.graphic(null);
+        notifications.hideAfter(Duration.seconds(4));
+        notifications.darkStyle();
+        notifications.position(Pos.BASELINE_CENTER);
+        notifications.showConfirm();
+    }
     public static void trayNotification(String message) {
         TrayNotification tray = new TrayNotification();
         AnimationType type = AnimationType.POPUP;
@@ -31,7 +43,7 @@ public class NotificationBuilder extends NotificationAbstract{
     }
 
     @Override
-    public void notifyUser() {
+    public void NotifyUser() {
         System.out.println("Hello in Notification Builder");
         trayNotification(this.message);
     }
