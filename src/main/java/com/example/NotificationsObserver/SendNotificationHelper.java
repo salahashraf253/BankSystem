@@ -9,7 +9,6 @@ public class SendNotificationHelper {
     {
         Subject subject = new Subject();
         new EmailNotification(subject,Recipient);
-        new PushNotification(subject);
         new DesktopNotification(subject,EmailSubject ,NotificationType.SUCCESS);
         subject.setNotification(message,EmailSubject);
 
