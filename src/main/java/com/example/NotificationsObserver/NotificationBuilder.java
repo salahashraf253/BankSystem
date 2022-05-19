@@ -43,7 +43,7 @@ public class NotificationBuilder extends NotificationAbstract{
     }
 
     @Override
-    public void NotifyUser() {
+    public void notifyUser() {
         System.out.println("Hello in Notification Builder");
         trayNotification(this.message);
     }

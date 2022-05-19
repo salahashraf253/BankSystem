@@ -17,8 +17,8 @@ public abstract class Account {
     private float balance;
     protected String accountType;
 
-    protected JFXButton updateBtn = new JFXButton("Update");
-    protected JFXButton deleteBtn  = new JFXButton("Delete");
+    protected JFXButton updateBtn = new JFXButton("     Update     ");
+    protected JFXButton deleteBtn = new JFXButton("     Delete     ");
 
     public  void withdraw(float amount){
         this.balance-=amount;

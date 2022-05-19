@@ -1,9 +1,11 @@
-.button
-{
+.button{
     -fx-background-color: #003366;
+    -fx-text-fill:#ffffff ;
+    font-size: 14px;
 }
-.button:hover{
-    -fx-background-color: #1858a8;
+.logoutBtn{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #003366;
 }
 .accountButton{
     -fx-border-color: #1858a8;

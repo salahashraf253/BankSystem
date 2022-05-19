@@ -1,4 +1,12 @@
-
+.button{
+    -fx-background-color: #003366;
+    -fx-text-fill:#ffffff ;
+    font-size: 14px;
+}
+.logoutBtn{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #003366;
+}
 .accountButton{
     -fx-border-color: #1858a8;
     -fx-border-width: 0 0.5px 0 0.5px;

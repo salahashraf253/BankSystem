@@ -1,9 +1,7 @@
-.button
-{
+.button{
     -fx-background-color: #003366;
-}
-.button:hover{
-    -fx-background-color: #1858a8;
+    -fx-text-fill:#ffffff ;
+    font-size: 14px;
 }
 .accountButton{
     -fx-border-color: #1858a8;
