@@ -110,7 +110,7 @@ public class OpenAccountController implements Initializable {
             String []Id_Pass=new AuthenticationEmail().sendAuthenticationEmail(Email);
             int userID=Integer.parseInt(Id_Pass[0]);
             Account account= FactoryAccount.getAccount(accountType);
-            account.setBalance(0);
+            account.setBalance(5000);
             account.setUser_id(userID);
             account.setAccountType(acc_type_cmb.getValue());
             account.setAccount_no((new IdGenerator().generate(Generator.generator.account_id)));
