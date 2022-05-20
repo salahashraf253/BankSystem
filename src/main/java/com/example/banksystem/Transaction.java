@@ -1,16 +1,10 @@
 package com.example.banksystem;
 
 import com.example.dataBase.DataBaseMapping;
-import com.example.dataBase.Functions.DataBaseReader;
-import com.example.dataBase.Functions.DataBaseWriter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Transaction {
     private int userId;
@@ -34,10 +28,6 @@ public class Transaction {
         this.type = type;
     }
     public static ObservableList<Transaction> getTransactions(int userID) throws SQLException {
-//        ObservableList<Transaction> list = FXCollections.observableArrayList();
-//        list.add(new Transaction(100,540,new Date(2022,5,1),"Withdraw"));
-//        list.add(new Transaction(101,1000,new Date(2022,4,18),"Deposit"));
-//        return list;
         return DataBaseMapping.loadTransactionsFromDataBase(userID);
     }
 
@@ -82,17 +72,7 @@ public class Transaction {
     }
 
     public static void addTransaction(Transaction transaction) throws SQLException {
-        DataBaseWriter dataBaseWriter=new DataBaseWriter();
-        String query="insert into transaction" +
-                " (transaction_id,user_id,amount,status,date)"+
-                "VALUES(" +
-                "'" + transaction.transactionID + "'," +
-                "'" + transaction.userId + "'," +
-                "'" + transaction.amount + "'," +
-                "'" + transaction.type + "'," +
-                "'"+transaction.date+"'"+
-                ")";
-        dataBaseWriter.write(query);
+        DataBaseMapping.addTransactionToDataBase(transaction);
     }
 
 }
