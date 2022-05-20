@@ -144,10 +144,14 @@ public class DataBaseMapping {
 
         return list;
     }
-    public static ArrayList<Loan> getLoans() throws SQLException {
+    public static ArrayList<Loan> getLoans(int userID) throws SQLException {
         ArrayList<Loan> loans = new ArrayList<>();
         DataBaseReader db = new DataBaseReader();
-        ResultSet rs = db.read("SELECT * from loan");
+        String query="select * from loan";
+        if(userID!=-1){
+            query+=" where user_id ='"+userID+"'";
+        }
+        ResultSet rs = db.read(query);
         try{
             while (rs.next()) {
                 ResultSet rs2 = db.read("select * from user where user_id = '" + rs.getInt("user_id") + "';");
@@ -156,6 +160,7 @@ public class DataBaseMapping {
                 user.setUserId(rs.getInt("user_id"));
                 Loan loan = LoanFactory.getLoan(rs.getString("loan_type"));
                 loan.setAmount(rs.getFloat("amount"));
+                loan.setUserId(rs.getInt("user_id"));
                 loan.setEndDate(rs.getDate("end_date"));
                 loan.setStartDate(rs.getDate("start_date"));
                 loan.setStatus(rs.getString("status"));
@@ -174,12 +179,4 @@ public class DataBaseMapping {
         return loans;
     }
 
-    //testing
-    public static void main(String[]args) throws SQLException {
-        ArrayList<Loan> list=DataBaseMapping.getLoans();
-        for (Loan l: list) {
-            System.out.println(l.getAmount());
-            System.out.println(l.getUser().getUserId());
-        }
-    }
 }
