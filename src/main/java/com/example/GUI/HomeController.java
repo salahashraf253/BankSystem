@@ -9,7 +9,6 @@ import com.example.banksystem.Transaction;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -21,9 +20,6 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.stream.DoubleStream;
 
 import static com.example.GUI.LayoutController.user;
 
@@ -44,10 +40,10 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
-            System.out.println("Name: "+ user.getFirstname());
+            System.out.println("Name: "+ user.getFirstName());
 //            name_lbl.setText(LayoutController.user.getFirstname());
             Platform.runLater(() -> {
-                name_lbl.setText(client.getFirstname());
+                name_lbl.setText(client.getFirstName());
                 String accountNumber= String.valueOf(client.getAccount().getAccount_no());
                 account_num_lbl.setText(accountNumber);
                 account_type_lbl.setText(client.getAccount().getAccountType());

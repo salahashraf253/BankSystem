@@ -49,7 +49,7 @@
                             <Font size="14.0" />
                          </font>
                       </Label>
-                      <Label layoutX="44.0" layoutY="49.0" prefHeight="20.0" prefWidth="99.0" text="Account Type">
+                      <Label layoutX="44.0" layoutY="84.0" prefHeight="20.0" prefWidth="99.0" text="Account Type">
                          <font>
                             <Font size="14.0" />
                          </font>
@@ -98,17 +98,17 @@
                       <TextField fx:id="gender_txt" editable="false" layoutX="200.0" layoutY="236.0" prefHeight="26.0" prefWidth="86.0" />
                       <TextField fx:id="marital_txt" editable="false" layoutX="200.0" layoutY="344.0" prefHeight="26.0" prefWidth="86.0" />
                       <TextField fx:id="occupation_txt" editable="false" layoutX="200.0" layoutY="381.0" />
-                      <Label layoutX="46.0" layoutY="84.0" prefHeight="20.0" prefWidth="112.0" text="Available Balance">
+                      <Label layoutX="44.0" layoutY="49.0" prefHeight="20.0" prefWidth="112.0" text="Account Number">
                          <font>
                             <Font size="14.0" />
                          </font>
                       </Label>
-                  <Label fx:id="acc_type_lbl" layoutX="200.0" layoutY="49.0" text="Checking" textFill="#696969">
+                  <Label fx:id="acc_type_lbl" layoutX="201.0" layoutY="84.0" text="Checking" textFill="#696969">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="balance_lbl" layoutX="199.0" layoutY="84.0" text="0000.000" textFill="#696969">
+                  <Label fx:id="acc_num_lbl" layoutX="201.0" layoutY="49.0" text="0000000" textFill="#696969">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
