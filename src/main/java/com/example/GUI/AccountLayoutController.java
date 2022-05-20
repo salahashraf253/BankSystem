@@ -67,6 +67,11 @@ public class AccountLayoutController implements Initializable {
         center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/LoanApplication.fxml"));
     }
     @FXML
+    public void viewRequests() {
+        center_pane.getChildren().clear();
+        center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/UserRequests.fxml"));
+    }
+    @FXML
     void settings(){
         center_pane.getChildren().clear();
         center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/Settings.fxml"));
@@ -84,4 +89,5 @@ public class AccountLayoutController implements Initializable {
         home_btn.applyCss();
         home();
     }
+
 }

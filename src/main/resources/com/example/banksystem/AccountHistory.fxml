@@ -17,10 +17,10 @@
       </Label>
       <TableView fx:id="history_table" layoutX="104.0" layoutY="84.0" prefHeight="452.0" prefWidth="727.0" style="-fx-border-color: #003366">
         <columns>
-          <TableColumn fx:id="trans_col" editable="false" prefWidth="191.19997787475586" text="Transaction Number" />
-          <TableColumn fx:id="amount_col" editable="false" prefWidth="188.79994201660156" text="Amount " />
-            <TableColumn fx:id="date_col" editable="false" prefWidth="151.199951171875" text="Date" />
-            <TableColumn fx:id="status_col" editable="false" prefWidth="191.20001220703125" text="Status" />
+          <TableColumn fx:id="trans_col" editable="false" prefWidth="191.19997787475586" resizable="false" text="Transaction ID" />
+          <TableColumn fx:id="amount_col" editable="false" prefWidth="188.79994201660156" resizable="false" text="Amount " />
+            <TableColumn fx:id="date_col" editable="false" prefWidth="151.199951171875" resizable="false" text="Date" />
+            <TableColumn fx:id="status_col" editable="false" prefWidth="191.20001220703125" resizable="false" text="Status" />
         </columns>
       </TableView>
       <ImageView fitHeight="43.0" fitWidth="59.0" layoutX="20.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">

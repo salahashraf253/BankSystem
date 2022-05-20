@@ -9,16 +9,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import  com.example.banksystem.Account.Account;
-import javafx.scene.control.TextField;
-
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -74,7 +68,7 @@ public class ViewAccountController implements Initializable {
         balance_col.setCellValueFactory(new PropertyValueFactory<>("balance") );
         type_col.setCellValueFactory(new PropertyValueFactory<>("accountType") );
         update_col.setCellValueFactory(new PropertyValueFactory<>("updateBtn") );
-         delete_col.setCellValueFactory(new PropertyValueFactory<>("deleteBtn") );
+        delete_col.setCellValueFactory(new PropertyValueFactory<>("deleteBtn") );
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

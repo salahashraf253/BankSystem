@@ -1,7 +1,10 @@
 .button{
     -fx-background-color: #003366;
     -fx-text-fill:#ffffff ;
-    font-size: 14px;
+}
+.logoutBtn{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #003366;
 }
 .accountButton{
     -fx-border-color: #1858a8;
@@ -60,4 +63,20 @@
     -fx-border-color: #f58428;
     -fx-border-width: 0 0 0 3px;
 }
-
+.table-view{
+    -fx-border-color: #003366;
+    -fx-border-width: 2px;
+    -fx-text-alignment: center;
+}
+.table-view .column-header-background{
+    -fx-background-color: #003366;
+}
+.table-view .column-header, .table-view .filler{
+    -fx-background-size: 70px;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0.5 0 0.5;
+    -fx-background-color: transparent;
+}
+.table-view .column-header .label{
+    -fx-text-fill: #ffffff;
+}
