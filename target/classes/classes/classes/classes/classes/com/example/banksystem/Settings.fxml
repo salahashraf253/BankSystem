@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.SettingsController">
+   <children>
+       <ScrollPane prefHeight="700.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <content>
+               <AnchorPane prefHeight="698.0" prefWidth="898.0">
+                 <children>
+                      <Label layoutX="14.0" layoutY="118.0" text="Personal Info">
+                         <font>
+                            <Font name="System Bold" size="16.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="44.0" layoutY="165.0" prefHeight="18.0" prefWidth="66.0" text="Title">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="name_txt" editable="false" layoutX="200.0" layoutY="196.0" prefHeight="26.0" prefWidth="345.0" />
+                      <Label layoutX="85.0" layoutY="203.0" text="(As in ID/Passport)">
+                         <font>
+                            <Font size="11.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="id_txt" editable="false" layoutX="200.0" layoutY="308.0" prefHeight="26.0" prefWidth="346.0" />
+                      <Label layoutX="44.0" layoutY="239.0" prefHeight="20.0" prefWidth="58.0" text="Gender">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="44.0" layoutY="276.0" prefHeight="20.0" prefWidth="90.0" text="Date of Birth">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="44.0" layoutY="311.0" prefHeight="20.0" prefWidth="131.0" text="ID/Passport Number">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="43.0" layoutY="384.0" prefHeight="20.0" prefWidth="90.0" text="Occupation">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="44.0" layoutY="49.0" prefHeight="20.0" prefWidth="99.0" text="Account Type">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="40.0" layoutY="508.0" prefHeight="20.0" prefWidth="131.0" text="Address">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="address_txt" editable="false" layoutX="196.0" layoutY="505.0" prefHeight="26.0" prefWidth="346.0" />
+                      <Label layoutX="40.0" layoutY="542.0" prefHeight="20.0" prefWidth="131.0" text="Personal E-mail">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="email_txt" editable="false" layoutX="196.0" layoutY="539.0" prefHeight="26.0" prefWidth="346.0" />
+                      <Label layoutX="40.0" layoutY="577.0" prefHeight="20.0" prefWidth="131.0" text="Phone Number">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="phone_txt" editable="false" layoutX="196.0" layoutY="574.0" prefHeight="26.0" prefWidth="346.0" />
+                      <Label layoutX="17.0" layoutY="14.0" text="Account Info">
+                         <font>
+                            <Font name="System Bold" size="16.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="42.0" layoutY="420.0" text="Net Monthly Income">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="income_txt" editable="false" layoutX="200.0" layoutY="417.0" />
+                      <Label layoutX="42.0" layoutY="347.0" text="Marital Status">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <Label layoutX="44.0" layoutY="200.0" prefHeight="20.0" prefWidth="44.0" text="Name ">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                      <TextField fx:id="dob_txt" editable="false" layoutX="200.0" layoutY="273.0" />
+                      <TextField fx:id="title_txt" editable="false" layoutX="200.0" layoutY="162.0" prefHeight="26.0" prefWidth="63.0" />
+                      <TextField fx:id="gender_txt" editable="false" layoutX="200.0" layoutY="236.0" prefHeight="26.0" prefWidth="86.0" />
+                      <TextField fx:id="marital_txt" editable="false" layoutX="200.0" layoutY="344.0" prefHeight="26.0" prefWidth="86.0" />
+                      <TextField fx:id="occupation_txt" editable="false" layoutX="200.0" layoutY="381.0" />
+                      <Label layoutX="46.0" layoutY="84.0" prefHeight="20.0" prefWidth="112.0" text="Available Balance">
+                         <font>
+                            <Font size="14.0" />
+                         </font>
+                      </Label>
+                  <Label fx:id="acc_type_lbl" layoutX="200.0" layoutY="49.0" text="Checking" textFill="#696969">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="balance_lbl" layoutX="199.0" layoutY="84.0" text="0000.000" textFill="#696969">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="465.0" text="Contact Info">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                 </children>
+               </AnchorPane>
+           </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

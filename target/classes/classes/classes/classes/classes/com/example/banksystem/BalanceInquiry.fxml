@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="448.0" prefWidth="792.0" style="-fx-border-color: #003366;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.BalanceInquiryController">
+   <children>
+      <Label layoutX="86.0" layoutY="25.0" prefHeight="31.0" prefWidth="187.0" text="Balance Inquiry" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="104.0" layoutY="98.0" text="Account type" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="398.0" layoutY="97.0" text="Net Balance" textFill="#003366">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="58.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/icons8-money-48.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="acc_type_lbl" layoutX="124.0" layoutY="136.0" text="Checking" textFill="#797979">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="balance_lbl" layoutX="433.0" layoutY="131.0" text="0000.00" textFill="#00a300">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="376.0" layoutY="131.0" text="EGP" textFill="#797979">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
