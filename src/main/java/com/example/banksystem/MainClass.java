@@ -12,7 +12,7 @@ public class MainClass extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("Layout.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AdminLHistory.fxml"));
             stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setTitle("BankSystem");

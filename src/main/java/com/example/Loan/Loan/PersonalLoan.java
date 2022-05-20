@@ -13,7 +13,7 @@ public class PersonalLoan extends Loan{
 
     @Override
     public void calcInterestRate() {
-        rate=(2*super.getRepaymentPeriod()) /100;
+        rate=(1.8*super.getRepaymentPeriod()) /100;
     }
 
     @Override

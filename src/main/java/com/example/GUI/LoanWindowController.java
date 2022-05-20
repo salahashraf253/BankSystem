@@ -36,7 +36,7 @@ public class LoanWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> Typelist = FXCollections.observableArrayList("Educational", "Home", "Personal");
         LoanType.setItems(Typelist);
-        ObservableList<Integer> Months = FXCollections.observableArrayList(6, 12);
+        ObservableList<Integer> Months = FXCollections.observableArrayList(6, 12,18,24,36);
         NumOfMonth.setItems(Months);
     }
 

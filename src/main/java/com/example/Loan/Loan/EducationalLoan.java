@@ -11,13 +11,7 @@ public class EducationalLoan extends Loan{
 
     @Override
     public void calcInterestRate() {
-        if(super.getRepaymentPeriod()==6) {
-            rate =0.15;
-            //return (Amount + rate * Amount) / numOfMonths;
-        } else if (super.getRepaymentPeriod()==12) {
-            rate=0.20;
-
-        }
+        rate =1.6*super.getRepaymentPeriod() /100;
     }
 
     @Override

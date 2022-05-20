@@ -14,12 +14,12 @@ public class HomeLoan extends Loan{
 
     @Override
     public void calcInterestRate() {
-        rate =0.1;
+        rate =1.4*super.getRepaymentPeriod() /100;
     }
 
     @Override
     public double CalcMonthlyPaid() {
-        return 0;
+        return (amount + rate* amount) / super.getRepaymentPeriod();
     }
 
 
