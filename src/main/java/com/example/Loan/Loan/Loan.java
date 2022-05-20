@@ -7,7 +7,7 @@ import java.sql.Date;
 
 public abstract class Loan {
     protected User user ;
-    protected int userID;
+    protected int userId;
     protected int loanId;
     protected String loanType;
     protected float amount;
@@ -107,12 +107,12 @@ public abstract class Loan {
         this.loanType=loanType;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
     public abstract void ApplyForLoan();
     public abstract double InterestRate(int numOfMonths);
