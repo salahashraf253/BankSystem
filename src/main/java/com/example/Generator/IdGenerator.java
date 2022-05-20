@@ -11,6 +11,7 @@ public class IdGenerator implements Generator{
             case user_id -> "user"; //this names of table in Database
             case account_id -> "bank_account";
             case transaction_id -> "transaction";
+            case loan_id -> "loan";
         };
     }
 

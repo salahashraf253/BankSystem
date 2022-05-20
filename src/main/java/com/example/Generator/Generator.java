@@ -16,5 +16,6 @@ public interface Generator {
         user_id,
         account_id,
         transaction_id,
+        loan_id,
     }
 }
