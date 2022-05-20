@@ -1,9 +1,7 @@
 package com.example.Loan.Loan;
 
-import com.example.Generator.Generator;
-import com.example.Generator.IdGenerator;
 import com.example.UserFactory.User;
-import com.example.dataBase.Functions.DataBaseWriter;
+import com.example.dataBase.DataBaseMapping;
 import com.jfoenix.controls.JFXButton;
 
 import java.sql.Date;
@@ -20,6 +18,7 @@ public abstract class Loan {
     protected int repaymentPeriod;
     protected double rate ;
     private String status;
+    private double monthlyInstallment;
     private JFXButton approveBtn;
     private JFXButton rejectBtn;
 
@@ -109,6 +108,14 @@ public abstract class Loan {
         return userId;
     }
 
+    public double getMonthlyInstallment() {
+        return monthlyInstallment;
+    }
+
+    public void setMonthlyInstallment(double monthlyInstallment) {
+        this.monthlyInstallment = monthlyInstallment;
+    }
+
     public void setLoanId(int loanId){
         this.loanId=loanId;
     }
@@ -117,27 +124,9 @@ public abstract class Loan {
     }
     public abstract void ApplyForLoan() throws SQLException;
     public abstract void calcInterestRate();
-    public abstract double CalcMonthlyPaid();
+    public abstract double CalcMonthlyInstallment();
 
     public void addLoan() throws SQLException {
-        DataBaseWriter dataBaseWriter=new DataBaseWriter();
-        loanId= new IdGenerator().generate(Generator.generator.loan_id);
-        userId=this.user.getUserId();
-
-        String query="insert into loan" +
-                " (loan_id,user_id,loan_type,amount,status,nOfMonth,rate," +
-                "start_Date,end_date)"+
-                "VALUES(" +
-                "'" + this.loanId+ "'," +
-                "'" + getUserId() + "'," +
-                "'" + loanType + "'," +
-                "'" + amount + "'," +
-                "'" + "pending" + "'," +
-                "'" + repaymentPeriod + "'," +
-                "'" + rate + "'," +
-                "'"+startDate+"',"+
-                "'"+endDate
-                +"')";
-        dataBaseWriter.write(query);
+        DataBaseMapping.addLoan(this);
     }
 }

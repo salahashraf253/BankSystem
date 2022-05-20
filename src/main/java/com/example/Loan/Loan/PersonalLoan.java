@@ -8,6 +8,7 @@ public class PersonalLoan extends Loan{
     @Override
     public void ApplyForLoan() throws SQLException {
         calcInterestRate();
+        setMonthlyInstallment(this.CalcMonthlyInstallment());
         super.addLoan();
     }
 
@@ -17,8 +18,8 @@ public class PersonalLoan extends Loan{
     }
 
     @Override
-    public double CalcMonthlyPaid() {
-        return (amount + rate* amount) / super.getRepaymentPeriod();
+    public double CalcMonthlyInstallment() {
+        return (amount + rate* amount) / (super.getRepaymentPeriod() *1.f);
     }
 
 
