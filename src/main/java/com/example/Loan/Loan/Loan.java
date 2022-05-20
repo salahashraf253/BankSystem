@@ -1,9 +1,13 @@
 package com.example.Loan.Loan;
 
+import com.example.Generator.Generator;
+import com.example.Generator.IdGenerator;
 import com.example.UserFactory.User;
+import com.example.dataBase.Functions.DataBaseWriter;
 import com.jfoenix.controls.JFXButton;
 
 import java.sql.Date;
+import java.sql.SQLException;
 
 public abstract class Loan {
     protected User user ;
@@ -18,12 +22,6 @@ public abstract class Loan {
     private String status;
     private JFXButton approveBtn;
     private JFXButton rejectBtn;
-
-    public static int generateLoanId(){
-        int id = 0;
-        //Get number of Loans from Database then add 1
-        return id;
-    }
 
     private void rejectRequest(int accountId, int loanId) {
     }
@@ -111,10 +109,35 @@ public abstract class Loan {
         return userId;
     }
 
+    public void setLoanId(int loanId){
+        this.loanId=loanId;
+    }
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    public abstract void ApplyForLoan();
-    public abstract double InterestRate(int numOfMonths);
-    public abstract double CalcMonthlyPaid(int numOfMonths);
+    public abstract void ApplyForLoan() throws SQLException;
+    public abstract void calcInterestRate();
+    public abstract double CalcMonthlyPaid();
+
+    public void addLoan() throws SQLException {
+        DataBaseWriter dataBaseWriter=new DataBaseWriter();
+        loanId= new IdGenerator().generate(Generator.generator.loan_id);
+        userId=this.user.getUserId();
+
+        String query="insert into loan" +
+                " (loan_id,user_id,loan_type,amount,status,nOfMonth,rate," +
+                "start_Date,end_date)"+
+                "VALUES(" +
+                "'" + this.loanId+ "'," +
+                "'" + getUserId() + "'," +
+                "'" + loanType + "'," +
+                "'" + amount + "'," +
+                "'" + "pending" + "'," +
+                "'" + repaymentPeriod + "'," +
+                "'" + rate + "'," +
+                "'"+startDate+"',"+
+                "'"+endDate
+                +"')";
+        dataBaseWriter.write(query);
+    }
 }

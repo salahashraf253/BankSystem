@@ -1,22 +1,24 @@
 package com.example.Loan.Loan;
 
 
+import java.sql.SQLException;
+
 public class PersonalLoan extends Loan{
 
     @Override
-    public void ApplyForLoan() {
-
+    public void ApplyForLoan() throws SQLException {
+        calcInterestRate();
+        super.addLoan();
     }
 
     @Override
-    public double InterestRate(int numOfMonths) {
-        rate=2*numOfMonths/100;
-        return 0;
+    public void calcInterestRate() {
+        rate=(2*super.getRepaymentPeriod()) /100;
     }
 
     @Override
-    public double CalcMonthlyPaid(int numOfMonths) {
-        return (amount + rate* amount) / numOfMonths;
+    public double CalcMonthlyPaid() {
+        return (amount + rate* amount) / super.getRepaymentPeriod();
     }
 
 

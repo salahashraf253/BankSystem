@@ -2,21 +2,25 @@ package com.example.Loan.Loan;
 
 import javafx.collections.ObservableList;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class HomeLoan extends Loan{
     @Override
-    public void ApplyForLoan() {
-
+    public void ApplyForLoan() throws SQLException {
+        calcInterestRate();
+        super.addLoan();
     }
 
     @Override
-    public double InterestRate(int numOfMonths) {
-      return  rate;
+    public void calcInterestRate() {
+        rate =0.1;
     }
 
     @Override
-    public double CalcMonthlyPaid(int numOfMonths) {
-        return (amount + rate* amount) / numOfMonths;
+    public double CalcMonthlyPaid() {
+        return 0;
     }
+
+
 }
