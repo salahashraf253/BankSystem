@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -39,8 +40,8 @@ public class UserRequestsController implements Initializable {
         start_col.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         status_col.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
-    public void loadRequests(){
-        LoanRequestsRepo requestsRepo = new LoanRequestsRepo();
+    public void loadRequests() throws SQLException {
+        LoanRequestsRepo requestsRepo = new LoanRequestsRepo(LayoutController.user.getUserId());
         for(Iterator iter = requestsRepo.getIterator(); iter.hasNext();)
         {
             Loan loan = (Loan) iter.next();
@@ -52,6 +53,10 @@ public class UserRequestsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initCol();
-        loadRequests();
+        try {
+            loadRequests();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

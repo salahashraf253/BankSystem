@@ -17,18 +17,21 @@ public class LoanRequestsRepo implements  Container{
 //    private List<LoanRequest> loanRequestList=getAllLoanRequests(); //DataBase.getLoanRequests();
     private Iterator LoanIter;
     public ArrayList<Loan> loanReqs;
+//    {
+//        try {
+//            loanReqs = DataBaseMapping.getLoans();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
-    {
+    public LoanRequestsRepo(int userID) throws SQLException {
         try {
-            loanReqs = DataBaseMapping.getLoans();
+            loanReqs = DataBaseMapping.getLoans(userID);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-//    public LoanRequestsRepo() throws SQLException {
-//        loanRequestList=getAllLoanRequests();
-//    }
 
     //    private static List<LoanRequest> getAllLoanRequests() throws SQLException {
 //        List<LoanRequest> loanRequestList=new ArrayList<>();
