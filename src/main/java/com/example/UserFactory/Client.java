@@ -4,7 +4,6 @@ import com.example.banksystem.Account.Account;
 import com.example.banksystem.Transaction;
 import com.example.dataBase.Functions.DataBaseWriter;
 
-import java.sql.Date;
 import java.sql.SQLException;
 
 
@@ -19,13 +18,13 @@ public class Client extends User{
     public Client(String firstName, String lastName, int userId,int ssd, String password, String email, Account account,
                   int salary,String address,String status,String gender){
         this.account=account;
-        this.firstname=firstName;
-        this.lastname=lastName;
+        this.firstName =firstName;
+        this.lastName =lastName;
         this.UserId=userId;
         this.Password=password;
         this.Salary=salary;
         this.Email=email;
-        this.SSD=ssd;
+        this.SSN =ssd;
         this.Address=address;
         this.status=status;
         this.gender=gender;
@@ -51,13 +50,13 @@ public class Client extends User{
                 "salary, phone,address,status,gender,type)"+
                 "VALUES(" +
                 "'" + user.getUserId()+ "'," +
-                        "'" + user.getSSD() + "'," +
+                        "'" + user.getSSN() + "'," +
                         "'" + user.getEmail() + "'," +
                         "'" + user.getPassword() + "'," +
-                        "'" + user.getFirstname() + "'," +
-                        "'" + user.getLastname() + "'," +
+                        "'" + user.getFirstName() + "'," +
+                        "'" + user.getLastName() + "'," +
                         "'" + user.getSalary() + "'," +
-                        "'"+user.getPhonenumber()+"',"+
+                        "'"+user.getPhoneNumber()+"',"+
                         "'"+user.getAddress()+"',"+
                         "'"+user.getStatus()+"',"+
                          "'"+user.getGender()+"',"+

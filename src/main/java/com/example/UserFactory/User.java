@@ -1,19 +1,15 @@
 package com.example.UserFactory;
 
 import com.example.NotificationsObserver.SendNotificationHelper;
-import com.example.banksystem.Account.Account;
-import com.example.dataBase.DataBase;
-import com.example.dataBase.Functions.DataBaseReader;
 
 import java.util.Date;
 
 public abstract class User {
-    protected String firstname;
-    protected String lastname;
+    protected String firstName;
+    protected String lastName;
     protected int Salary;
-
-    protected int SSD;
-    protected String phonenumber;
+    protected int SSN;
+    protected String phoneNumber;
     protected String Email;
     protected Date dob;
     protected String Password;
@@ -22,23 +18,24 @@ public abstract class User {
     protected String type;
     protected String gender;
     protected String status;
+
     public User(){
 
     }
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getSalary() {
@@ -49,20 +46,20 @@ public abstract class User {
         Salary = salary;
     }
 
-    public int getSSD() {
-        return SSD;
+    public int getSSN() {
+        return SSN;
     }
 
-    public void setSSD(int SSD) {
-        this.SSD = SSD;
+    public void setSSN(int SSN) {
+        this.SSN = SSN;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -104,7 +101,13 @@ public abstract class User {
     public void setAddress(String address) {
         Address = address;
     }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
     public void notifyUser(String subject, String body){
         SendNotificationHelper send=new SendNotificationHelper(subject,body,this.Email);
     }
@@ -118,7 +121,7 @@ public abstract class User {
     public String getGender() {
         return gender;
     }
-    protected String getStatus() {
+    public String getStatus() {
         return status;
     }
 

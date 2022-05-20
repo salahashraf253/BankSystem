@@ -2,10 +2,8 @@ package com.example.GUI;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -39,7 +37,7 @@ public class AccountLayoutController implements Initializable {
     void home(){
         center_pane.getChildren().setAll(pageLoader.getPage("/com/example/banksystem/Home.fxml"));
         try{
-            System.out.println(LayoutController.user.getFirstname());
+            System.out.println(LayoutController.user.getFirstName());
         }
         catch (Exception e){
             System.out.println("Error in Account layout controller");

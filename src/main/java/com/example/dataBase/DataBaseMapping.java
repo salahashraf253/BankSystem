@@ -46,11 +46,11 @@ public class DataBaseMapping {
                 // Salary
                 user.setSalary(Integer.parseInt((resultSet.getString("salary"))));
                 // First Name
-                user.setFirstname((resultSet.getString("firstName")));
+                user.setFirstName((resultSet.getString("firstName")));
                 // Last Name
-                user.setLastname((resultSet.getString("lastName")));
+                user.setLastName((resultSet.getString("lastName")));
                 // Phone Number
-                user.setPhonenumber((resultSet.getString("phone")));
+                user.setPhoneNumber((resultSet.getString("phone")));
                 //salary
                 user.setSalary(Integer.parseInt((resultSet.getString("salary"))));
                 return user;
@@ -152,7 +152,7 @@ public class DataBaseMapping {
             while (rs.next()) {
                 ResultSet rs2 = db.read("select * from user where user_id = '" + rs.getInt("user_id") + "';");
                 User user = getUser(rs2);
-                System.out.println(user.getFirstname());
+                System.out.println(user.getFirstName());
                 user.setUserId(rs.getInt("user_id"));
                 Loan loan = LoanFactory.getLoan(rs.getString("loan_type"));
                 loan.setAmount(rs.getFloat("amount"));
