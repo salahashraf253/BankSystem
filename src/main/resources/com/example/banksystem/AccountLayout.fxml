@@ -19,7 +19,7 @@
                   <right>
                      <AnchorPane prefHeight="70.0" prefWidth="949.0" BorderPane.alignment="CENTER">
                         <children>
-                           <JFXButton fx:id="logout_btn" contentDisplay="RIGHT" layoutX="818.0" layoutY="14.0" onAction="#logout" prefHeight="41.0" prefWidth="107.0" styleClass="logoutBtn" text="Logout" textFill="#003366" AnchorPane.rightAnchor="24.40000000000002">
+                           <JFXButton fx:id="logout_btn" contentDisplay="RIGHT" layoutX="810.0" layoutY="14.0" onAction="#logout" prefHeight="41.0" prefWidth="107.0" styleClass="logoutBtn" text="Logout" textFill="#003366" AnchorPane.rightAnchor="32.39999999999998">
                               <font>
                                  <Font name="Segoe UI Bold" size="16.0" />
                               </font>
@@ -69,9 +69,9 @@
                         <children>
                            <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <top>
-                                 <JFXToolbar style="-fx-background-color: #003366; -fx-border-color: #1858a8;; -fx-border-width: 1px 0 0 0;" BorderPane.alignment="CENTER">
+                                 <JFXToolbar prefHeight="46.0" prefWidth="1200.0" style="-fx-background-color: #003366; -fx-border-color: #1858a8;; -fx-border-width: 1px 0 0 0;" BorderPane.alignment="CENTER">
                                     <left>
-                                       <AnchorPane prefHeight="50.0" prefWidth="785.0" BorderPane.alignment="CENTER">
+                                       <AnchorPane prefHeight="50.0" prefWidth="895.0" BorderPane.alignment="CENTER">
                                           <children>
                                              <JFXButton fx:id="home_btn" defaultButton="true" onAction="#home" prefHeight="50.0" prefWidth="96.0" style="-fx-border-radius: 0;" text="Home" textFill="WHITE">
                                                 <font>
@@ -134,7 +134,19 @@
                                                    </ImageView>
                                                 </graphic>
                                              </JFXButton>
-                                          <JFXButton layoutX="669.0" onAction="#settings" prefHeight="50.0" prefWidth="117.0" style="-fx-border-radius: 0;" text="Settings" textFill="WHITE">
+                                          <JFXButton layoutX="668.0" onAction="#viewRequests" prefHeight="50.0" prefWidth="124.0" style="-fx-border-radius: 0;" styleClass="accountButton" text="Requests" textFill="WHITE">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Images/icons8-document-50 (1).png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton layoutX="792.0" onAction="#settings" prefHeight="50.0" prefWidth="117.0" style="-fx-border-radius: 0;" text="Settings" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria Bold" size="14.0" />
                                              </font>

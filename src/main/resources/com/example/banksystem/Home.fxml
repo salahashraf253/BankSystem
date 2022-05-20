@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="1300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.HomeController">
    <children>
       <Label layoutX="52.0" layoutY="149.0" text="Account Number">
@@ -21,12 +20,12 @@
             <Font name="System Bold Italic" size="22.0" />
          </font>
       </Label>
-      <Label  layoutX="1063.0" layoutY="49.0" prefHeight="35.0" prefWidth="146.0" text="Net Position" textFill="#00a300" AnchorPane.rightAnchor="90.59999999999991">
+      <Label layoutX="1063.0" layoutY="49.0" prefHeight="35.0" prefWidth="146.0" text="Net Position" textFill="#00a300" AnchorPane.rightAnchor="90.59999999999991">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="name_lbl" layoutX="88.0" layoutY="88.0" text="o" textFill="#003366">
+      <Label fx:id="name_lbl" layoutX="88.0" layoutY="88.0" text="User" textFill="#003366">
          <font>
             <Font name="System Bold Italic" size="22.0" />
          </font>
@@ -66,9 +65,9 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="50.0" layoutY="267.0" prefHeight="378.0" prefWidth="1000.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <AnchorPane fx:id="withdraw_pane" layoutX="50.0" layoutY="285.0" prefHeight="265.0" prefWidth="1200.0" style="-fx-border-color: #003366;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <children>
-            <Label layoutX="73.0" layoutY="14.0" prefHeight="35.0" prefWidth="206.0" text="Withdraw Money" textFill="#003366">
+            <Label layoutX="73.0" layoutY="14.0" prefHeight="35.0" prefWidth="206.0" text="Cash Withdrawal" textFill="#003366">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -78,32 +77,76 @@
                   <Image url="@Images/icons8-cash-withdrawal-64.png" />
                </image>
             </ImageView>
-            <TextField fx:id="withdraw_amount_txt" layoutX="502.0" layoutY="167.0" prefHeight="26.0" prefWidth="195.0" promptText="100 And Its Multibles only" style="-fx-border-color: #003366;">
+            <TextField fx:id="withdraw_amount_txt" layoutX="520.0" layoutY="94.0" prefHeight="26.0" prefWidth="195.0" promptText="100 And Its Multibles only" style="-fx-border-color: #003366;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="385.0" layoutY="172.0" text="Enter Amount" textFill="#003366">
+            <Label layoutX="403.0" layoutY="99.0" text="Enter Amount" textFill="#003366">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXButton layoutX="729.0" layoutY="167.0" onAction="#withdrawMoney" prefHeight="31.0" prefWidth="103.0" styleClass="withdrawBtn" text="Withdraw" textFill="#003366">
+            <JFXButton layoutX="747.0" layoutY="94.0" onAction="#withdrawMoney" prefHeight="31.0" prefWidth="103.0" styleClass="withdrawBtn" text="Withdraw" textFill="#003366">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <Label layoutX="493.0" layoutY="237.0" text="Remaining Balance" textFill="#003366">
+            <Label fx:id="rem_lbl" layoutX="489.0" layoutY="164.0" text="Remaining Balance        EGP" textFill="#003366">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="rem_balance_lbl" layoutX="661.0" layoutY="234.0" text="000.00" textFill="#003366">
+            <Label fx:id="rem_balance_lbl" layoutX="679.0" layoutY="161.0" text="000.00" textFill="#003366">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="deposit_pane" layoutX="50.0" layoutY="285.0" prefHeight="265.0" prefWidth="1200.0" style="-fx-border-color: #003366;" visible="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Label layoutX="73.0" layoutY="14.0" prefHeight="35.0" prefWidth="206.0" text="Cash Deposite" textFill="#003366">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="44.0" fitWidth="52.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/deposit-96.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="deposit_amount_txt" layoutX="520.0" layoutY="94.0" prefHeight="26.0" prefWidth="195.0" promptText="100 And Its Multibles only" style="-fx-border-color: #003366;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="403.0" layoutY="99.0" text="Enter Amount" textFill="#003366">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="747.0" layoutY="94.0" onAction="#cashDeposit" prefHeight="31.0" prefWidth="103.0" styleClass="withdrawBtn" text="Deposite" textFill="#003366">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="508.0" layoutY="164.0" text="Your Balance             EGP" textFill="#003366">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="current_balance_lbl" layoutX="679.0" layoutY="161.0" text="000.00" textFill="#003366">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="deposit_withdraw_btn" layoutX="566.0" layoutY="572.0" onAction="#deposit_withdraw" prefHeight="44.0" prefWidth="248.0" text="Cash Deposit">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

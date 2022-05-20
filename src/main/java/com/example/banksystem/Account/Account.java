@@ -1,10 +1,12 @@
 
 package com.example.banksystem.Account;
 
+import com.example.GUI.PageLoader;
 import com.example.dataBase.Functions.DataBaseReader;
 import com.example.dataBase.Functions.DataBaseUpdater;
 import com.example.dataBase.Functions.DataBaseWriter;
 import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.scene.chart.PieChart;
 
 import java.sql.ResultSet;
@@ -22,6 +24,9 @@ public abstract class Account {
 
     public  void withdraw(float amount){
         this.balance-=amount;
+    }
+    public  void deposit(float amount){
+        this.balance+=amount;
     }
     public String getAccountType() {
         return accountType;
@@ -64,10 +69,15 @@ public abstract class Account {
 
     public void setUpdateBtn() {
         this.updateBtn = new JFXButton("Update");
+        this.updateBtn.setOnAction(actionEvent ->{updateAccount();});
     }
 
     public void setDeleteBtn() {
         this.deleteBtn = new JFXButton("Delete");
+    }
+    public void updateAccount(){
+        PageLoader pageLoader = new PageLoader();
+        pageLoader.loadPage("/com/example/banksystem/Update Accout.fxml",null,false,false);
     }
     public static void addAccount(Account account) throws SQLException {
         String q="insert into bank_account" +

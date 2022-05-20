@@ -13,6 +13,6 @@ public class DesktopNotificationBuilder {
         tray.setTitle("EDB");
         tray.setMessage(message);
         tray.setNotificationType(notificationType);
-        tray.showAndDismiss(Duration.seconds(4));
+        tray.showAndDismiss(Duration.seconds(5));
     }
 }

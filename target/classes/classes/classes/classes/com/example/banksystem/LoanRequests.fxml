@@ -20,9 +20,9 @@
             <TableColumn fx:id="account_col" prefWidth="117.60000324249268" text="Account Id" />
             <TableColumn fx:id="loan_id_col" prefWidth="116.00006103515625" text="Loan Id" />
             <TableColumn fx:id="amount_col" prefWidth="111.99995422363281" text="Amount" />
-            <TableColumn fx:id="type_col" prefWidth="130.0" text="Type" />
-            <TableColumn fx:id="month_col" minWidth="7.20001220703125" prefWidth="120.7999267578125" text="Monthly Paid" />
-            <TableColumn fx:id="rate_col" minWidth="0.0" prefWidth="96.79998779296875" text="Rate" />
+            <TableColumn fx:id="type_col" prefWidth="120.0" text="Type" />
+            <TableColumn fx:id="month_col" minWidth="7.20001220703125" prefWidth="138.4000244140625" text="Monthly Installment" />
+            <TableColumn fx:id="rate_col" minWidth="0.0" prefWidth="89.5999755859375" text="Rate" />
             <TableColumn fx:id="start_col" prefWidth="130.0" text="Start Date" />
             <TableColumn fx:id="end_col" prefWidth="130.0" text="End Date" />
             <TableColumn fx:id="status_col" prefWidth="106.40008544921875" text="Status" />
