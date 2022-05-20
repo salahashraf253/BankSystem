@@ -5,37 +5,35 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 //Singleton pattern is applied in this class
-public abstract class DataBase {
+public class DataBase {
     private static final String dataBaseSchema="bank_data_base";
     private static final String url="jdbc:mysql://localhost:3306/" + dataBaseSchema;
     private static final String user="root";
     private static final String password="1234";
     private static Connection connection;
+    private static DataBase dataBaseConnection;
 
+    static {
+        try {
+            dataBaseConnection = new DataBase();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private DataBase() throws SQLException {
+        dataBaseConnection.openConnection();
+    }
     private static void openConnection() throws SQLException {
         connection=DriverManager.getConnection(url,user,password);
         System.out.println("Connections is opened");
     }
 
-    public static Connection getConnection() throws SQLException {
-        if(connection==null||connection.isClosed()) {
-            System.out.println("The database connection is closed");
-            try {
-                System.out.println("Try opening the connection.......");
-                openConnection();
-            }
-            catch (SQLException sqlException) {
-                System.out.println("Error in Connecting Data Base");
-                System.out.println(sqlException.getMessage());
-            }
-        }
-        else
-            System.out.println("The connection is already opened");
-        return connection;
+    public static DataBase getDataBaseInstance() throws SQLException {
+        return dataBaseConnection;
     }
-
-    public void closeConnection() throws SQLException {
-        connection.close();
-        System.out.println("The connection is closed");
+    public static Connection getConnection(){
+        return dataBaseConnection.connection;
     }
+//
 }

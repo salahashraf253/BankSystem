@@ -6,8 +6,5 @@ public class SavingsAccount extends Account{
         accountType = "Savings Account";
     }
 
-    @Override
-    public boolean canWithdraw(double amount) {
-        return amount <= this.getBalance();
-    }
+
 }

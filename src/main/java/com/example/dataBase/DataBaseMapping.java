@@ -1,6 +1,8 @@
 package com.example.dataBase;
-import com.example.Loan.Loan.Loan;
-import com.example.Loan.Loan.LoanFactory;
+import com.example.Generator.Generator;
+import com.example.Generator.IdGenerator;
+import com.example.LoanPackage.Loan.Loan;
+import com.example.LoanPackage.Loan.LoanFactory;
 import com.example.UserFactory.Client;
 import com.example.UserFactory.FactoryUser;
 import com.example.UserFactory.User;
@@ -8,6 +10,7 @@ import com.example.banksystem.Account.Account;
 import com.example.banksystem.Account.FactoryAccount;
 import com.example.banksystem.Transaction;
 import com.example.dataBase.Functions.DataBaseReader;
+import com.example.dataBase.Functions.DataBaseWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -34,7 +37,6 @@ public class DataBaseMapping {
                 System.out.println();;
                 assert user != null;
                 if(type.compareTo("c")==0){
-//                    user=(Client)user;
                     ((Client) user).setAccount(readAccountFromDB(encrptedUserId));
                     user.setType("c");
                 }
@@ -115,33 +117,24 @@ public class DataBaseMapping {
         }
         return transactionsList;
     }
-
-
     public static ObservableList<Account> getAccounts() throws SQLException {
         ObservableList<Account> list = FXCollections.observableArrayList();
         DataBaseReader db = new DataBaseReader();
-
         try {
             ResultSet rs=db.read("select * from bank_account");
-            while (rs.next())
-            {
+            while (rs.next()) {
                 Account account  = FactoryAccount.getAccount(rs.getString("type"));
                 account.setAccount_no(rs.getInt("account_id"));
                 account.setBalance(rs.getFloat("balance"));
                 account.setUser_id(rs.getInt("user_id"));
                 account.setAccountType(rs.getString("type"));
                 list.add(account);
-
             }
         }
-
         catch (Exception e){
-
             System.out.println("Error in get accounts");
             System.out.println(e.getMessage());
         }
-
-
         return list;
     }
     public static ArrayList<Loan> getLoans(int userID) throws SQLException {
@@ -169,6 +162,7 @@ public class DataBaseMapping {
                 loan.setUser(user);
                 loan.setLoanId(rs.getInt("loan_id"));
                 loan.setLoanType(rs.getString("loan_type"));
+                loan.setMonthlyInstallment(rs.getDouble("monthlyPaid"));
                 loans.add(loan);
             }
         }
@@ -177,6 +171,49 @@ public class DataBaseMapping {
             System.out.println(e.getMessage());
         }
         return loans;
+    }
+    public static void addLoanToDataBase(Loan loan) throws SQLException {
+        DataBaseWriter dataBaseWriter=new DataBaseWriter();
+        loan.setLoanId(new IdGenerator().generate(Generator.generator.loan_id));
+        loan.setUserId(loan.getUser().getUserId());
+        String query="insert into loan" +
+                " (loan_id,user_id,loan_type,amount,status,nOfMonth,rate," +
+                "start_Date,end_date,monthlyPaid)"+
+                "VALUES(" +
+                "'" + loan.getLoanId()+ "'," +
+                "'" + loan.getUserId()+ "'," +
+                "'" + loan.getLoanType()+ "'," +
+                "'" + loan.getAmount()+ "'," +
+                "'" + "pending" + "'," +
+                "'" + loan.getRepaymentPeriod() + "'," +
+                "'" + loan.getRate()+ "'," +
+                "'"+loan.getStartDate()+"',"+
+                "'"+loan.getEndDate()+"',"+
+                "'"+loan.getMonthlyInstallment()+
+                "')";
+        dataBaseWriter.write(query);
+    }
+    public static void addUserToDataBase(Client user) throws SQLException {
+        DataBaseWriter dataBaseWriter = new DataBaseWriter();
+        String query = "insert into user" +
+                " (user_id,ssn,email,password,firstName,lastName, " +
+                "salary, phone,address,status,gender,type)" +
+                "VALUES(" +
+                "'" + user.getUserId() + "'," +
+                "'" + user.getSSN() + "'," +
+                "'" + user.getEmail() + "'," +
+                "'" + user.getPassword() + "'," +
+                "'" + user.getFirstName() + "'," +
+                "'" + user.getLastName() + "'," +
+                "'" + user.getSalary() + "'," +
+                "'" + user.getPhoneNumber() + "'," +
+                "'" + user.getAddress() + "'," +
+                "'" + user.getStatus() + "'," +
+                "'" + user.getGender() + "'," +
+                "'" + "c" + "'" +  //c : client
+                ")";
+        dataBaseWriter.write(query);
+        Account.addAccount(user.getAccount());
     }
 
 }

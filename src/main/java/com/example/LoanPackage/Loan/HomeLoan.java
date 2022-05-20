@@ -1,4 +1,4 @@
-package com.example.Loan.Loan;
+package com.example.LoanPackage.Loan;
 
 import java.sql.SQLException;
 

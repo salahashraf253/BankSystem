@@ -20,6 +20,6 @@ public class DesktopNotification extends NotificationAbstract{
 
     @Override
     public void notifyUser() {
-        DesktopNotificationBuilder.notifyUser(subject.Message, this.notificationType);
+       // DesktopNotificationBuilder.notifyUser(subject.Message, this.notificationType);
     }
 }

@@ -93,7 +93,6 @@ public class Transaction {
                 "'"+transaction.date+"'"+
                 ")";
         dataBaseWriter.write(query);
-        dataBaseWriter.closeConnection();
     }
 
 }

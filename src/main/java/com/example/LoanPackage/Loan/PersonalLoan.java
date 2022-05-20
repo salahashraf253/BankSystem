@@ -1,8 +1,10 @@
-package com.example.Loan.Loan;
+package com.example.LoanPackage.Loan;
+
 
 import java.sql.SQLException;
 
-public class EducationalLoan extends Loan{
+public class PersonalLoan extends Loan{
+
     @Override
     public void ApplyForLoan() throws SQLException {
         calcInterestRate();
@@ -12,11 +14,13 @@ public class EducationalLoan extends Loan{
 
     @Override
     public void calcInterestRate() {
-        rate =1.6*super.getRepaymentPeriod() /100;
+        rate=(1.8*super.getRepaymentPeriod()) /100;
     }
 
     @Override
     public double CalcMonthlyInstallment() {
-    return (amount + rate* amount) / (super.getRepaymentPeriod()*1.f);
+        return (amount + rate* amount) / (super.getRepaymentPeriod() *1.f);
     }
+
+
 }

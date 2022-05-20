@@ -14,7 +14,6 @@ public class Login {
         String query="select * from user where user_id='" + userID + "' and password='" + password+"';";
         ResultSet resultSet=dataBaseReader.read(query);
         User user= DataBaseMapping.getUser(resultSet);
-        dataBaseReader.closeConnection();
         return user;
     }
 }

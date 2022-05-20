@@ -1,15 +1,10 @@
-package com.example.Loan.LoanIterator;
+package com.example.LoanPackage.LoanIterator;
 
-import com.example.Loan.Loan.Loan;
-import com.example.Loan.Loan.LoanFactory;
-import com.example.Loan.Loan.*;
+import com.example.LoanPackage.Loan.Loan;
 import com.example.dataBase.DataBaseMapping;
-import com.example.dataBase.Functions.DataBaseReader;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class LoanRequestsRepo implements  Container{
 

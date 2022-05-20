@@ -1,4 +1,4 @@
-package com.example.notification;
+package com.example.Api.EmailApi;
 
 public class NotifierEmail extends Email{
 

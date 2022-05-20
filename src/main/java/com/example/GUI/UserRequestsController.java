@@ -1,8 +1,8 @@
 package com.example.GUI;
 
-import com.example.Loan.Loan.Loan;
-import com.example.Loan.LoanIterator.Iterator;
-import com.example.Loan.LoanIterator.LoanRequestsRepo;
+import com.example.LoanPackage.Loan.Loan;
+import com.example.LoanPackage.LoanIterator.Iterator;
+import com.example.LoanPackage.LoanIterator.LoanRequestsRepo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

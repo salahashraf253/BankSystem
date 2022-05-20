@@ -47,26 +47,9 @@ public class LoginFormController {
         if(user==null){
             incorrect_password.setVisible(true);
             incorrect_userId.setVisible(true);
-
             return; //invalid user id or password
         }
         String emailBody="You have just logged in";
-//        user.notifyUser("ASU Bank Security alert",emailBody);
-        /*use multi threading here */
-        //to send the notifier email in parallel with another functions
-        //because sending the email take around 1 minute that is very bad for the performance
-//        ExecutorService executor = Executors.newCachedThreadPool();
-//        Runnable callMultiply = () -> user.notifyUser("ASU Bank Security alert",emailBody);
-//        executor.execute(callMultiply);
-//        Runnable openAccountForm= () ->pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml",
-//                "EDB", true, true);
-//        executor.execute(openAccountForm);
-////        Runnable closeCurrentForm=()->pageLoader.closePage(login_pane);
-////        executor.execute(closeCurrentForm);
-//        executor.shutdown();
-//        System.out.println("It is working ");
-//        pageLoader.closePage(login_pane);
-//        user.notifyUser("ASU Bank Security alert",emailBody);
         LayoutController.user=user;
         if(user.getType().compareToIgnoreCase("c")==0){     //c: client
             pageLoader.loadPage("/com/example/banksystem/AccountLayout.fxml","EDB",true, true);

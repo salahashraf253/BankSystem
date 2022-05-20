@@ -105,6 +105,7 @@ public class HomeController implements Initializable {
         account.setAccount_no(client.getUserId());
         if(account.canWithdraw(amount)){
             account.withdraw(amount);
+            System.out.println("with draw");
             updateRemainingBalanceLabel();
             try {
                 account.updateBalance();

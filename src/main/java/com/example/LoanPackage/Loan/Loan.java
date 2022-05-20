@@ -1,4 +1,4 @@
-package com.example.Loan.Loan;
+package com.example.LoanPackage.Loan;
 
 import com.example.UserFactory.User;
 import com.example.dataBase.DataBaseMapping;
@@ -127,6 +127,6 @@ public abstract class Loan {
     public abstract double CalcMonthlyInstallment();
 
     public void addLoan() throws SQLException {
-        DataBaseMapping.addLoan(this);
+        DataBaseMapping.addLoanToDataBase(this);
     }
 }

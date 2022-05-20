@@ -1,4 +1,4 @@
-package com.example.bankFeatures.currencyConverter;
+package com.example.Api.currencyConverter;
 
 import java.net.MalformedURLException;
 import java.net.URL;

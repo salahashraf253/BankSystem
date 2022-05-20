@@ -26,6 +26,7 @@
             <TableColumn fx:id="start_col" prefWidth="130.0" text="Start Date" />
             <TableColumn fx:id="end_col" prefWidth="130.0" text="End Date" />
             <TableColumn fx:id="status_col" prefWidth="106.40008544921875" text="Status" />
+            <TableColumn fx:id="monthlyPaid" prefWidth="106.40008544921875" text="Monthly installment" />
             <TableColumn fx:id="approve_col" prefWidth="95.0" text="Approve" />
             <TableColumn fx:id="reject_col" prefWidth="95.0" text="Reject" />
         </columns>

@@ -7,7 +7,7 @@ public class MoneyMarket extends CheckingAccount{
         accountType = "MoneyMarket";
     }
     public void withdraw(float amount){
-        this.setBalance(this.getBalance()-withdrawalCost);
+        this.setBalance(this.getBalance()-(withdrawalCost+amount));
     }
     public  boolean canWithdraw(double amount) {
         return amount <= this.getBalance()+ withdrawalCost;

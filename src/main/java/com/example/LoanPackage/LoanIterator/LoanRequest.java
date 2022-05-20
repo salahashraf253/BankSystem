@@ -1,6 +1,6 @@
-package com.example.Loan.LoanIterator;
+package com.example.LoanPackage.LoanIterator;
 
-import com.example.Loan.Loan.Loan;
+import com.example.LoanPackage.Loan.Loan;
 public class LoanRequest {
     private Loan loan;
     private String status;

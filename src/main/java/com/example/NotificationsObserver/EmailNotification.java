@@ -1,5 +1,4 @@
 package com.example.NotificationsObserver;
-import com.example.notification.NotifierEmail;
 
 public class EmailNotification extends NotificationAbstract {
 
@@ -10,10 +9,9 @@ public class EmailNotification extends NotificationAbstract {
         this.Recipient = recipient;
     }
 
-    public void notifyUser()
-    {
-        NotifierEmail email = new NotifierEmail();
-        email.sendNotifierEmail(Recipient, subject.getemailsubject(), subject.getMessage());
+    public void notifyUser(){
+//        NotifierEmail email = new NotifierEmail();
+//        email.sendNotifierEmail(Recipient, subject.getemailsubject(), subject.getMessage());
             //as in send email to him with the message
     }
 }

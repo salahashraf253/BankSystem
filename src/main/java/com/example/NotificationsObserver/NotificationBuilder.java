@@ -15,7 +15,7 @@ public class NotificationBuilder extends NotificationAbstract{
     public NotificationBuilder(Subject subject,String message, NotificationType notificationType) {
         this.message=message;
         this.subject=subject;
-        notificationType=notificationType;
+        this.notificationType=notificationType;
     }
     public NotificationBuilder() {
 

@@ -1,4 +1,4 @@
-package com.example.Loan.LoanIterator;
+package com.example.LoanPackage.LoanIterator;
 
 public interface Iterator {
     public boolean hasNext();

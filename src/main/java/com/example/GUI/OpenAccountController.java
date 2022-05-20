@@ -6,7 +6,7 @@ import com.example.Generator.IdGenerator;
 import com.example.UserFactory.Client;
 import com.example.banksystem.Account.Account;
 import com.example.banksystem.Account.FactoryAccount;
-import com.example.notification.AuthenticationEmail;
+import com.example.Api.EmailApi.AuthenticationEmail;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;

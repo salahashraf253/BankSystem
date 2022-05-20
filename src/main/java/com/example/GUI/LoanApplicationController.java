@@ -1,6 +1,6 @@
 package com.example.GUI;
 
-import com.example.Loan.Loan.*;
+import com.example.LoanPackage.Loan.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,7 +39,7 @@ public class LoanApplicationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> typeList = FXCollections.observableArrayList("Educational", "Home", "Personal");
         LoanType.setItems(typeList);
-        ObservableList<String> Months = FXCollections.observableArrayList("6", "12");
+        ObservableList<String> Months = FXCollections.observableArrayList("6", "12","18","24","30","36");
         NumOfMonth.setItems(Months);
     }
 

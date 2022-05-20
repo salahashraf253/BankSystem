@@ -1,4 +1,4 @@
-package com.example.notification;
+package com.example.Api.EmailApi;
 
 
 import com.example.Generator.Generator;

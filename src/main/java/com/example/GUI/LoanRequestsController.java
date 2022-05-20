@@ -1,8 +1,8 @@
 package com.example.GUI;
 
-import com.example.Loan.Loan.Loan;
-import com.example.Loan.LoanIterator.Iterator;
-import com.example.Loan.LoanIterator.LoanRequestsRepo;
+import com.example.LoanPackage.Loan.Loan;
+import com.example.LoanPackage.LoanIterator.Iterator;
+import com.example.LoanPackage.LoanIterator.LoanRequestsRepo;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,6 +38,8 @@ public class LoanRequestsController implements Initializable {
     @FXML
     private TableColumn<Loan, String> status_col;
     @FXML
+    private TableColumn<Loan, Float> monthlyPaid;
+    @FXML
     private TableColumn<Loan, JFXButton> approve_col;
     @FXML
     private TableColumn<Loan, JFXButton> reject_col;
@@ -56,6 +58,7 @@ public class LoanRequestsController implements Initializable {
         status_col.setCellValueFactory(new PropertyValueFactory<>("status"));
         approve_col.setCellValueFactory(new PropertyValueFactory<>("approveBtn"));
         reject_col.setCellValueFactory(new PropertyValueFactory<>("rejectBtn"));
+        monthlyPaid.setCellValueFactory(new PropertyValueFactory<>("monthlyInstallment"));
     }
     public void loadRequests() throws SQLException {
         //-1 means select all loans from database

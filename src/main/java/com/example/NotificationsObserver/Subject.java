@@ -24,8 +24,7 @@ public class Subject {
 
    
 
-    public void attach (NotificationAbstract notification)
-    {
+    public void attach (NotificationAbstract notification) {
         notificationsList.add(notification);
     }
 

@@ -6,11 +6,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DataBaseUpdater extends DataBase {
+public class DataBaseUpdater{
 
     public void update(String query) throws SQLException {
-        Connection connection= getConnection();
-        Statement statement=connection.createStatement();
+        DataBase db=DataBase.getDataBaseInstance();
+        Statement statement= db.getConnection().createStatement();
         try {
             statement.executeUpdate(query);
             System.out.println("Database updated successfully");

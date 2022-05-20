@@ -1,6 +1,4 @@
 package com.example.GUI;
-import com.example.Loan.Loan.Loan;
-import com.example.Loan.Loan.LoanFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

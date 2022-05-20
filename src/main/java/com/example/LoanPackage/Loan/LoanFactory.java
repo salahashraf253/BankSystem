@@ -1,4 +1,4 @@
-package com.example.Loan.Loan;
+package com.example.LoanPackage.Loan;
 
 public class LoanFactory {
     public static Loan getLoan(String loanType) {

@@ -90,18 +90,14 @@ public abstract class Account {
                 ")";
         DataBaseWriter dataBaseWriter=new DataBaseWriter();
         dataBaseWriter.write(q);
-        dataBaseWriter.closeConnection();
     }
 
     public boolean canWithdraw(double amount){
-        return this.balance<=amount;
+        return this.balance>=amount;
     }
     public boolean canTransferMoney(float amount){
         return this.balance >= amount;
     }
-//    public void transferMoney(float amount){
-//        this.balance-=amount;
-//    }
     public void updateBalance() throws SQLException {
         DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
         String query="update bank_account set balance='" +balance+"' where user_id='" + user_id +"';";
