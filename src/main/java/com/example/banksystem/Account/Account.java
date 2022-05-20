@@ -2,14 +2,9 @@
 package com.example.banksystem.Account;
 
 import com.example.GUI.PageLoader;
-import com.example.dataBase.Functions.DataBaseReader;
-import com.example.dataBase.Functions.DataBaseUpdater;
-import com.example.dataBase.Functions.DataBaseWriter;
+import com.example.dataBase.DataBaseMapping;
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
-import javafx.scene.chart.PieChart;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class Account {
@@ -80,16 +75,7 @@ public abstract class Account {
         pageLoader.loadPage("/com/example/banksystem/Update Accout.fxml",null,false,false);
     }
     public static void addAccount(Account account) throws SQLException {
-        String q="insert into bank_account" +
-                " (user_id,account_id,balance,type)"+
-                "VALUES(" +
-                "'" + account.user_id + "'," +
-                "'" + account.account_no + "'," +
-                "'" + account.balance + "'," +
-                "'"+account.accountType+"'"+
-                ")";
-        DataBaseWriter dataBaseWriter=new DataBaseWriter();
-        dataBaseWriter.write(q);
+        DataBaseMapping.addAccountInDataBase(account);
     }
 
     public boolean canWithdraw(double amount){
@@ -99,26 +85,10 @@ public abstract class Account {
         return this.balance >= amount;
     }
     public void updateBalance() throws SQLException {
-        DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
-        String query="update bank_account set balance='" +balance+"' where user_id='" + user_id +"';";
-        dataBaseUpdater.update(query);
+        DataBaseMapping.updateBalanceInDataBase(this.balance,this.user_id);
     }
     public void transferMoney(int toAccount, float amount) throws SQLException {
         this.balance-=amount;
-        DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
-        DataBaseReader dataBaseReader =new DataBaseReader();
-
-        String query="select * from bank_account where account_id='"+toAccount+"';";
-        ResultSet resultSet=dataBaseReader.read(query);
-        float toAccountBalance=0;
-        if(resultSet.next()){
-            System.out.println("Account to transfer is found");
-             toAccountBalance=Float.parseFloat(resultSet.getString("balance"));
-            System.out.println(toAccountBalance);
-        }
-        float newBalance=toAccountBalance + amount;
-        System.out.println("New Balance: "+newBalance);
-        query="update bank_account set balance='" +(int)newBalance+"' where account_id='" + toAccount +"';";
-        dataBaseUpdater.update(query);
+        DataBaseMapping.transferMoney(toAccount,amount);
     }
 }

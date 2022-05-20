@@ -10,6 +10,7 @@ import com.example.banksystem.Account.Account;
 import com.example.banksystem.Account.FactoryAccount;
 import com.example.banksystem.Transaction;
 import com.example.dataBase.Functions.DataBaseReader;
+import com.example.dataBase.Functions.DataBaseUpdater;
 import com.example.dataBase.Functions.DataBaseWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -215,5 +216,50 @@ public class DataBaseMapping {
         dataBaseWriter.write(query);
         Account.addAccount(user.getAccount());
     }
-
+    public static void addTransactionToDataBase(Transaction transaction) throws SQLException {
+        DataBaseWriter dataBaseWriter=new DataBaseWriter();
+        String query="insert into transaction" +
+                " (transaction_id,user_id,amount,status,date)"+
+                "VALUES(" +
+                "'" + transaction.getTransactionID() + "'," +
+                "'" + transaction.getUserId() + "'," +
+                "'" + transaction.getAmount() + "'," +
+                "'" + transaction.getType() + "'," +
+                "'"+ transaction.getDate() +"'"+
+                ")";
+        dataBaseWriter.write(query);
+    }
+    public static void updateBalanceInDataBase(float balance, int userID) throws SQLException {
+        DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
+        String query="update bank_account set balance='" +balance+"' where user_id='" + userID +"';";
+        dataBaseUpdater.update(query);
+    }
+    public static void transferMoney(int toAccount, float amount) throws SQLException {
+        DataBaseUpdater dataBaseUpdater=new DataBaseUpdater();
+        DataBaseReader dataBaseReader =new DataBaseReader();
+        String query="select * from bank_account where account_id='"+toAccount+"';";
+        ResultSet resultSet=dataBaseReader.read(query);
+        float toAccountBalance=0;
+        if(resultSet.next()){
+            System.out.println("Account to transfer is found");
+            toAccountBalance=Float.parseFloat(resultSet.getString("balance"));
+            System.out.println(toAccountBalance);
+        }
+        float newBalance=toAccountBalance + amount;
+        System.out.println("New Balance: "+newBalance);
+        query="update bank_account set balance='" +(int)newBalance+"' where account_id='" + toAccount +"';";
+        dataBaseUpdater.update(query);
+    }
+    public static void addAccountInDataBase(Account account) throws SQLException {
+        String q="insert into bank_account" +
+                " (user_id,account_id,balance,type)"+
+                "VALUES(" +
+                "'" + account.getUser_id() + "'," +
+                "'" + account.getAccount_no() + "'," +
+                "'" + account.getBalance() + "'," +
+                "'"+ account.getAccountType() +"'"+
+                ")";
+        DataBaseWriter dataBaseWriter=new DataBaseWriter();
+        dataBaseWriter.write(q);
+    }
 }
