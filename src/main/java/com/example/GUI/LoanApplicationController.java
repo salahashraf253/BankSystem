@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -18,34 +19,46 @@ public class LoanApplicationController implements Initializable {
     @FXML
     AnchorPane loan_pane;
     @FXML
-    private ComboBox LoanType, NumOfMonth;
+    private ComboBox <String>LoanType;
+    @FXML
+    private ComboBox<String>NumOfMonth;
     @FXML
     private TextField Amount;
 
-    public String loanSelected;
-    public int numOfMonths;
-    public int loanAmount;
+    private String loanSelected;
+    private int numOfMonths;
+    private int loanAmount;
 
-    void select() {
-        loanSelected = LoanType.getSelectionModel().getSelectedItem().toString();
+    void getLoanAttributes() {
+        loanSelected = LoanType.getValue();
         loanAmount = Integer.parseInt(Amount.getText());
-        numOfMonths = (int) LoanType.getSelectionModel().getSelectedItem();
+        numOfMonths = Integer.parseInt(NumOfMonth.getValue());
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> typeList = FXCollections.observableArrayList("Educational", "Home", "Personal");
         LoanType.setItems(typeList);
-        ObservableList<Integer> Months = FXCollections.observableArrayList(6, 12);
+        ObservableList<String> Months = FXCollections.observableArrayList("6", "12");
         NumOfMonth.setItems(Months);
     }
 
-
-    public void applyButton() {
-        // get AccountId of Current User
-        Loan loan = LoanFactory.getLoan(loanSelected);
-    }
-
     public void applyForLoan(ActionEvent actionEvent) {
+        try{
+            getLoanAttributes();
+            Loan loan=LoanFactory.getLoan(loanSelected);
+            loan.setAmount(loanAmount);
+            loan.setUser(LayoutController.user);
+            loan.setLoanType(loanSelected);
+            loan.setRepaymentPeriod(numOfMonths);
+            LocalDate dateNow=LocalDate.now();
+            loan.setStartDate(Date.valueOf(dateNow));
+            loan.setEndDate(java.sql.Date.valueOf(dateNow.plusMonths(numOfMonths)));
+            loan.ApplyForLoan();
+        }
+        catch (Exception exception){
+            System.out.println("Error in apply for loan");
+            System.out.println(exception.getMessage());
+        }
     }
 }

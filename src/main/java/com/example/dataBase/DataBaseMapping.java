@@ -162,7 +162,7 @@ public class DataBaseMapping {
                 loan.setRate(rs.getDouble("rate"));
                 loan.setRepaymentPeriod(rs.getInt("nOfMonth"));
                 loan.setUser(user);
-                loan.setUserId(rs.getInt("user_id"));
+                loan.setLoanId(rs.getInt("loan_id"));
                 loan.setLoanType(rs.getString("loan_type"));
                 loans.add(loan);
             }
