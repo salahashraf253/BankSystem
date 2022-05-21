@@ -13,5 +13,10 @@ public class DataBaseReader{
         ResultSet resultSet =statement.executeQuery(query);
         return resultSet;
     }
+    public void updateDatabase(String query) throws SQLException{
+        DataBase db=DataBase.getDataBaseInstance();
+        Statement statement= db.getConnection().createStatement();
+        statement.executeUpdate(query);
+    }
 
 }
