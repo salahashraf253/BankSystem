@@ -1,6 +1,8 @@
 # BankSystem
  ASU Software Design Pattern Project
-# ScreenShot
+
+[//]: # (# ScreenShot)
+<ScreenShot>
 ## Main window
 <img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/MainWindow.png">
 
@@ -15,3 +17,4 @@
 
 ## Open Account window
 <img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/openAccountWindow.png">
+</ScreenShot>
