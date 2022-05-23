@@ -1,7 +1,6 @@
 package com.example.GUI;
 
 import com.example.Api.currencyConverter.CurrencyApi;
-import com.example.bankFeatures.currencyConverter.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
