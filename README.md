@@ -66,8 +66,9 @@ Through this system, user can access his account from anywhere.
 <img src="https://github.com/salahashraf253/BankSystem/blob/main/ScreenShots/MainWindow.png" >
 </p>
 </details> -->
+<details>
+ <summary><h1>ScreenShots</h1></summary>
 
-# ScreenShots
 ## Main window
 <img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/MainWindow.png">
 
@@ -82,6 +83,7 @@ Through this system, user can access his account from anywhere.
 
 ## Open Account window
 <img src="https://github.com/salahashraf253/BankSystem/blob/FullGUI/ScreenShots/openAccountWindow.png">
+ </details>
 <h1>Technologies used:</h1>
 <ul>
  <li>Frontend: <a href="https://openjfx.io/" > JavaFX</a></li>
