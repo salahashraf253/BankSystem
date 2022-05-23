@@ -26,12 +26,12 @@ Through this system, user can access his account from anywhere.
  <li>Singleton pattern</li>
  <li>Observer pattern</li>
 </ul>
-<details>
-  <summary>ScreenShots</summary>
+<!-- <details>
+ <h1> <summary >ScreenShots</summary></h1>
 <p>
 <img src="https://github.com/salahashraf253/BankSystem/blob/main/ScreenShots/MainWindow.png" >
 </p>
-</details>
+</details> -->
 <h1>Technologies used:</h1>
 <ul>
  <li>Frontend: <a href="https://openjfx.io/" > JavaFX</a></li>
