@@ -90,23 +90,8 @@ Through this system, user can access his account from anywhere.
  <li>Backend: <a href="https://www.java.com/en/" > Java </a> </li>
  <li>DataBase: <a href="https://www.mysql.com/" > MySql </a> </li>
  </ul>
-<h1>Contributors</h1>
-<ul>
- <li><a href="https://github.com/AhmdSobhy">Ahmed Sobhy</a></li>
-   <li><a href="https://github.com/\RawanGamalElDin12">Rawan Gamal ElDin</a></li>
- <li><a href="https://github.com/Salmaishak">Salma Ishak</a></li>
-  <li><a href="https://github.com/salahashraf253">Salah Ashraf </a></li>
-  <li><a href="https://github.com/Mahmoudelim">Mahmoud Selim</a></li>
-  <li><a href="https://github.com/Nancyy20">Nancy Ahmed</a></li>
-</ul>
-
-<h1>Technologies used:</h1>
-<ul>
- <li>Frontend: <a href="https://openjfx.io/" > JavaFX</a></li>
- <li>Backend: <a href="https://www.java.com/en/" > Java </a> </li>
- <li>DataBase: <a href="https://www.mysql.com/" > MySql </a> </li>
- </ul>
- <h1><a href="https://docs.google.com/document/d/1YRnffd2H4OcRiWFIKCwwmbQBHH_ZSGbHAIadIAoB1PE/edit?usp=sharing"> UML Diagram </a></h1>
+ <h1>UML Diagram </h1>
+<p> <a href="https://docs.google.com/document/d/1YRnffd2H4OcRiWFIKCwwmbQBHH_ZSGbHAIadIAoB1PE/edit?usp=sharing" >Document link </a> </p>
 <h1>Contributors</h1>
 <ul>
  <li><a href="https://github.com/AhmdSobhy">Ahmed Sobhy</a></li>
