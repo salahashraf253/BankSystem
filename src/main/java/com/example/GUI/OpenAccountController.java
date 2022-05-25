@@ -99,10 +99,11 @@ public class OpenAccountController implements Initializable {
     @FXML
     void submit() throws SQLException {
         try{
+            String occupation=occupation_cmb.getValue();
             String Email=email.getText();
             String Address=address.getText();
             String []fullName= name.getText().split(" ");
-            int ssn = Integer.parseInt(id_passport.getText());
+            String ssn = (id_passport.getText());
             int Salary = Integer.parseInt(salary.getText());
             String status=getSelectedStatus();
             String accountType=acc_type_cmb.getValue();
@@ -115,7 +116,7 @@ public class OpenAccountController implements Initializable {
             account.setAccountType(acc_type_cmb.getValue());
             account.setAccount_no((new IdGenerator().generate(Generator.generator.account_id)));
             Client c=new Client(fullName[0],fullName[1],userID,ssn,Id_Pass[1],Email,
-                    account,Salary,Address,status,getGender());
+                    account,Salary,Address,status,getGender(),occupation);
             c.setAccount(account);
             Client.CreateUser(c);
             pageLoader.loadPage("/com/example/banksystem/AccountConfirmation.fxml","EDB",false, false);
