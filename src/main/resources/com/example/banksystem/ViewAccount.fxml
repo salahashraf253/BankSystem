@@ -147,7 +147,7 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <JFXButton layoutX="685.0" layoutY="635.0" onAction="#submit" prefHeight="26.0" prefWidth="136.0" style="-fx-border-color: #000000;" styleClass="withdrawBtn" text="Submit">
+                <JFXButton layoutX="685.0" layoutY="635.0" onAction="#submit" prefHeight="26.0" prefWidth="136.0" style="-fx-border-color: #000000;" styleClass="withdrawBtn"  text="Submit">
                     <font>
                         <Font name="Microsoft YaHei Bold" size="14.0" />
                     </font>
@@ -156,7 +156,7 @@
                 <TextField fx:id="acc_id_txt" layoutX="191.0" layoutY="524.0" />
                 <TextField fx:id="acc_type_txt" layoutX="191.0" layoutY="556.0" />
                 <TextField fx:id="balance_txt" layoutX="191.0" layoutY="588.0" />
-                <JFXButton contentDisplay="CENTER" layoutX="808.0" layoutY="10.0" onAction="#closeUpdatePane" prefHeight="26.0" prefWidth="35.0" text=" ">
+                <JFXButton contentDisplay="CENTER" layoutX="808.0" layoutY="10.0" onAction="#closeUpdatePane" style="-fx-background-color: #00000000" prefHeight="26.0" prefWidth="35.0" text=" ">
                     <graphic>
                         <ImageView fx:id="close_btn" fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                             <image>
