@@ -33,15 +33,16 @@ public class SettingsController implements Initializable {
                 String accountNumber= String.valueOf(client.getAccount().getAccount_no());
                 acc_num_lbl.setText(accountNumber);
                 acc_type_lbl.setText(client.getAccount().getAccountType());
-                name_txt.setText(client.getFirstName());
+                name_txt.setText(client.getFirstName()+" "+client.getLastName());
                 gender_txt.setText(client.getGender());
                 dob_txt.setText(String.valueOf(client.getDob()));
                 id_txt.setText(String.valueOf(client.getSSN()));
                 income_txt.setText(String.valueOf(client.getSalary()));
-                marital_txt.setText(client.getStatus());
+                marital_txt.setText(client.getMaritalStatus());
                 address_txt.setText(client.getAddress());
                 email_txt.setText(client.getEmail());
                 phone_txt.setText(client.getPhoneNumber());
+                occupation_txt.setText(client.getOccupation());
             });
         }
         catch (Exception e){

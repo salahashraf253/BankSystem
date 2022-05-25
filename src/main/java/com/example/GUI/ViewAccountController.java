@@ -1,6 +1,7 @@
 package com.example.GUI;
 
 import com.example.NotificationsObserver.DesktopNotificationBuilder;
+import com.example.UserFactory.User;
 import com.example.dataBase.DataBaseMapping;
 import com.example.dataBase.Functions.DataBaseReader;
 import com.example.banksystem.Account.Account;
@@ -87,9 +88,10 @@ public class ViewAccountController implements Initializable {
             @Override
             public TableCell<Account, Void> call(final TableColumn<Account, Void> param) {
                 final TableCell<Account, Void> cell = new TableCell<>() {
-                    Image edit = new Image ("C:\\Users\\a7mds\\IdeaProjects\\BankSystem\\src\\main\\resources\\com\\example\\banksystem\\Images\\edit-24.png",24, 24, false, false);
+                    Image edit = new Image ("F:\\ICPC\\BankSystem5\\src\\main\\resources\\com\\example\\banksystem\\Images\\edit-24.jpg",24, 24, false, false);
                     private final JFXButton updateBtn = new JFXButton("  ", new ImageView(edit));
                     {
+                        updateBtn.setStyle("-fx-background-color: transparent");
                         updateBtn.setOnAction((ActionEvent event) -> {
                             Account account = accounts_table.getSelectionModel().getSelectedItem();
                             int userId = 0;
@@ -98,59 +100,27 @@ public class ViewAccountController implements Initializable {
                             }
                             catch (Exception e){
                                 DesktopNotificationBuilder.notifyUser("Please select the row First", NotificationType.ERROR);
+                                return;
                             }
                             DataBaseReader dbr = new DataBaseReader();
                             try {
                                 String query ="select * from user where user_id='"+userId+"';";
                                 ResultSet userData=dbr.read(query);
-                                if(userData.next()){
-                                    System.out.println("Account of user is found");
-                                    long ssn=(userData.getLong("ssn"));
-                                    String uEmail =(userData.getString("email"));
-                                    String fName =(userData.getString("firstName"));
-                                    String lName =(userData.getString("lastName"));
-                                    String gender =(userData.getString("gender"));
-                                    String status =(userData.getString("status"));
-                                    Date dob = (userData.getDate("dob"));
-                                    int income  =(userData.getInt("salary"));
-                                    int mobile  =(userData.getInt("phone"));
-                                    String uAddress =(userData.getString("address"));
-                                    //----------------------------------------------------------
-                                    name.setText(fName+" "+lName);
-                                    if(gender.equalsIgnoreCase("Male"))
-                                        male_radio_btn.setSelected(true);
-                                    else
-                                        female_radio_btn.setSelected(true);
+                                User user=DataBaseMapping.getUser(userData);
 
-                                    DateOfBirth.setUserData(dob);
-                                    id_passport.setText(String.valueOf(ssn));
-                                    salary.setText(String.valueOf(income));
-
-                                    if(status.equalsIgnoreCase("Single"))
-                                        single_checkbox.setSelected(true);
-                                    else if(status.equalsIgnoreCase("Married"))
-                                        married_checkbox.setSelected(true);
-                                    else if(status.equalsIgnoreCase("Divorced"))
-                                        divorced_checkbox.setSelected(true);
-                                    else
-                                        widowed_checkbox.setSelected(true);
-
-                                    address.setText(uAddress);
-                                    email.setText(uEmail);
-                                    phoneNum.setText(String.valueOf(mobile));
-                                    acc_type_txt.setText(account.getAccountType());
-                                    acc_id_txt.setText(String.valueOf(account.getAccount_no()));
-                                    balance_txt.setText(String.valueOf(account.getBalance()));
-                                    user_id_txt.setText(String.valueOf(userId));
-                                }
-                                else System.out.println("no account found");
+                                if(user.getMaritalStatus().equalsIgnoreCase("Single"))
+                                    single_checkbox.setSelected(true);
+                                else if(user.getMaritalStatus().equalsIgnoreCase("Married"))
+                                    married_checkbox.setSelected(true);
+                                else if(user.getMaritalStatus().equalsIgnoreCase("Divorced"))
+                                    divorced_checkbox.setSelected(true);
+                                else
+                                    widowed_checkbox.setSelected(true);
                             }
                             catch (SQLException e){
                                 e.printStackTrace();
                             }
                             update_pane.setVisible(true);
-
-
                         });
                     }
                     @Override
@@ -173,9 +143,9 @@ public class ViewAccountController implements Initializable {
             @Override
             public TableCell<Account, Void> call(final TableColumn<Account, Void> param) {
                 final TableCell<Account, Void> cell = new TableCell<>() {
-                    Image delete = new Image ("C:\\Users\\a7mds\\IdeaProjects\\BankSystem\\src\\main\\resources\\com\\example\\banksystem\\Images\\delete-red-24.png",24, 24, false, false);
-                    private final JFXButton deleteBtn = new JFXButton(" ", new ImageView(delete));
-                    {
+                    Image delete = new Image ("F:\\ICPC\\BankSystem5\\src\\main\\resources\\com\\example\\banksystem\\Images\\delete-24.jpg",24, 24, false, false);
+                    private final JFXButton deleteBtn = new JFXButton(" ", new ImageView(delete));{
+                        deleteBtn.setStyle("-fx-background-color: transparent");
                         deleteBtn.setOnAction((ActionEvent event) -> {
                             Account account = accounts_table.getSelectionModel().getSelectedItem();
                             int userId = 0;
