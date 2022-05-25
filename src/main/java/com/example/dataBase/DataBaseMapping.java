@@ -56,6 +56,13 @@ public class DataBaseMapping {
                 user.setPhoneNumber((resultSet.getString("phone")));
                 //salary
                 user.setSalary(Integer.parseInt((resultSet.getString("salary"))));
+                user.setAddress(resultSet.getString("address"));
+                user.setDob(resultSet.getDate("dob"));
+                user.setGender(resultSet.getString("gender"));
+                user.setMaritalStatus(resultSet.getString("status"));
+                user.setSSN((resultSet.getString("ssn")));
+                user.setOccupation(resultSet.getString("job"));
+
                 return user;
             }
             else{
@@ -198,7 +205,7 @@ public class DataBaseMapping {
         DataBaseWriter dataBaseWriter = new DataBaseWriter();
         String query = "insert into user" +
                 " (user_id,ssn,email,password,firstName,lastName, " +
-                "salary, phone,address,status,gender,type)" +
+                "salary, phone,address,status,gender,type,job)" +
                 "VALUES(" +
                 "'" + user.getUserId() + "'," +
                 "'" + user.getSSN() + "'," +
@@ -211,7 +218,8 @@ public class DataBaseMapping {
                 "'" + user.getAddress() + "'," +
                 "'" + user.getStatus() + "'," +
                 "'" + user.getGender() + "'," +
-                "'" + "c" + "'" +  //c : client
+                "'" + "c" + "'," +  //c : client
+                "'" + user.getOccupation() +"'" +
                 ")";
         dataBaseWriter.write(query);
         Account.addAccount(user.getAccount());
