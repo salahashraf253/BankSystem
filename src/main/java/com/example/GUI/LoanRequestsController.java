@@ -74,8 +74,7 @@ public class LoanRequestsController implements Initializable {
             @Override
             public TableCell<Loan, Void> call(final TableColumn<Loan, Void> param) {
                 final TableCell<Loan, Void> cell = new TableCell<>() {
-                    private final JFXButton approveBtn = new JFXButton("   Approve   ");
-                    {
+                    private final JFXButton approveBtn = new JFXButton("  Approve  ");{
                         approveBtn.setStyle("-fx-background-color: #003366");
                         approveBtn.setOnAction((ActionEvent event) -> {
                             Loan loan = loan_req_table.getSelectionModel().getSelectedItem();
@@ -90,6 +89,7 @@ public class LoanRequestsController implements Initializable {
                             try {
                                 String query ="update loan set status ='"+"Approved"+"' where loan_id='"+loanId+"';";
                                 dbr.updateDatabase(query);
+                                loadRequests();
                             }
                             catch (Exception e){
                                 e.printStackTrace();
@@ -116,8 +116,7 @@ public class LoanRequestsController implements Initializable {
             @Override
             public TableCell<Loan, Void> call(final TableColumn<Loan, Void> param) {
                 final TableCell<Loan, Void> cell = new TableCell<>() {
-                    private final JFXButton rejectBtn = new JFXButton("   Reject   ");
-                    {
+                    private final JFXButton rejectBtn = new JFXButton("   Reject   ");{
                         rejectBtn.setStyle("-fx-background-color: #003366");
                         rejectBtn.setOnAction((ActionEvent event) -> {
                             Loan loan = loan_req_table.getSelectionModel().getSelectedItem();
@@ -132,6 +131,7 @@ public class LoanRequestsController implements Initializable {
                             try {
                                 String query ="update loan set status ='"+"Rejected"+"' where loan_id='"+loanId+"';";
                                 dbr.updateDatabase(query);
+                                loadRequests();
                             }
                             catch (Exception e){
                                 e.printStackTrace();
@@ -153,7 +153,13 @@ public class LoanRequestsController implements Initializable {
         };
         reject_col.setCellFactory(cellFactory);
     }
+    public void clearTableView(){
+        for ( int i = 0; i<loan_req_table.getItems().size(); i++) {
+            loan_req_table.getItems().clear();
+        }
+    }
     public void loadRequests() throws SQLException {
+        clearTableView();
         //-1 means select all loans from database
         LoanRequestsRepo requestsRepo =new LoanRequestsRepo(-1);
         for(Iterator iter = requestsRepo.getIterator(); iter.hasNext();) {
