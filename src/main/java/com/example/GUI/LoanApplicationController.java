@@ -1,6 +1,7 @@
 package com.example.GUI;
 
 import com.example.LoanPackage.Loan.*;
+import com.example.NotificationsObserver.DesktopNotificationBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import tray.notification.NotificationType;
 
 import java.net.URL;
 import java.sql.Date;
@@ -55,6 +57,7 @@ public class LoanApplicationController implements Initializable {
             loan.setStartDate(Date.valueOf(dateNow));
             loan.setEndDate(java.sql.Date.valueOf(dateNow.plusMonths(numOfMonths)));
             loan.ApplyForLoan();
+            DesktopNotificationBuilder.notifyUser("Your loan application was submitted", NotificationType.SUCCESS);
         }
         catch (Exception exception){
             System.out.println("Error in apply for loan");
