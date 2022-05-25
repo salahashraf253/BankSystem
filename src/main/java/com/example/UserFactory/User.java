@@ -8,7 +8,7 @@ public abstract class User {
     protected String firstName;
     protected String lastName;
     protected int Salary;
-    protected int SSN;
+    protected String SSN;
     protected String phoneNumber;
     protected String Email;
     protected Date dob;
@@ -18,6 +18,24 @@ public abstract class User {
     protected String type;
     protected String gender;
     protected String status;
+    protected String maritalStatus;
+    protected String occupation;
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
 
     public User(){
 
@@ -46,11 +64,11 @@ public abstract class User {
         Salary = salary;
     }
 
-    public int getSSN() {
+    public String getSSN() {
         return SSN;
     }
 
-    public void setSSN(int SSN) {
+    public void setSSN(String SSN) {
         this.SSN = SSN;
     }
 
