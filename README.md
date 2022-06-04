@@ -38,14 +38,14 @@ Through this system, user can access his account from anywhere.
 <img src="https://github.com/salahashraf253/BankSystem/blob/main/ScreenShots/MainWindow.png" >
 </p>
 </details> -->
-# Project Idea: Bank System
+<!-- # Project Idea: Bank System
 # Description
 <p>
  Complete Banking system enables bank users to access their accounts and general information 
 about bank’s products and services from the comfort of your PC. This application aims at secure 
 banking system which will be accessible to any authenticated user with valid user id and password. 
 Through this system, user can access his account from anywhere.
-</p>
+</p> -->
 <h2>The system has two types of users client and admin</h2>
 <h3>Client functionalities:</h3>
 <ol>
