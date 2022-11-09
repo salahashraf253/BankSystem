@@ -96,7 +96,7 @@ Through this system, user can access his account from anywhere.
  <li>Backend: <a href="https://www.java.com/en/" > Java </a> </li>
  <li>DataBase: <a href="https://www.mysql.com/" > MySql </a> </li>
  </ul>
- <h1>UML Diagram </h1>
+ <h1>UML Class Diagram </h1>
 <p> <a href="https://docs.google.com/document/d/1YRnffd2H4OcRiWFIKCwwmbQBHH_ZSGbHAIadIAoB1PE/edit?usp=sharing" >Document link </a> </p>
 <h1>Contributors</h1>
 <ul>
